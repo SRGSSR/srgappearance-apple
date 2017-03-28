@@ -12,7 +12,7 @@
 		6FA09D4B1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D491D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h */; };
 		6FA09D4C1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D4A1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m */; };
 		6FA09D6B1D9E85BC00EDCA64 /* SRGAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; };
-		6FA09D761D9E861600EDCA64 /* AppearanceTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D741D9E861600EDCA64 /* AppearanceTestCase.m */; };
+		6FA09D761D9E861600EDCA64 /* FontsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D741D9E861600EDCA64 /* FontsTestCase.m */; };
 		6FE08C531E8A818C00EC4716 /* UIFont+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08C4F1E8A818C00EC4716 /* UIFont+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FE08C541E8A818C00EC4716 /* UIFont+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08C501E8A818C00EC4716 /* UIFont+SRGAppearance.m */; };
 		6FE08C551E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */; };
@@ -27,6 +27,9 @@
 		6FE08CCF1E8A8A0300EC4716 /* SRGAppearance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE08CD51E8A8AA700EC4716 /* UIColor+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08CD31E8A8AA700EC4716 /* UIColor+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FE08CD61E8A8AA700EC4716 /* UIColor+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CD41E8A8AA700EC4716 /* UIColor+SRGAppearance.m */; };
+		6FE08CDB1E8AA8E300EC4716 /* BundleFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CDA1E8AA8E300EC4716 /* BundleFix.m */; };
+		6FE08CDE1E8AA9D100EC4716 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CDD1E8AA9D100EC4716 /* FontAwesome.otf */; };
+		6FE08CE01E8AAB8F00EC4716 /* Corrupt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CDF1E8AAB8F00EC4716 /* Corrupt.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +72,7 @@
 		6FA09D4A1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+SRGAppearance.m"; sourceTree = "<group>"; };
 		6FA09D661D9E85BC00EDCA64 /* SRGAppearance-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGAppearance-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA09D721D9E861600EDCA64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FA09D741D9E861600EDCA64 /* AppearanceTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceTestCase.m; sourceTree = "<group>"; };
+		6FA09D741D9E861600EDCA64 /* FontsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsTestCase.m; sourceTree = "<group>"; };
 		6FE08C4F1E8A818C00EC4716 /* UIFont+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SRGAppearance.h"; sourceTree = "<group>"; };
 		6FE08C501E8A818C00EC4716 /* UIFont+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SRGAppearance.m"; sourceTree = "<group>"; };
 		6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFontDescriptor+SRGAppearance.h"; sourceTree = "<group>"; };
@@ -86,6 +89,9 @@
 		6FE08CCA1E8A886000EC4716 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6FE08CD31E8A8AA700EC4716 /* UIColor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SRGAppearance.h"; sourceTree = "<group>"; };
 		6FE08CD41E8A8AA700EC4716 /* UIColor+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SRGAppearance.m"; sourceTree = "<group>"; };
+		6FE08CDA1E8AA8E300EC4716 /* BundleFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BundleFix.m; sourceTree = "<group>"; };
+		6FE08CDD1E8AA9D100EC4716 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		6FE08CDF1E8AAB8F00EC4716 /* Corrupt.otf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Corrupt.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,7 @@
 			children = (
 				6FA09D721D9E861600EDCA64 /* Info.plist */,
 				6FA09D731D9E861600EDCA64 /* Sources */,
+				6FE08CDC1E8AA8F500EC4716 /* Resources */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -174,7 +181,8 @@
 		6FA09D731D9E861600EDCA64 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6FA09D741D9E861600EDCA64 /* AppearanceTestCase.m */,
+				6FE08CD91E8AA8E300EC4716 /* Helpers */,
+				6FA09D741D9E861600EDCA64 /* FontsTestCase.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -230,6 +238,23 @@
 			isa = PBXGroup;
 			children = (
 				6FE08CCA1E8A886000EC4716 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6FE08CD91E8AA8E300EC4716 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6FE08CDA1E8AA8E300EC4716 /* BundleFix.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6FE08CDC1E8AA8F500EC4716 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6FE08CDF1E8AAB8F00EC4716 /* Corrupt.otf */,
+				6FE08CDD1E8AA9D100EC4716 /* FontAwesome.otf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -367,6 +392,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE08CDE1E8AA9D100EC4716 /* FontAwesome.otf in Resources */,
+				6FE08CE01E8AAB8F00EC4716 /* Corrupt.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +425,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FA09D761D9E861600EDCA64 /* AppearanceTestCase.m in Sources */,
+				6FA09D761D9E861600EDCA64 /* FontsTestCase.m in Sources */,
+				6FE08CDB1E8AA8E300EC4716 /* BundleFix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

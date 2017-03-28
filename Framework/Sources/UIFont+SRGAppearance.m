@@ -11,7 +11,7 @@
 
 #import <CoreText/CoreText.h>
 
-BOOL SRGRegisterFont(NSString *filePath)
+BOOL SRGAppearanceRegisterFont(NSString *filePath)
 {
     NSData *fontFileData = [NSData dataWithContentsOfFile:filePath];
     if (! fontFileData) {
@@ -20,13 +20,17 @@ BOOL SRGRegisterFont(NSString *filePath)
     
     CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
     CGFontRef font = CGFontCreateWithDataProvider(provider);
-    BOOL success = CTFontManagerRegisterGraphicsFont(font, NULL);
-    CFRelease(font);
+    
+    BOOL success = NO;
+    if (font) {
+        success = CTFontManagerRegisterGraphicsFont(font, NULL);
+        CFRelease(font);
+    }
     CFRelease(provider);
     return success;
 }
 
-NSComparisonResult SRGCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2)
+NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2)
 {
     if ([contentSizeCategory1 isEqualToString:contentSizeCategory2]) {
         return NSOrderedSame;
@@ -69,7 +73,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     NSArray<NSString *> *fontFileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:fontsDirectory error:NULL];
     for (NSString *fontFileName in fontFileNames) {
         NSString *fontFilePath = [fontsDirectory stringByAppendingPathComponent:fontFileName];
-        SRGRegisterFont(fontFilePath);
+        SRGAppearanceRegisterFont(fontFilePath);
     }
 }
 
