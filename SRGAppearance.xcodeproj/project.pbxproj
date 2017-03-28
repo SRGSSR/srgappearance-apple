@@ -23,6 +23,8 @@
 		6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CC51E8A877200EC4716 /* FontsViewController.m */; };
 		6FE08CC81E8A87AA00EC4716 /* FontsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CC71E8A87AA00EC4716 /* FontsViewController.storyboard */; };
 		6FE08CCB1E8A886000EC4716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CCA1E8A886000EC4716 /* LaunchScreen.storyboard */; };
+		6FE08CCE1E8A8A0300EC4716 /* SRGAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; };
+		6FE08CCF1E8A8A0300EC4716 /* SRGAppearance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +35,28 @@
 			remoteGlobalIDString = 6FA09D351D9E6F8900EDCA64;
 			remoteInfo = SRGAppearance;
 		};
+		6FE08CD01E8A8A0300EC4716 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FA09D2D1D9E6F8900EDCA64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FA09D351D9E6F8900EDCA64;
+			remoteInfo = SRGAppearance;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6FE08CD21E8A8A0300EC4716 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6FE08CCF1E8A8A0300EC4716 /* SRGAppearance.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGAppearance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE08CCE1E8A8A0300EC4716 /* SRGAppearance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,10 +288,12 @@
 				6FE08C5B1E8A865800EC4716 /* Sources */,
 				6FE08C5C1E8A865800EC4716 /* Frameworks */,
 				6FE08C5D1E8A865800EC4716 /* Resources */,
+				6FE08CD21E8A8A0300EC4716 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6FE08CD11E8A8A0300EC4716 /* PBXTargetDependency */,
 			);
 			name = "SRGAppearance-demo";
 			productName = "SRGAppearance-demo";
@@ -384,6 +410,11 @@
 			isa = PBXTargetDependency;
 			target = 6FA09D351D9E6F8900EDCA64 /* SRGAppearance */;
 			targetProxy = 6FA09D6C1D9E85BC00EDCA64 /* PBXContainerItemProxy */;
+		};
+		6FE08CD11E8A8A0300EC4716 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FA09D351D9E6F8900EDCA64 /* SRGAppearance */;
+			targetProxy = 6FE08CD01E8A8A0300EC4716 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
