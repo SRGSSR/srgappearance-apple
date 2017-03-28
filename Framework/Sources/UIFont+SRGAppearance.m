@@ -11,6 +11,21 @@
 
 #import <CoreText/CoreText.h>
 
+BOOL SRGRegisterFont(NSString *filePath)
+{
+    NSData *fontFileData = [NSData dataWithContentsOfFile:filePath];
+    if (! fontFileData) {
+        return NO;
+    }
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
+    CGFontRef font = CGFontCreateWithDataProvider(provider);
+    BOOL success = CTFontManagerRegisterGraphicsFont(font, NULL);
+    CFRelease(font);
+    CFRelease(provider);
+    return success;
+}
+
 NSComparisonResult SRGCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2)
 {
     if ([contentSizeCategory1 isEqualToString:contentSizeCategory2]) {
@@ -50,20 +65,11 @@ NSComparisonResult SRGCompareContentSizeCategories(NSString *contentSizeCategory
 
 __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
-    NSArray<NSString *> *fontFileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle srg_appearanceBundle] pathForResource:@"Fonts" ofType:nil]
-                                                                                             error:NULL];
+    NSString *fontsDirectory = [[NSBundle srg_appearanceBundle] pathForResource:@"Fonts" ofType:nil];
+    NSArray<NSString *> *fontFileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:fontsDirectory error:NULL];
     for (NSString *fontFileName in fontFileNames) {
-        NSString *fontFilePath = [[[NSBundle srg_appearanceBundle] pathForResource:@"Fonts" ofType:nil] stringByAppendingPathComponent:fontFileName];
-        NSData *fontFileData = [NSData dataWithContentsOfFile:fontFilePath];
-        if (! fontFileData) {
-            continue;
-        }
-        
-        CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
-        CGFontRef font = CGFontCreateWithDataProvider(provider);
-        CTFontManagerRegisterGraphicsFont(font, NULL);
-        CFRelease(font);
-        CFRelease(provider);
+        NSString *fontFilePath = [fontsDirectory stringByAppendingPathComponent:fontFileName];
+        SRGRegisterFont(fontFilePath);
     }
 }
 

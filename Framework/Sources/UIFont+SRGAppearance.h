@@ -9,6 +9,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ *  Register a font from the specified file. Returns `YES` iff successful.
+ */
+OBJC_EXPORT BOOL SRGRegisterFont(NSString *filePath);
+
+/**
  *  Compare font size categories (@see `UIContentSizeCategory.h`).
  */
 OBJC_EXPORT NSComparisonResult SRGCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2);
