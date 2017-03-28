@@ -14,4 +14,5 @@ FOUNDATION_EXPORT const unsigned char SRGAppearanceVersionString[];
 FOUNDATION_EXPORT NSString *SRGAppearanceMarketingVersion(void);
 
 // Public headers.
+#import "UIColor+SRGAppearance.h"
 #import "UIFont+SRGAppearance.h"
