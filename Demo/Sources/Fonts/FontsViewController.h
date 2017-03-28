@@ -6,6 +6,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FontsViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
+
+@interface FontsViewController : UITableViewController
 
 @end
+
+NS_ASSUME_NONNULL_END

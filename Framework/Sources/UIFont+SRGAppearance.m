@@ -163,9 +163,4 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [UIFont fontWithName:@"SRGSSRTypeSerif-Regular" size:size];
 }
 
-+ (UIFont *)srg_awesomeFontWithSize:(CGFloat)size;
-{
-    return [UIFont fontWithName:@"FontAwesome" size:size];
-}
-
 @end
