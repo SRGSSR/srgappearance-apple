@@ -13,6 +13,10 @@
 		6FA09D4C1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D4A1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m */; };
 		6FA09D6B1D9E85BC00EDCA64 /* SRGAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; };
 		6FA09D761D9E861600EDCA64 /* AppearanceTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D741D9E861600EDCA64 /* AppearanceTestCase.m */; };
+		6FE08C531E8A818C00EC4716 /* UIFont+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08C4F1E8A818C00EC4716 /* UIFont+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FE08C541E8A818C00EC4716 /* UIFont+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08C501E8A818C00EC4716 /* UIFont+SRGAppearance.m */; };
+		6FE08C551E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */; };
+		6FE08C561E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08C521E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,10 @@
 		6FA09D661D9E85BC00EDCA64 /* SRGAppearance-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGAppearance-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA09D721D9E861600EDCA64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FA09D741D9E861600EDCA64 /* AppearanceTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceTestCase.m; sourceTree = "<group>"; };
+		6FE08C4F1E8A818C00EC4716 /* UIFont+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SRGAppearance.h"; sourceTree = "<group>"; };
+		6FE08C501E8A818C00EC4716 /* UIFont+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SRGAppearance.m"; sourceTree = "<group>"; };
+		6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFontDescriptor+SRGAppearance.h"; sourceTree = "<group>"; };
+		6FE08C521E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFontDescriptor+SRGAppearance.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,10 @@
 				6FA09D4A1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m */,
 				6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */,
 				6FA09D451D9E6FDA00EDCA64 /* SRGAppearance.m */,
+				6FE08C4F1E8A818C00EC4716 /* UIFont+SRGAppearance.h */,
+				6FE08C501E8A818C00EC4716 /* UIFont+SRGAppearance.m */,
+				6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */,
+				6FE08C521E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -120,6 +132,8 @@
 			files = (
 				6FA09D4B1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h in Headers */,
 				6FA09D471D9E6FDA00EDCA64 /* SRGAppearance.h in Headers */,
+				6FE08C551E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h in Headers */,
+				6FE08C531E8A818C00EC4716 /* UIFont+SRGAppearance.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +239,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE08C561E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.m in Sources */,
+				6FE08C541E8A818C00EC4716 /* UIFont+SRGAppearance.m in Sources */,
 				6FA09D481D9E6FDA00EDCA64 /* SRGAppearance.m in Sources */,
 				6FA09D4C1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m in Sources */,
 			);
