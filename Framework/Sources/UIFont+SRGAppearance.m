@@ -48,20 +48,22 @@ NSComparisonResult SRGCompareContentSizeCategories(NSString *contentSizeCategory
     }
 }
 
-__attribute__((constructor)) static void RegisterFonts(void)
+__attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
     NSArray<NSString *> *fontFileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle srg_appearanceBundle] pathForResource:@"Fonts" ofType:nil]
                                                                                              error:NULL];
     for (NSString *fontFileName in fontFileNames) {
         NSString *fontFilePath = [[[NSBundle srg_appearanceBundle] pathForResource:@"Fonts" ofType:nil] stringByAppendingPathComponent:fontFileName];
         NSData *fontFileData = [NSData dataWithContentsOfFile:fontFilePath];
-        if (([fontFileName.pathExtension isEqualToString:@"ttf"] || [fontFileName.pathExtension isEqualToString:@"otf"]) && fontFileData) {
-            CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
-            CGFontRef font = CGFontCreateWithDataProvider(provider);
-            CTFontManagerRegisterGraphicsFont(font, NULL);
-            CFRelease(font);
-            CFRelease(provider);
+        if (! fontFileData) {
+            continue;
         }
+        
+        CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
+        CGFontRef font = CGFontCreateWithDataProvider(provider);
+        CTFontManagerRegisterGraphicsFont(font, NULL);
+        CFRelease(font);
+        CFRelease(provider);
     }
 }
 
