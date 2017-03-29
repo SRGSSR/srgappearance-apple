@@ -37,7 +37,6 @@
 {
     [super viewDidLoad];
     
-    // TODO: Compability with iOS 8! Also check framework compatibility!
     static NSDictionary<NSString *, NSString *> *s_textStyleNames;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
