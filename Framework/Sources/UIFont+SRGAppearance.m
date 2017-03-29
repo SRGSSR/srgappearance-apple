@@ -87,8 +87,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 + (NSNumber *)pointSizeForCustomFontTextStyle:(NSString *)textStyle
 {
-    // We introduce custom SRG text styles because standard iOS ones may override font traits (e.g. bold or italic) and
-    // we want reliable styles not affected by such changes.
+    // We introduce custom SRG text styles for which we can choose the exact behavior we want
     static NSDictionary<NSString *, NSDictionary<NSString *, NSNumber *> *> *s_customTextStylesMap;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
@@ -168,7 +167,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
     NSNumber *pointSize = [self pointSizeForCustomFontTextStyle:textStyle];
     if (pointSize) {
-        return [UIFont fontWithName:name size:pointSize.floatValue];
+        return [UIFont fontWithName:name size:pointSize.floatValue] ?: [UIFont fontWithName:@"Helvetica" size:pointSize.floatValue];
     }
     else {
         UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:name textStyle:textStyle];

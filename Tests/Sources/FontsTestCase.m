@@ -235,22 +235,24 @@
 - (void)testMissingFont
 {
     static NSString *kFontName = @"Missing";
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle1]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle2]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle3]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleHeadline]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleSubheadline]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleBody]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCallout]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleFootnote]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption1]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption2]);
+    static NSString *kFallbackFontName = @"Helvetica";
     
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleCaption]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleSubtitle]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleBody]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleHeadline]);
-    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleTitle]);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle1].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle2].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle3].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleHeadline].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleSubheadline].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleBody].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCallout].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleFootnote].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption1].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption2].fontName, kFallbackFontName);
+    
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleCaption].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleSubtitle].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleBody].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleHeadline].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleTitle].fontName, kFallbackFontName);
 }
 
 @end

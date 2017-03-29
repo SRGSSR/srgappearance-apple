@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Return the preferred font descriptor for a font with the specified name and text style. Only supports official
  *  iOS text styles (@see `UIFontDescriptor.h`).
+ *
+ *  @discussion Also works with unknown font names (though fonts generated from such a descriptor will fallback on
+ *              Helvetica).
  */
 + (UIFontDescriptor *)srg_preferredFontDescriptorWithName:(NSString *)name textStyle:(NSString *)style;
 

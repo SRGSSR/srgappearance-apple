@@ -62,7 +62,7 @@ You can also register your own custom fonts at runtime by calling the `SRGAppear
 
 ## SRG SSR text styles
 
-A limited set of custom font styles is provided. Unlike iOS standard text styles, those do not alter or ignore font properties (e.g. bold or italic traits). SRG SSR fonts are readily compatible with SRG SSR custom text styles, and a method is provided to apply them to any font as well.
+A limited set of SRG SSR custom font styles is provided as well. SRG SSR fonts are readily compatible with those styles, and a method is provided to apply them to arbitrary fonts as well.
 
 ## SRG SSR colors
 

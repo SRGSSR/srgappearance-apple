@@ -15,16 +15,22 @@
     // Currently use the sizes specified for the system font, for which we cache values in a table for faster queries. We
     // can create a custom table (even with custom categories) later if needed, see http://stackoverflow.com/a/20510095/760435
     
-    static NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, UIFontDescriptor *> *> *s_fontDescriptorMap;
+    static NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, UIFontDescriptor *> *> *> *s_fontDescriptorMap;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
         s_fontDescriptorMap = [NSMutableDictionary dictionary];
     });
     
-    NSMutableDictionary<NSString *, UIFontDescriptor *> *fontDescriptorForCategoryMap = s_fontDescriptorMap[style];
+    NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, UIFontDescriptor *> *> *fontDescriptorsForNameMap = s_fontDescriptorMap[name];
+    if (! fontDescriptorsForNameMap) {
+        fontDescriptorsForNameMap = [NSMutableDictionary dictionary];
+        s_fontDescriptorMap[name] = fontDescriptorsForNameMap;
+    }
+    
+    NSMutableDictionary<NSString *, UIFontDescriptor *> *fontDescriptorForCategoryMap = fontDescriptorsForNameMap[style];
     if (! fontDescriptorForCategoryMap) {
         fontDescriptorForCategoryMap = [NSMutableDictionary dictionary];
-        s_fontDescriptorMap[style] = fontDescriptorForCategoryMap;
+        fontDescriptorsForNameMap[style] = fontDescriptorForCategoryMap;
     }
     
     NSString *contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
