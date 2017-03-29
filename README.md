@@ -51,7 +51,7 @@ Import the module where needed:
 import SRGAppearance
 ```
 
-## Using SRG SSR fonts
+## SRG SSR fonts
 
 Two sets of font methods are provided in `UIFont+SRGAppearance.h`:
 
@@ -60,7 +60,11 @@ Two sets of font methods are provided in `UIFont+SRGAppearance.h`:
 
 You can also register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function available from the same header file.
 
-## Using SRG SSR colors
+## SRG SSR text styles
+
+A limited set of custom font styles is provided. Unlike iOS standard text styles, those do not alter or ignore font properties (e.g. bold or italic traits). SRG SSR fonts are readily compatible with SRG SSR custom text styles, and a method is provided to apply them to any font as well.
+
+## SRG SSR colors
 
 Standard colors are provided in `UIColor+SRGAppearance.h`.
 
