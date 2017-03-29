@@ -20,14 +20,14 @@
     });
     
     NSMutableDictionary<NSString *, UIFontDescriptor *> *fontDescriptorForCategoryMap = s_fontDescriptorMap[style];
-    if (!fontDescriptorForCategoryMap) {
+    if (! fontDescriptorForCategoryMap) {
         fontDescriptorForCategoryMap = [NSMutableDictionary dictionary];
         s_fontDescriptorMap[style] = fontDescriptorForCategoryMap;
     }
     
-    NSString *contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory;
+    NSString *contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
     UIFontDescriptor *fontDescriptor = fontDescriptorForCategoryMap[contentSizeCategory];
-    if (!fontDescriptor) {
+    if (! fontDescriptor) {
         UIFontDescriptor *systemFontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:style];
         CGFloat size = [systemFontDescriptor.fontAttributes[UIFontDescriptorSizeAttribute] floatValue];
         fontDescriptor = [UIFontDescriptor fontDescriptorWithName:name size:size];
