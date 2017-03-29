@@ -4,6 +4,11 @@
 
 ## About
 
+SRG Appearance is a lightweight library providing unified SRG SSR appearance to iOS applications:
+
+* Official SRG SSR fonts, automatically registered with your application, and with standard point sizes for common text styles.
+* Official SRG SSR colors.
+
 ## Compatibility
 
 The library is suitable for applications running on iOS 9 and above. The project is meant to be opened with the latest Xcode version (currently Xcode 8).
@@ -45,6 +50,19 @@ Import the module where needed:
 ```swift
 import SRGAppearance
 ```
+
+## Using SRG SSR fonts
+
+Two sets of font methods are provided in `UIFont+SRGAppearance.h`:
+
+* Methods returning a font with a given size. You can also set fonts with a given size directly in Interface Builder. Simply install the fonts available in `Carthage/Checkouts/iOS/srgappearance-ios/Framework/Resources/Fonts` by double-clicking on them first.
+* Methods returning a font for a given text style. The exact font size is determined by the corresponding iOS accessibility setting. Setting custom fonts for a given style is sadly currently not supported in Interface Builder and must be performed in code.
+
+You can also register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function available from the same header file.
+
+## Using SRG SSR colors
+
+Standard colors are provided in `UIColor+SRGAppearance.h`.
 
 ## License
 
