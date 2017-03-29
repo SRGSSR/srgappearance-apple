@@ -19,6 +19,8 @@ OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleTitle;
 
 /**
  *  Register a font from the specified file. Returns `YES` iff successful.
+ *
+ *  @discussion The method returns `NO` if the font has already been registered.
  */
 OBJC_EXPORT BOOL SRGAppearanceRegisterFont(NSString *filePath);
 

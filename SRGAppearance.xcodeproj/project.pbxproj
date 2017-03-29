@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F131A7A1E8C1E17000D6BEC /* Sketch.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A781E8C1E17000D6BEC /* Sketch.ttf */; };
+		6F131A7C1E8C1EBC000D6BEC /* Venetian.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */; };
 		6FA09D471D9E6FDA00EDCA64 /* SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FA09D481D9E6FDA00EDCA64 /* SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D451D9E6FDA00EDCA64 /* SRGAppearance.m */; };
 		6FA09D4B1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D491D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h */; };
@@ -64,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F131A781E8C1E17000D6BEC /* Sketch.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sketch.ttf; sourceTree = "<group>"; };
+		6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Venetian.otf; sourceTree = "<group>"; };
 		6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGAppearance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA09D421D9E6FDA00EDCA64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAppearance.h; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 		6FE08CDC1E8AA8F500EC4716 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */,
+				6F131A781E8C1E17000D6BEC /* Sketch.ttf */,
 				6FE08CDF1E8AAB8F00EC4716 /* Corrupt.otf */,
 				6FE08CDD1E8AA9D100EC4716 /* FontAwesome.otf */,
 			);
@@ -392,6 +398,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F131A7A1E8C1E17000D6BEC /* Sketch.ttf in Resources */,
+				6F131A7C1E8C1EBC000D6BEC /* Venetian.otf in Resources */,
 				6FE08CDE1E8AA9D100EC4716 /* FontAwesome.otf in Resources */,
 				6FE08CE01E8AAB8F00EC4716 /* Corrupt.otf in Resources */,
 			);
@@ -676,6 +684,7 @@
 				6FE08C751E8A865800EC4716 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

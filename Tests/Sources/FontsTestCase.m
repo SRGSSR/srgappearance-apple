@@ -33,6 +33,13 @@
     XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
 }
 
+- (void)testMultipleFontRegistration
+{
+    NSString *fontFilePath = [[NSBundle mainBundle] pathForResource:@"Sketch" ofType:@"ttf"];
+    XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
+    XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
+}
+
 - (void)testContentSizeCategoriesComparison
 {
     XCTAssertEqual(SRGAppearanceCompareContentSizeCategories(UIContentSizeCategoryExtraSmall, UIContentSizeCategoryExtraSmall), NSOrderedSame);
@@ -41,7 +48,7 @@
     XCTAssertThrows(SRGAppearanceCompareContentSizeCategories(@"unknown", UIContentSizeCategorySmall));
 }
 
-- (void)testRegularFonts
+- (void)testRegularFont
 {
     XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -53,9 +60,15 @@
     XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_regularFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
-- (void)testBoldFonts
+- (void)testBoldFont
 {
     XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -67,9 +80,15 @@
     XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_boldFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
-- (void)testHeavyFonts
+- (void)testHeavyFont
 {
     XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -81,9 +100,15 @@
     XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_heavyFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
-- (void)testLightFonts
+- (void)testLightFont
 {
     XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -95,9 +120,15 @@
     XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_lightFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
-- (void)testMediumFonts
+- (void)testMediumFont
 {
     XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -109,9 +140,15 @@
     XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_mediumFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
-- (void)testItalicFonts
+- (void)testItalicFont
 {
     XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -123,9 +160,15 @@
     XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_italicFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
-- (void)testBoldItalicFonts
+- (void)testBoldItalicFont
 {
     XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -137,9 +180,15 @@
     XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_boldItalicFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
-- (void)testRegularSerifFonts
+- (void)testRegularSerifFont
 {
     XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:UIFontTextStyleTitle1]);
     XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:UIFontTextStyleTitle2]);
@@ -151,6 +200,57 @@
     XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:UIFontTextStyleFootnote]);
     XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:UIFontTextStyleCaption1]);
     XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_regularSerifFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
+}
+
+- (void)testCustomFont
+{
+    NSString *fontFilePath = [[NSBundle mainBundle] pathForResource:@"Venetian" ofType:@"otf"];
+    XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
+    
+    static NSString *kFontName = @"Venetian";
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle1]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle2]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle3]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleSubheadline]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCallout]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleFootnote]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption1]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleTitle]);
+}
+
+- (void)testMissingFont
+{
+    static NSString *kFontName = @"Missing";
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle1]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle2]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleTitle3]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleHeadline]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleSubheadline]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleBody]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCallout]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleFootnote]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption1]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:UIFontTextStyleCaption2]);
+    
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
 @end
