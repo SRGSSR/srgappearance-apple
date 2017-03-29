@@ -24,6 +24,11 @@
     return [storyboard instantiateInitialViewController];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark Getters and setters
 
 - (NSString *)title
@@ -37,6 +42,18 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contentSizeCategoryDidChange:)
+                                                 name:UIContentSizeCategoryDidChangeNotification
+                                               object:nil];
+    
+    [self reloadData];
+}
+
+#pragma mark Data
+
+- (void)reloadData
+{
     static NSDictionary<NSString *, NSString *> *s_textStyleNames;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
@@ -61,6 +78,8 @@
         [titles addObject:title];
     }
     self.titles = [titles copy];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource protocol
@@ -81,6 +100,13 @@
 {
     cell.textLabel.attributedText = self.titles[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+#pragma mark Notifications
+
+- (void)contentSizeCategoryDidChange:(NSNotification *)notification
+{
+    [self reloadData];
 }
 
 @end
