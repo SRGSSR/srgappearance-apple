@@ -8,6 +8,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// Custom SRG SSR font text styles.
+typedef NSString * SRGAppearanceFontTextStyle NS_STRING_ENUM;
+
+OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleCaption;
+OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleSubtitle;
+OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleBody;
+OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleHeadline;
+OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleTitle;
+
 /**
  *  Register a font from the specified file. Returns `YES` iff successful.
  */
@@ -23,7 +32,7 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 @interface UIFont (SRGAppearance)
 
 /**
- *  SRG SSR official fonts with size set in the system settings.
+ *  SRG SSR official fonts with size set in the system settings. Supports standard SRG SSR as well as iOS standard text styles.
  */
 + (UIFont *)srg_regularFontWithTextStyle:(NSString *)textStyle;
 + (UIFont *)srg_boldFontWithTextStyle:(NSString *)textStyle;
@@ -33,6 +42,12 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 + (UIFont *)srg_italicFontWithTextStyle:(NSString *)textStyle;
 + (UIFont *)srg_boldItalicFontWithTextStyle:(NSString *)textStyle;
 + (UIFont *)srg_regularSerifFontWithTextStyle:(NSString *)textStyle;
+
+/**
+ *  Return a font with the given text style. Supports standard SRG SSR as well as iOS standard text styles. Returns `nil` if the
+ *  specified font does not exist.
+ */
++ (nullable UIFont *)srg_fontWithName:(NSString *)name textStyle:(NSString *)textStyle;
 
 /**
  *  SRG SSR official fonts with fixed sizes.

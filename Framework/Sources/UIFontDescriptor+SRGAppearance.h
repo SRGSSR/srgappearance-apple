@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIFontDescriptor (SRGAppearance)
 
 /**
- *  Return the preferred font descriptor for a font with the specified name and text style.
+ *  Return the preferred font descriptor for a font with the specified name and text style. Only supports official
+ *  iOS text styles (@see `UIFontDescriptor.h`).
  */
 + (UIFontDescriptor *)srg_preferredFontDescriptorWithName:(NSString *)name textStyle:(NSString *)style;
 

@@ -11,6 +11,12 @@
 
 #import <CoreText/CoreText.h>
 
+SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleCaption = @"SRGAppearanceFontTextStyleCaption";
+SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleSubtitle = @"SRGAppearanceFontTextStyleSubtitle";
+SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleBody = @"SRGAppearanceFontTextStyleBody";
+SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleHeadline = @"SRGAppearanceFontTextStyleHeadline";
+SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleTitle = @"SRGAppearanceFontTextStyleTitle";
+
 BOOL SRGAppearanceRegisterFont(NSString *filePath)
 {
     NSData *fontFileData = [NSData dataWithContentsOfFile:filePath];
@@ -79,52 +85,135 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 @implementation UIFont (SRGAppearance)
 
++ (NSNumber *)pointSizeForCustomFontTextStyle:(NSString *)textStyle
+{
+    // We introduce custom SRG text styles because standard iOS ones may override font traits (e.g. bold or italic) and
+    // we want reliable styles not affected by such changes.
+    static NSDictionary<NSString *, NSDictionary<NSString *, NSNumber *> *> *s_customTextStylesMap;
+    static dispatch_once_t s_onceToken;
+    dispatch_once(&s_onceToken, ^{
+        s_customTextStylesMap = @{ SRGAppearanceFontTextStyleCaption : @{
+                                           UIContentSizeCategoryExtraSmall : @11,
+                                           UIContentSizeCategorySmall : @11,
+                                           UIContentSizeCategoryMedium : @11,
+                                           UIContentSizeCategoryLarge : @11,
+                                           UIContentSizeCategoryExtraLarge : @13,
+                                           UIContentSizeCategoryExtraExtraLarge : @15,
+                                           UIContentSizeCategoryExtraExtraExtraLarge : @17,
+                                           UIContentSizeCategoryAccessibilityMedium : @17,
+                                           UIContentSizeCategoryAccessibilityLarge : @17,
+                                           UIContentSizeCategoryAccessibilityExtraLarge : @17,
+                                           UIContentSizeCategoryAccessibilityExtraExtraLarge : @17,
+                                           UIContentSizeCategoryAccessibilityExtraExtraExtraLarge : @17 },
+                                   SRGAppearanceFontTextStyleSubtitle : @{
+                                           UIContentSizeCategoryExtraSmall : @12,
+                                           UIContentSizeCategorySmall : @12,
+                                           UIContentSizeCategoryMedium : @12,
+                                           UIContentSizeCategoryLarge : @13,
+                                           UIContentSizeCategoryExtraLarge : @15,
+                                           UIContentSizeCategoryExtraExtraLarge : @17,
+                                           UIContentSizeCategoryExtraExtraExtraLarge : @19,
+                                           UIContentSizeCategoryAccessibilityMedium : @19,
+                                           UIContentSizeCategoryAccessibilityLarge : @19,
+                                           UIContentSizeCategoryAccessibilityExtraLarge : @19,
+                                           UIContentSizeCategoryAccessibilityExtraExtraLarge : @19,
+                                           UIContentSizeCategoryAccessibilityExtraExtraExtraLarge : @19 },
+                                   SRGAppearanceFontTextStyleBody : @{
+                                           UIContentSizeCategoryExtraSmall : @12,
+                                           UIContentSizeCategorySmall : @13,
+                                           UIContentSizeCategoryMedium : @14,
+                                           UIContentSizeCategoryLarge : @15,
+                                           UIContentSizeCategoryExtraLarge : @17,
+                                           UIContentSizeCategoryExtraExtraLarge : @19,
+                                           UIContentSizeCategoryExtraExtraExtraLarge : @21,
+                                           UIContentSizeCategoryAccessibilityMedium : @21,
+                                           UIContentSizeCategoryAccessibilityLarge : @21,
+                                           UIContentSizeCategoryAccessibilityExtraLarge : @21,
+                                           UIContentSizeCategoryAccessibilityExtraExtraLarge : @21,
+                                           UIContentSizeCategoryAccessibilityExtraExtraExtraLarge : @21 },
+                                   SRGAppearanceFontTextStyleHeadline : @{
+                                           UIContentSizeCategoryExtraSmall : @14,
+                                           UIContentSizeCategorySmall : @15,
+                                           UIContentSizeCategoryMedium : @16,
+                                           UIContentSizeCategoryLarge : @17,
+                                           UIContentSizeCategoryExtraLarge : @19,
+                                           UIContentSizeCategoryExtraExtraLarge : @21,
+                                           UIContentSizeCategoryExtraExtraExtraLarge : @23,
+                                           UIContentSizeCategoryAccessibilityMedium : @23,
+                                           UIContentSizeCategoryAccessibilityLarge : @23,
+                                           UIContentSizeCategoryAccessibilityExtraLarge : @23,
+                                           UIContentSizeCategoryAccessibilityExtraExtraLarge : @23,
+                                           UIContentSizeCategoryAccessibilityExtraExtraExtraLarge : @23 },
+                                   SRGAppearanceFontTextStyleTitle : @{
+                                           UIContentSizeCategoryExtraSmall : @17,
+                                           UIContentSizeCategorySmall : @18,
+                                           UIContentSizeCategoryMedium : @19,
+                                           UIContentSizeCategoryLarge : @20,
+                                           UIContentSizeCategoryExtraLarge : @22,
+                                           UIContentSizeCategoryExtraExtraLarge : @24,
+                                           UIContentSizeCategoryExtraExtraExtraLarge : @26,
+                                           UIContentSizeCategoryAccessibilityMedium : @26,
+                                           UIContentSizeCategoryAccessibilityLarge : @26,
+                                           UIContentSizeCategoryAccessibilityExtraLarge : @26,
+                                           UIContentSizeCategoryAccessibilityExtraExtraLarge : @26,
+                                           UIContentSizeCategoryAccessibilityExtraExtraExtraLarge : @26 } };
+    });
+    
+    // The default content size category of an iOS device is `UIContentSizeCategoryLarge`.
+    UIContentSizeCategory contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
+    return s_customTextStylesMap[textStyle][contentSizeCategory];
+}
+
++ (UIFont *)srg_fontWithName:(NSString *)name textStyle:(NSString *)textStyle
+{
+    NSNumber *pointSize = [self pointSizeForCustomFontTextStyle:textStyle];
+    if (pointSize) {
+        return [UIFont fontWithName:name size:pointSize.floatValue];
+    }
+    else {
+        UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:name textStyle:textStyle];
+        return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    }
+}
+
 + (UIFont *)srg_regularFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRType-Regular" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRType-Regular" textStyle:textStyle];
 }
 
 + (UIFont *)srg_boldFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRType-Bold" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRType-Bold" textStyle:textStyle];
 }
 
 + (UIFont *)srg_heavyFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRType-Heavy" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRType-Heavy" textStyle:textStyle];
 }
 
 + (UIFont *)srg_lightFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRType-Light" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRType-Light" textStyle:textStyle];
 }
 
 + (UIFont *)srg_mediumFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRType-Medium" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRType-Medium" textStyle:textStyle];
 }
 
 + (UIFont *)srg_italicFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRType-Italic" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRType-Italic" textStyle:textStyle];
 }
 
 + (UIFont *)srg_boldItalicFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRType-BoldItalic" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRType-BoldItalic" textStyle:textStyle];
 }
 
 + (UIFont *)srg_regularSerifFontWithTextStyle:(NSString *)textStyle
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:@"SRGSSRTypeSerif-Regular" textStyle:textStyle];
-    return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
+    return [self srg_fontWithName:@"SRGSSRTypeSerif-Regular" textStyle:textStyle];
 }
 
 + (UIFont *)srg_regularFontWithSize:(CGFloat)size

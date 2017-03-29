@@ -6,6 +6,8 @@
 
 #import "UIFontDescriptor+SRGAppearance.h"
 
+#import "UIFont+SRGAppearance.h"
+
 @implementation UIFontDescriptor (SRGAppearance)
 
 + (UIFontDescriptor *)srg_preferredFontDescriptorWithName:(NSString *)name textStyle:(NSString *)style
