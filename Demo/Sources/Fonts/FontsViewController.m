@@ -73,25 +73,13 @@
     return [storyboard instantiateInitialViewController];
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 #pragma mark View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 44.f;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(contentSizeCategoryDidChange:)
-                                                 name:UIContentSizeCategoryDidChangeNotification
-                                               object:nil];
-    
+    self.tableView.rowHeight = 60.f;    
     [self reloadData];
 }
 
@@ -152,13 +140,6 @@
     }
     cell.textLabel.attributedText = title;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-
-#pragma mark Notifications
-
-- (void)contentSizeCategoryDidChange:(NSNotification *)notification
-{
-    [self reloadData];
 }
 
 @end
