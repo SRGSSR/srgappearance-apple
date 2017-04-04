@@ -4,16 +4,13 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSBundle (SRGAppearance)
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-/**
- *  The appearance resource bundle
- */
-+ (NSBundle *)srg_appearanceBundle;
+@property (nonatomic) UIWindow *window;
 
 @end
 

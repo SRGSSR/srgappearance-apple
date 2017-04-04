@@ -4,16 +4,16 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSBundle (SRGAppearance)
+@interface UIColor (SRGAppearance)
 
 /**
- *  The appearance resource bundle
+ *  The official SRG SSR red color
  */
-+ (NSBundle *)srg_appearanceBundle;
++ (UIColor *)srg_redColor;
 
 @end
 
