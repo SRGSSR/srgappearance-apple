@@ -71,28 +71,20 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
 @implementation UIImage (SRGAppearance)
 
 // Implementation borrowed from https://github.com/erica/useful-things
-+ (UIImage *)srg_vectorImageNamed:(NSString *)imageName inBundle:(nullable NSBundle *)bundle withSize:(CGSize)size
++ (UIImage *)srg_vectorImageAtPath:(NSString *)filePath withSize:(CGSize)size
 {
-    NSURL *fileURL = [self srg_fileURLForVectorImageNamed:imageName inBundle:bundle withSize:size];
-    if (! fileURL) {
-        return nil;
-    }
-    
-    return [UIImage imageWithContentsOfFile:fileURL.path];
+    NSURL *fileURL = [self srg_URLForVectorImageAtPath:filePath withSize:size];
+    return fileURL ? [UIImage imageWithContentsOfFile:fileURL.path] : nil;
 }
 
-+ (NSURL *)srg_fileURLForVectorImageNamed:(NSString *)imageName inBundle:(NSBundle *)bundle withSize:(CGSize)size
++ (NSURL *)srg_URLForVectorImageAtPath:(NSString *)filePath withSize:(CGSize)size
 {
-    if (! bundle) {
-        bundle = [NSBundle mainBundle];
-    }
-    
     // Check cached image existence at the very beginning, and return it if available
-    NSString *fileName = [NSString stringWithFormat:@"%@_%@_%@_%@.pdf", imageName, @(size.width), @(size.height), bundle.bundleIdentifier];
+    NSString *cachedFileName = [NSString stringWithFormat:@"%@_%@_%@.png", @(filePath.hash), @(size.width), @(size.height)];
     NSString *cachesDirectory = SRGAppearanceVectorImageCachesDirectory();
-    NSString *filePath = [cachesDirectory stringByAppendingPathComponent:fileName];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        return [NSURL fileURLWithPath:filePath];
+    NSString *cachedFilePath = [cachesDirectory stringByAppendingPathComponent:cachedFileName];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:cachedFilePath]) {
+        return [NSURL fileURLWithPath:cachedFilePath];
     }
     
     // Check cache directory existence, since the cache might be cleared anytime
@@ -102,7 +94,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
         }
     }
     
-    NSURL *fileURL = [bundle URLForResource:imageName withExtension:@"pdf"];
+    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
     CGPDFDocumentRef pdfDocumentRef = CGPDFDocumentCreateWithURL((__bridge CFURLRef)fileURL);
     if (! pdfDocumentRef) {
         return nil;
@@ -121,11 +113,11 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
         return nil;
     }
     
-    if (! [[NSFileManager defaultManager] createFileAtPath:filePath contents:imageData attributes:nil]) {
+    if (! [[NSFileManager defaultManager] createFileAtPath:cachedFilePath contents:imageData attributes:nil]) {
         return nil;
     }
     
-    return [NSURL fileURLWithPath:filePath];
+    return fileURL;
 }
 
 + (void)srg_clearVectorImageCache

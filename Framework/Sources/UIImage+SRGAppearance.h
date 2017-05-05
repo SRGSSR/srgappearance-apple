@@ -8,28 +8,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// Standard images
+
 @interface UIImage (SRGAppearance)
 
 /**
- *  Return a resized vector image generated from a vector image of the specified bundle. Images stemming from
+ *  Return an image generated from the vector image at the specified path.
  *
- *  @param imageName The name of the PDF vector image to resize (without extension).
- *  @param bundle    The bundle in which the image must be located (the main bundle if `nil`),
- *  @param size      The size of the image to create.
+ *  @param filePath The path of the vector image to use.
+ *  @param size     The size of the image to create.
  *
- *  @return The resized image, `nil` if not found or if resizing failed.
+ *  @return The generated image, `nil` if generation failed.
  */
-+ (nullable UIImage *)srg_vectorImageNamed:(NSString *)imageName inBundle:(nullable NSBundle *)bundle withSize:(CGSize)size;
++ (nullable UIImage *)srg_vectorImageAtPath:(NSString *)filePath withSize:(CGSize)size;
 
 /**
- *  Return a vector image from the specified bundle, for a given size.
+ *  Return the file URL of an image generated from the vector image at the specified path.
+ *
+ *  @param filePath The path of the vector image to use.
+ *  @param size     The size of the image to create.
+ *
+ *  @return The generated image, `nil` if generation failed.
  *
  *  @discussion Images are stored in the `/Library/Caches` directory.
  */
-+ (nullable NSURL *)srg_fileURLForVectorImageNamed:(NSString *)imageName inBundle:(nullable NSBundle *)bundle withSize:(CGSize)size;
++ (nullable NSURL *)srg_URLForVectorImageAtPath:(NSString *)filePath withSize:(CGSize)size;
 
 /**
- *  Clears the cache of vector images.
+ *  Clears the vector image cache.
  */
 + (void)srg_clearVectorImageCache;
 
