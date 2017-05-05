@@ -8,7 +8,7 @@
 
 #import "NSBundle+SRGAppearance.h"
 
-NSString *SRGAppearanceMediaPlaceholder(void)
+NSString *SRGAppearanceMediaPlaceholderFilePath(void)
 {
     return [[NSBundle srg_appearanceBundle] pathForResource:@"placeholder_media-180" ofType:@"pdf" inDirectory:@"Images"];
 }
