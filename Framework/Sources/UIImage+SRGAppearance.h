@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (SRGAppearance)
 
 /**
- *  Return a resized vector image generated from a vector image of the specified bundle.
+ *  Return a resized vector image generated from a vector image of the specified bundle. Images stemming from
  *
  *  @param imageName The name of the PDF vector image to resize (without extension).
  *  @param bundle    The bundle in which the image must be located (the main bundle if `nil`),

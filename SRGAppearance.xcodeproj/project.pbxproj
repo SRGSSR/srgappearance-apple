@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F131A7A1E8C1E17000D6BEC /* Sketch.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A781E8C1E17000D6BEC /* Sketch.ttf */; };
 		6F131A7C1E8C1EBC000D6BEC /* Venetian.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */; };
-		6F5769AE1EBCB38A00F931CA /* UIImage+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */; };
+		6F5769AE1EBCB38A00F931CA /* UIImage+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F5769AF1EBCB38A00F931CA /* UIImage+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */; };
 		6F5769B11EBCBE6100F931CA /* ImageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5769B01EBCBE6100F931CA /* ImageTestCase.m */; };
 		6FA09D471D9E6FDA00EDCA64 /* SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
