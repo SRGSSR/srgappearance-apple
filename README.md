@@ -4,10 +4,11 @@
 
 ## About
 
-SRG Appearance is a lightweight library providing unified SRG SSR appearance to iOS applications:
+SRG Appearance is a lightweight library providing unified SRG SSR appearance to iOS applications, as well as tools related to visual components:
 
 * Official SRG SSR fonts, automatically registered with your application, and with standard point sizes for common text styles.
 * Official SRG SSR colors.
+* Image helpers.
 
 ## Compatibility
 
