@@ -6,6 +6,13 @@
 
 #import "UIImage+SRGAppearance.h"
 
+#import "NSBundle+SRGAppearance.h"
+
+NSString *SRGAppearanceMediaPlaceholder(void)
+{
+    return [[NSBundle srg_appearanceBundle] pathForResource:@"placeholder_media-180" ofType:@"pdf" inDirectory:@"Images"];
+}
+
 static CGFloat SRGAppearanceImageAspectScaleFit(CGSize sourceSize, CGRect destRect)
 {
     CGSize destSize = destRect.size;
@@ -100,7 +107,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
         return nil;
     }
     
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 1. /* Force scale to 1 (0 would use device scale) */);
     CGPDFPageRef pageRef = CGPDFDocumentGetPage(pdfDocumentRef, 1);
     SRGAppearanceImageDrawPDFPageInRect(pageRef, CGRectMake(0.f, 0.f, size.width, size.height));
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -117,7 +124,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
         return nil;
     }
     
-    return fileURL;
+    return [NSURL URLWithString:cachedFilePath];
 }
 
 + (void)srg_clearVectorImageCache

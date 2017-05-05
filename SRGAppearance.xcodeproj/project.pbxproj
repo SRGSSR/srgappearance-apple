@@ -12,7 +12,7 @@
 		6F5769AE1EBCB38A00F931CA /* UIImage+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F5769AF1EBCB38A00F931CA /* UIImage+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */; };
 		6F5769B11EBCBE6100F931CA /* ImageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5769B01EBCBE6100F931CA /* ImageTestCase.m */; };
-		6F5769B31EBCC5A500F931CA /* placeholder_media-180.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6F5769B21EBCC5A500F931CA /* placeholder_media-180.pdf */; };
+		6F5769B51EBCD2EA00F931CA /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 6F5769B41EBCD2EA00F931CA /* Images */; };
 		6FA09D471D9E6FDA00EDCA64 /* SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FA09D481D9E6FDA00EDCA64 /* SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D451D9E6FDA00EDCA64 /* SRGAppearance.m */; };
 		6FA09D4B1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D491D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h */; };
@@ -75,7 +75,7 @@
 		6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SRGAppearance.h"; sourceTree = "<group>"; };
 		6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SRGAppearance.m"; sourceTree = "<group>"; };
 		6F5769B01EBCBE6100F931CA /* ImageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTestCase.m; path = Tests/Sources/ImageTestCase.m; sourceTree = SOURCE_ROOT; };
-		6F5769B21EBCC5A500F931CA /* placeholder_media-180.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "placeholder_media-180.pdf"; sourceTree = "<group>"; };
+		6F5769B41EBCD2EA00F931CA /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGAppearance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA09D421D9E6FDA00EDCA64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAppearance.h; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 		6FE08C571E8A83E300EC4716 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6F5769B21EBCC5A500F931CA /* placeholder_media-180.pdf */,
 				6FE08C591E8A83EF00EC4716 /* Fonts */,
+				6F5769B41EBCD2EA00F931CA /* Images */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -403,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F5769B51EBCD2EA00F931CA /* Images in Resources */,
 				6FE08C5A1E8A83EF00EC4716 /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +412,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F5769B31EBCC5A500F931CA /* placeholder_media-180.pdf in Resources */,
 				6F131A7A1E8C1E17000D6BEC /* Sketch.ttf in Resources */,
 				6F131A7C1E8C1EBC000D6BEC /* Venetian.otf in Resources */,
 				6FE08CDE1E8AA9D100EC4716 /* FontAwesome.otf in Resources */,
