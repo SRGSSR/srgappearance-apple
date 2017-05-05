@@ -29,6 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSURL *)srg_fileURLForVectorImageNamed:(NSString *)imageName inBundle:(nullable NSBundle *)bundle withSize:(CGSize)size;
 
 /**
+ *  Clears the cache of vector images.
+ */
++ (void)srg_clearVectorImageCache;
+
+/**
  *  Return the receiver, tinted with the specified color (if the color is `nil`, the image is returned as is).
  */
 - (UIImage *)srg_imageTintedWithColor:(nullable UIColor *)color;
