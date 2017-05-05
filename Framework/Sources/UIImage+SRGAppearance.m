@@ -131,7 +131,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
 {
     NSString *cachesDirectory = SRGAppearanceVectorImageCachesDirectory();
     if ([[NSFileManager defaultManager] fileExistsAtPath:cachesDirectory]) {
-        [[NSFileManager defaultManager] removeItemAtPath:cachesDirectory error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:cachesDirectory error:NULL];
     }
 }
 
