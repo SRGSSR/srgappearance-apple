@@ -68,7 +68,7 @@ static void SRGImageDrawPDFPageInRect(CGPDFPageRef pageRef, CGRect rect)
         s_cache = [[NSCache alloc] init];
     });
     
-    if (!bundle) {
+    if (! bundle) {
         bundle = [NSBundle mainBundle];
     }
     
@@ -94,6 +94,12 @@ static void SRGImageDrawPDFPageInRect(CGPDFPageRef pageRef, CGRect rect)
     
     [s_cache setObject:image forKey:key];
     return image;
+}
+
++ (NSURL *)srg_fileURLForVectorImageNamed:(NSString *)imageName inBundle:(NSBundle *)bundle withSize:(CGSize)size
+{
+    // TODO:
+    return nil;
 }
 
 - (UIImage *)srg_imageTintedWithColor:(UIColor *)color
