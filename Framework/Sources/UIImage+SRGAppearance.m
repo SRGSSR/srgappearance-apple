@@ -6,13 +6,6 @@
 
 #import "UIImage+SRGAppearance.h"
 
-#import "NSBundle+SRGAppearance.h"
-
-NSString *SRGAppearanceMediaPlaceholderFilePath(void)
-{
-    return [[NSBundle srg_appearanceBundle] pathForResource:@"placeholder_media-180" ofType:@"pdf" inDirectory:@"Images"];
-}
-
 static CGFloat SRGAppearanceImageAspectScaleFit(CGSize sourceSize, CGRect destRect)
 {
     CGSize destSize = destRect.size;

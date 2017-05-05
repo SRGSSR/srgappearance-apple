@@ -7,6 +7,11 @@
 #import <SRGAppearance/SRGAppearance.h>
 #import <XCTest/XCTest.h>
 
+NSString *TestImagePath(void)
+{
+    return [[NSBundle mainBundle] pathForResource:@"TestImage" ofType:@"pdf"];
+}
+
 @interface ImageTestCase : XCTestCase
 
 @end
@@ -22,15 +27,10 @@
 
 #pragma mark Tests
 
-- (void)testStandardImages
-{
-    XCTAssertNotNil(SRGAppearanceMediaPlaceholderFilePath());
-}
-
 - (void)testValidVectorImage
 {
     CGSize size = CGSizeMake(100.f, 200.f);
-    UIImage *image = [UIImage srg_vectorImageAtPath:SRGAppearanceMediaPlaceholderFilePath() withSize:size];
+    UIImage *image = [UIImage srg_vectorImageAtPath:TestImagePath() withSize:size];
     XCTAssertNotNil(image);
     XCTAssertTrue(CGSizeEqualToSize(image.size, size));
 }
@@ -42,7 +42,7 @@
 
 - (void)testTintedImageWithColor
 {
-    UIImage *image = [UIImage imageWithContentsOfFile:SRGAppearanceMediaPlaceholderFilePath()];
+    UIImage *image = [UIImage imageWithContentsOfFile:TestImagePath()];
     XCTAssertEqualObjects([image srg_imageTintedWithColor:nil], image);
     
     UIImage *tintedImage = [image srg_imageTintedWithColor:[UIColor blueColor]];

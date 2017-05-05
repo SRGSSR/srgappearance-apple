@@ -8,9 +8,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// Paths of standard supplied vector images.
-OBJC_EXTERN NSString *SRGAppearanceMediaPlaceholderFilePath(void);                  // Media placeholder
-
 @interface UIImage (SRGAppearance)
 
 /**
