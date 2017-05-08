@@ -33,6 +33,10 @@ NSString *TestImagePath(void)
     UIImage *image = [UIImage srg_vectorImageAtPath:TestImagePath() withSize:size];
     XCTAssertNotNil(image);
     XCTAssertTrue(CGSizeEqualToSize(image.size, size));
+    
+    NSURL *URL = [UIImage srg_URLForVectorImageAtPath:TestImagePath() withSize:CGSizeMake(50.f, 50.f)];
+    XCTAssertNotNil(URL);
+    XCTAssertTrue(URL.isFileURL);
 }
 
 - (void)testInvalidVectorImage
