@@ -117,7 +117,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
         return nil;
     }
     
-    return [NSURL URLWithString:cachedFilePath];
+    return [NSURL fileURLWithPath:cachedFilePath];
 }
 
 + (void)srg_clearVectorImageCache
