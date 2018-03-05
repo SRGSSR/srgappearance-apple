@@ -75,7 +75,7 @@ Image processing tools are provided in `UIImage+SRGAppearance.h`.
 
 ## License
 
-See the [LICENSE](LICENSE) file for more information.
+See the [LICENSE](../LICENSE) file for more information.
 
 
 
