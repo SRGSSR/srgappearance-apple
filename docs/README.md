@@ -12,11 +12,11 @@ SRG Appearance is a lightweight library providing unified SRG SSR appearance to 
 
 ## Compatibility
 
-The library is suitable for applications running on iOS 9 and above. The project is meant to be opened with the latest Xcode version (currently Xcode 8).
+The library is suitable for applications running on iOS 9 and above. The project is meant to be opened with the latest Xcode version (currently Xcode 9).
 
 ## Installation
 
-The library can be added to a project using [Carthage](https://github.com/Carthage/Carthage)  by adding the following dependency to your `Cartfile`:
+The library can be added to a project using [Carthage](https://github.com/Carthage/Carthage) by specifying the following dependency in your `Cartfile`:
     
 ```
 github "SRGSSR/srgappearance-ios"
@@ -75,7 +75,7 @@ Image processing tools are provided in `UIImage+SRGAppearance.h`.
 
 ## License
 
-See the [LICENSE](LICENSE) file for more information.
+See the [LICENSE](../LICENSE) file for more information.
 
 
 
