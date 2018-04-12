@@ -12,11 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The official SRG SSR red color
+ *  #9D0018
  */
 + (UIColor *)srg_redColor;
 
 /**
  *  The official SRG blue notification color
+ *  #0F5ACB
  */
 + (UIColor *)srg_blueColor;
 
