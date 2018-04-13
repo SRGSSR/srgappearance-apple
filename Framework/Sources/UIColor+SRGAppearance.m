@@ -13,4 +13,9 @@
     return [UIColor colorWithRed:157.f / 255.f green:0.f / 255.f blue:24.f / 255.f alpha:1.f];
 }
 
++ (UIColor *)srg_blueColor
+{
+    return [UIColor colorWithRed:15.f / 255.f green:90.f / 255.f blue:24.f / 203.f alpha:1.f];
+}
+
 @end
