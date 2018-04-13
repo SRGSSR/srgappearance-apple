@@ -11,14 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIColor (SRGAppearance)
 
 /**
- *  The official SRG SSR red color
- *  #9D0018
+ *  The official SRG SSR red color.
  */
 + (UIColor *)srg_redColor;
 
 /**
- *  The official SRG blue notification color
- *  #0F5ACB
+ *  The official SRG SSR blue color.
  */
 + (UIColor *)srg_blueColor;
 
