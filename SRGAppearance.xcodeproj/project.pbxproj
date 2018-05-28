@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F131A7A1E8C1E17000D6BEC /* Sketch.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A781E8C1E17000D6BEC /* Sketch.ttf */; };
 		6F131A7C1E8C1EBC000D6BEC /* Venetian.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */; };
+		6F5543ED20ADA2960049ECB2 /* FontsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5543EC20ADA2950049ECB2 /* FontsTestCase.m */; };
 		6F5769AE1EBCB38A00F931CA /* UIImage+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F5769AF1EBCB38A00F931CA /* UIImage+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */; };
 		6F5769B11EBCBE6100F931CA /* ImageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5769B01EBCBE6100F931CA /* ImageTestCase.m */; };
@@ -17,7 +18,7 @@
 		6FA09D4B1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D491D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h */; };
 		6FA09D4C1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D4A1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m */; };
 		6FA09D6B1D9E85BC00EDCA64 /* SRGAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; };
-		6FA09D761D9E861600EDCA64 /* FontsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D741D9E861600EDCA64 /* FontsTestCase.m */; };
+		6FA09D761D9E861600EDCA64 /* ColorTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D741D9E861600EDCA64 /* ColorTestCase.m */; };
 		6FE08C531E8A818C00EC4716 /* UIFont+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08C4F1E8A818C00EC4716 /* UIFont+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FE08C541E8A818C00EC4716 /* UIFont+SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08C501E8A818C00EC4716 /* UIFont+SRGAppearance.m */; };
 		6FE08C551E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		6F131A781E8C1E17000D6BEC /* Sketch.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sketch.ttf; sourceTree = "<group>"; };
 		6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Venetian.otf; sourceTree = "<group>"; };
+		6F5543EC20ADA2950049ECB2 /* FontsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontsTestCase.m; path = Tests/Sources/FontsTestCase.m; sourceTree = SOURCE_ROOT; };
 		6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SRGAppearance.h"; sourceTree = "<group>"; };
 		6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SRGAppearance.m"; sourceTree = "<group>"; };
 		6F5769B01EBCBE6100F931CA /* ImageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTestCase.m; path = Tests/Sources/ImageTestCase.m; sourceTree = SOURCE_ROOT; };
@@ -83,7 +85,7 @@
 		6FA09D4A1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+SRGAppearance.m"; sourceTree = "<group>"; };
 		6FA09D661D9E85BC00EDCA64 /* SRGAppearance-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGAppearance-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA09D721D9E861600EDCA64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FA09D741D9E861600EDCA64 /* FontsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsTestCase.m; sourceTree = "<group>"; };
+		6FA09D741D9E861600EDCA64 /* ColorTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTestCase.m; sourceTree = "<group>"; };
 		6FE08C4F1E8A818C00EC4716 /* UIFont+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SRGAppearance.h"; sourceTree = "<group>"; };
 		6FE08C501E8A818C00EC4716 /* UIFont+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SRGAppearance.m"; sourceTree = "<group>"; };
 		6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFontDescriptor+SRGAppearance.h"; sourceTree = "<group>"; };
@@ -195,8 +197,9 @@
 		6FA09D731D9E861600EDCA64 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6F5543EC20ADA2950049ECB2 /* FontsTestCase.m */,
+				6FA09D741D9E861600EDCA64 /* ColorTestCase.m */,
 				6FE08CD91E8AA8E300EC4716 /* Helpers */,
-				6FA09D741D9E861600EDCA64 /* FontsTestCase.m */,
 				6F5769B01EBCBE6100F931CA /* ImageTestCase.m */,
 			);
 			path = Sources;
@@ -449,7 +452,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F5769B11EBCBE6100F931CA /* ImageTestCase.m in Sources */,
-				6FA09D761D9E861600EDCA64 /* FontsTestCase.m in Sources */,
+				6F5543ED20ADA2960049ECB2 /* FontsTestCase.m in Sources */,
+				6FA09D761D9E861600EDCA64 /* ColorTestCase.m in Sources */,
 				6FE08CDB1E8AA8E300EC4716 /* BundleFix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,7 +535,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -586,7 +590,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

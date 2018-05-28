@@ -9,7 +9,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // Custom SRG SSR font text styles. The font size for the usual content size category (large) is provided as information.
-typedef NSString * SRGAppearanceFontTextStyle NS_STRING_ENUM;
+typedef NSString * SRGAppearanceFontTextStyle NS_TYPED_ENUM;
 
 OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleCaption;             // 11 pts
 OBJC_EXPORT SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleSubtitle;            // 13 pts
