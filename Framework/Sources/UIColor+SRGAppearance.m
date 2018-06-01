@@ -51,7 +51,7 @@
     
     NSScanner *scanner = [NSScanner scannerWithString:value];
     if ([value hasPrefix:@"#"]) {
-        [scanner setScanLocation:1];
+        scanner.scanLocation = 1;
     }
     
     unsigned rgbValue = 0;
