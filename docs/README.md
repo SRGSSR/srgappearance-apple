@@ -30,7 +30,7 @@ For more information about Carthage and its use, refer to the [official document
 
 The library requires the following frameworks to be added to any target requiring it:
 
-* `SRGAppearance.framework `: The main library framework.
+* `SRGAppearance `: The main library framework.
 
 ### Dynamic framework integration
 
