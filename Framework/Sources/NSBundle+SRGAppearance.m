@@ -21,7 +21,9 @@
     static NSBundle *bundle;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        bundle = [NSBundle bundleForClass:[SRGAppearanceBundle class]];
+        NSString *bundlePath = [[NSBundle bundleForClass:[SRGAppearanceBundle class]].bundlePath stringByAppendingPathComponent:@"SRGAppearance.bundle"];
+        bundle = [NSBundle bundleWithPath:bundlePath];
+        NSAssert(bundle, @"Please add SRGAppearance.bundle to your project resources");
     });
     return bundle;
 }
