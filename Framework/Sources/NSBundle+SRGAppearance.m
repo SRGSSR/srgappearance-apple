@@ -18,14 +18,14 @@
 
 + (NSBundle *)srg_appearanceBundle
 {
-    static NSBundle *bundle;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
+    static NSBundle *s_bundle;
+    static dispatch_once_t s_once;
+    dispatch_once(&s_once, ^{
         NSString *bundlePath = [[NSBundle bundleForClass:[SRGAppearanceBundle class]].bundlePath stringByAppendingPathComponent:@"SRGAppearance.bundle"];
-        bundle = [NSBundle bundleWithPath:bundlePath];
-        NSAssert(bundle, @"Please add SRGAppearance.bundle to your project resources");
+        s_bundle = [NSBundle bundleWithPath:bundlePath];
+        NSAssert(s_bundle, @"Please add SRGAppearance.bundle to your project resources");
     });
-    return bundle;
+    return s_bundle;
 }
 
 @end
