@@ -175,9 +175,9 @@
 		6FA09D411D9E6FDA00EDCA64 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				6FA09D421D9E6FDA00EDCA64 /* Info.plist */,
-				6FE08C571E8A83E300EC4716 /* Resources */,
 				6FA09D431D9E6FDA00EDCA64 /* Sources */,
+				6FE08C571E8A83E300EC4716 /* Resources */,
+				6FA09D421D9E6FDA00EDCA64 /* Info.plist */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -204,9 +204,9 @@
 		6FA09D711D9E861600EDCA64 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6FA09D721D9E861600EDCA64 /* Info.plist */,
 				6FA09D731D9E861600EDCA64 /* Sources */,
 				6FE08CDC1E8AA8F500EC4716 /* Resources */,
+				6FA09D721D9E861600EDCA64 /* Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
