@@ -19,12 +19,12 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
 /**
  *  The official SRG SSR red color.
  */
-+ (UIColor *)srg_redColor;
+@property (class, nonatomic, readonly) UIColor *srg_redColor;
 
 /**
  *  The official SRG SSR blue color.
  */
-+ (UIColor *)srg_blueColor;
+@property (class, nonatomic, readonly) UIColor *srg_blueColor;
 
 /**
  *  Return the color matching a hexadecimal string (with or without leading wildcard), `nil` if the string does

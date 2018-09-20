@@ -35,7 +35,7 @@
 
 + (Class)transformedValueClass
 {
-    return [UIColor class];
+    return UIColor.class;
 }
 
 + (BOOL)allowsReverseTransformation
@@ -45,7 +45,7 @@
 
 - (id)transformedValue:(id)value
 {
-    if (! [value isKindOfClass:[NSString class]]) {
+    if (! [value isKindOfClass:NSString.class]) {
         return nil;
     }
     
@@ -67,7 +67,7 @@
 
 - (id)reverseTransformedValue:(id)value
 {
-    if (! [value isKindOfClass:[UIColor class]]) {
+    if (! [value isKindOfClass:UIColor.class]) {
         return nil;
     }
     
