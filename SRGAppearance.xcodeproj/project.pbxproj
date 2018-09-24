@@ -215,9 +215,9 @@
 		6FA09D731D9E861600EDCA64 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6FE08CD91E8AA8E300EC4716 /* Helpers */,
 				6F5543EC20ADA2950049ECB2 /* FontsTestCase.m */,
 				6FA09D741D9E861600EDCA64 /* ColorTestCase.m */,
-				6FE08CD91E8AA8E300EC4716 /* Helpers */,
 				6F5769B01EBCBE6100F931CA /* ImageTestCase.m */,
 			);
 			path = Sources;

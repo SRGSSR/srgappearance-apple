@@ -49,7 +49,7 @@ NSString *TestImagePath(void)
     UIImage *image = [UIImage imageWithContentsOfFile:TestImagePath()];
     XCTAssertEqualObjects([image srg_imageTintedWithColor:nil], image);
     
-    UIImage *tintedImage = [image srg_imageTintedWithColor:[UIColor blueColor]];
+    UIImage *tintedImage = [image srg_imageTintedWithColor:UIColor.blueColor];
     XCTAssertTrue(CGSizeEqualToSize(image.size, tintedImage.size));
 }
 

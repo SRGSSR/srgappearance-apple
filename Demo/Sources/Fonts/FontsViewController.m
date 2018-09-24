@@ -69,7 +69,7 @@
 
 - (instancetype)init
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass([self class]) bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass(self.class) bundle:nil];
     return [storyboard instantiateInitialViewController];
 }
 
@@ -79,7 +79,7 @@
 {
     [super viewDidLoad];
     
-    self.tableView.rowHeight = 60.f;    
+    self.tableView.rowHeight = 60.f;
     [self reloadData];
 }
 
