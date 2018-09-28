@@ -11,9 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSBundle (SRGAppearance)
 
 /**
- *  The appearance resource bundle
+ *  The appearance resource bundle.
  */
-+ (NSBundle *)srg_appearanceBundle;
+@property (class, nonatomic, readonly) NSBundle *srg_appearanceBundle;
 
 @end
 
