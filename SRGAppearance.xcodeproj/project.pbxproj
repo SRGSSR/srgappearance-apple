@@ -15,6 +15,7 @@
 		6F5769B11EBCBE6100F931CA /* ImageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5769B01EBCBE6100F931CA /* ImageTestCase.m */; };
 		6F926BA1210F3E4400D2E3D0 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08C591E8A83EF00EC4716 /* Fonts */; };
 		6F926BA4210F3E6400D2E3D0 /* SRGAppearance.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F926B99210F3D2400D2E3D0 /* SRGAppearance.bundle */; };
+		6F9453D5223FF5890039974F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9453D4223FF5890039974F /* Images.xcassets */; };
 		6FA09D471D9E6FDA00EDCA64 /* SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FA09D481D9E6FDA00EDCA64 /* SRGAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09D451D9E6FDA00EDCA64 /* SRGAppearance.m */; };
 		6FA09D4B1D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA09D491D9E70ED00EDCA64 /* NSBundle+SRGAppearance.h */; };
@@ -86,6 +87,7 @@
 		6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SRGAppearance.m"; sourceTree = "<group>"; };
 		6F5769B01EBCBE6100F931CA /* ImageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTestCase.m; path = Tests/Sources/ImageTestCase.m; sourceTree = SOURCE_ROOT; };
 		6F926B99210F3D2400D2E3D0 /* SRGAppearance.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRGAppearance.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F9453D4223FF5890039974F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGAppearance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA09D421D9E6FDA00EDCA64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FA09D441D9E6FDA00EDCA64 /* SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAppearance.h; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		6FE08CC91E8A886000EC4716 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6F9453D4223FF5890039974F /* Images.xcassets */,
 				6FE08CCA1E8A886000EC4716 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
@@ -476,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F9453D5223FF5890039974F /* Images.xcassets in Resources */,
 				6FE08CC81E8A87AA00EC4716 /* FontsViewController.storyboard in Resources */,
 				6FE08CCB1E8A886000EC4716 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -599,7 +603,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -643,6 +647,7 @@
 		6F926B78210F342E00D2E3D0 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -698,7 +703,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -741,6 +746,7 @@
 		6F926B7C210F343500D2E3D0 /* Release-static */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -874,7 +880,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -929,7 +935,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1001,6 +1007,7 @@
 		6FE08C741E8A865800EC4716 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1012,6 +1019,7 @@
 		6FE08C751E8A865800EC4716 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
