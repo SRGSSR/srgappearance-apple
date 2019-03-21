@@ -79,6 +79,11 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contentSizeCategoryDidChange:)
+                                                 name:UIContentSizeCategoryDidChangeNotification
+                                               object:nil];
+    
     self.tableView.rowHeight = 60.f;
     [self reloadData];
 }
@@ -140,6 +145,13 @@
     }
     cell.textLabel.attributedText = title;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+#pragma mark Notifications
+
+- (void)contentSizeCategoryDidChange:(NSNotification *)notification
+{
+    [self reloadData];
 }
 
 @end
