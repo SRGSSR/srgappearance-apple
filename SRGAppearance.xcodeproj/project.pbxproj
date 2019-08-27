@@ -82,6 +82,8 @@
 /* Begin PBXFileReference section */
 		6F131A781E8C1E17000D6BEC /* Sketch.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sketch.ttf; sourceTree = "<group>"; };
 		6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Venetian.otf; sourceTree = "<group>"; };
+		6F50EBA02315730400A6C0B0 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		6F50EBA12315731300A6C0B0 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		6F5543EC20ADA2950049ECB2 /* FontsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontsTestCase.m; path = Tests/Sources/FontsTestCase.m; sourceTree = SOURCE_ROOT; };
 		6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SRGAppearance.h"; sourceTree = "<group>"; };
 		6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SRGAppearance.m"; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFontDescriptor+SRGAppearance.h"; sourceTree = "<group>"; };
 		6FE08C521E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFontDescriptor+SRGAppearance.m"; sourceTree = "<group>"; };
 		6FE08C591E8A83EF00EC4716 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
-		6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGAppearance-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FE08C5F1E8A865800EC4716 /* SRGAppearance-ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGAppearance-ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE08CBA1E8A86FB00EC4716 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FE08CBD1E8A86FB00EC4716 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6FE08CBE1E8A86FB00EC4716 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -169,7 +171,7 @@
 			children = (
 				6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */,
 				6FA09D661D9E85BC00EDCA64 /* SRGAppearance-tests.xctest */,
-				6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */,
+				6FE08C5F1E8A865800EC4716 /* SRGAppearance-ios-demo.app */,
 				6F926B99210F3D2400D2E3D0 /* SRGAppearance.bundle */,
 			);
 			name = Products;
@@ -181,6 +183,7 @@
 				6FA09D431D9E6FDA00EDCA64 /* Sources */,
 				6FE08C571E8A83E300EC4716 /* Resources */,
 				6FA09D421D9E6FDA00EDCA64 /* Info.plist */,
+				6F50EBA02315730400A6C0B0 /* Framework.xcconfig */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				6FA09D731D9E861600EDCA64 /* Sources */,
 				6FE08CDC1E8AA8F500EC4716 /* Resources */,
 				6FA09D721D9E861600EDCA64 /* Info.plist */,
+				6F50EBA12315731300A6C0B0 /* Tests.xcconfig */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -375,9 +379,9 @@
 			productReference = 6FA09D661D9E85BC00EDCA64 /* SRGAppearance-tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6FE08C5E1E8A865800EC4716 /* SRGAppearance-demo */ = {
+		6FE08C5E1E8A865800EC4716 /* SRGAppearance-ios-demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-demo" */;
+			buildConfigurationList = 6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-ios-demo" */;
 			buildPhases = (
 				6FE08C5B1E8A865800EC4716 /* Sources */,
 				6FE08C5C1E8A865800EC4716 /* Frameworks */,
@@ -389,9 +393,9 @@
 			dependencies = (
 				6FE08CD11E8A8A0300EC4716 /* PBXTargetDependency */,
 			);
-			name = "SRGAppearance-demo";
+			name = "SRGAppearance-ios-demo";
 			productName = "SRGAppearance-demo";
-			productReference = 6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */;
+			productReference = 6FE08C5F1E8A865800EC4716 /* SRGAppearance-ios-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -441,7 +445,7 @@
 				6FA09D351D9E6F8900EDCA64 /* SRGAppearance */,
 				6F926B98210F3D2400D2E3D0 /* SRGAppearance-resources */,
 				6FA09D651D9E85BC00EDCA64 /* SRGAppearance-tests */,
-				6FE08C5E1E8A865800EC4716 /* SRGAppearance-demo */,
+				6FE08C5E1E8A865800EC4716 /* SRGAppearance-ios-demo */,
 			);
 		};
 /* End PBXProject section */
@@ -607,13 +611,16 @@
 				MARKETING_VERSION = 1.1.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = "Debug-static";
 		};
 		6F926B76210F342E00D2E3D0 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -625,8 +632,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGAppearance;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -636,11 +641,10 @@
 		};
 		6F926B77210F342E00D2E3D0 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = "Debug-static";
@@ -652,8 +656,8 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-static";
 		};
@@ -707,14 +711,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MARKETING_VERSION = 1.1.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = "Release-static";
 		};
 		6F926B7A210F343500D2E3D0 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -726,8 +733,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGAppearance;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -736,11 +741,10 @@
 		};
 		6F926B7B210F343500D2E3D0 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = "Release-static";
@@ -752,13 +756,14 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release-static";
 		};
 		6F926B9D210F3D2400D2E3D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -768,7 +773,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-resources";
 				PRODUCT_NAME = SRGAppearance;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -777,6 +781,7 @@
 		};
 		6F926B9E210F3D2400D2E3D0 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -786,7 +791,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-resources";
 				PRODUCT_NAME = SRGAppearance;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -795,6 +799,7 @@
 		};
 		6F926B9F210F3D2400D2E3D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -804,7 +809,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-resources";
 				PRODUCT_NAME = SRGAppearance;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -813,6 +817,7 @@
 		};
 		6F926BA0210F3D2400D2E3D0 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -822,7 +827,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-resources";
 				PRODUCT_NAME = SRGAppearance;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -886,8 +890,10 @@
 				MARKETING_VERSION = 1.1.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -941,14 +947,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MARKETING_VERSION = 1.1.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
 		6FA09D3F1D9E6F8900EDCA64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -958,8 +967,6 @@
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGAppearance;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -969,6 +976,7 @@
 		};
 		6FA09D401D9E6F8900EDCA64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -978,8 +986,6 @@
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGAppearance;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -988,22 +994,20 @@
 		};
 		6FA09D6F1D9E85BC00EDCA64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		6FA09D701D9E85BC00EDCA64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -1015,8 +1019,8 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1027,8 +1031,8 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGAppearance-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1079,7 +1083,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-demo" */ = {
+		6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-ios-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FE08C741E8A865800EC4716 /* Debug */,
