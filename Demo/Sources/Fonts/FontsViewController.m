@@ -6,6 +6,8 @@
 
 #import "FontsViewController.h"
 
+#import "Resources.h"
+
 #import <SRGAppearance/SRGAppearance.h>
 
 @interface FontsViewController ()
@@ -69,7 +71,7 @@
 
 - (instancetype)init
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass(self.class) bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:ResourceNameForUIClass(self.class) bundle:nil];
     return [storyboard instantiateInitialViewController];
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0EE5842316B1EA00328674 /* FontsViewController~tvos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F0EE5832316B1EA00328674 /* FontsViewController~tvos.storyboard */; };
+		6F0EE5882316B40500328674 /* Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EE5872316B40500328674 /* Resources.m */; };
 		6F131A7A1E8C1E17000D6BEC /* Sketch.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A781E8C1E17000D6BEC /* Sketch.ttf */; };
 		6F131A7C1E8C1EBC000D6BEC /* Venetian.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */; };
 		6F5543ED20ADA2960049ECB2 /* FontsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5543EC20ADA2950049ECB2 /* FontsTestCase.m */; };
@@ -29,8 +31,8 @@
 		6FE08CC21E8A86FB00EC4716 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CBE1E8A86FB00EC4716 /* AppDelegate.m */; };
 		6FE08CC31E8A86FB00EC4716 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CBF1E8A86FB00EC4716 /* main.m */; };
 		6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CC51E8A877200EC4716 /* FontsViewController.m */; };
-		6FE08CC81E8A87AA00EC4716 /* FontsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CC71E8A87AA00EC4716 /* FontsViewController.storyboard */; };
-		6FE08CCB1E8A886000EC4716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CCA1E8A886000EC4716 /* LaunchScreen.storyboard */; };
+		6FE08CC81E8A87AA00EC4716 /* FontsViewController~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CC71E8A87AA00EC4716 /* FontsViewController~ios.storyboard */; };
+		6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */; };
 		6FE08CCE1E8A8A0300EC4716 /* SRGAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; };
 		6FE08CCF1E8A8A0300EC4716 /* SRGAppearance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE08CD51E8A8AA700EC4716 /* UIColor+SRGAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE08CD31E8A8AA700EC4716 /* UIColor+SRGAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +82,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F0EE5822316AE8B00328674 /* Demo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Demo.xcconfig; sourceTree = "<group>"; };
+		6F0EE5832316B1EA00328674 /* FontsViewController~tvos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "FontsViewController~tvos.storyboard"; sourceTree = "<group>"; };
+		6F0EE5862316B40500328674 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
+		6F0EE5872316B40500328674 /* Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resources.m; sourceTree = "<group>"; };
 		6F131A781E8C1E17000D6BEC /* Sketch.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sketch.ttf; sourceTree = "<group>"; };
 		6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Venetian.otf; sourceTree = "<group>"; };
 		6F50EBA02315730400A6C0B0 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
@@ -104,15 +110,15 @@
 		6FE08C511E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFontDescriptor+SRGAppearance.h"; sourceTree = "<group>"; };
 		6FE08C521E8A818C00EC4716 /* UIFontDescriptor+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFontDescriptor+SRGAppearance.m"; sourceTree = "<group>"; };
 		6FE08C591E8A83EF00EC4716 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
-		6FE08C5F1E8A865800EC4716 /* SRGAppearance-ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGAppearance-ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGAppearance-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE08CBA1E8A86FB00EC4716 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FE08CBD1E8A86FB00EC4716 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6FE08CBE1E8A86FB00EC4716 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6FE08CBF1E8A86FB00EC4716 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6FE08CC41E8A877200EC4716 /* FontsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontsViewController.h; sourceTree = "<group>"; };
 		6FE08CC51E8A877200EC4716 /* FontsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsViewController.m; sourceTree = "<group>"; };
-		6FE08CC71E8A87AA00EC4716 /* FontsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FontsViewController.storyboard; sourceTree = "<group>"; };
-		6FE08CCA1E8A886000EC4716 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6FE08CC71E8A87AA00EC4716 /* FontsViewController~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "FontsViewController~ios.storyboard"; sourceTree = "<group>"; };
+		6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ios.storyboard"; sourceTree = "<group>"; };
 		6FE08CD31E8A8AA700EC4716 /* UIColor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SRGAppearance.h"; sourceTree = "<group>"; };
 		6FE08CD41E8A8AA700EC4716 /* UIColor+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SRGAppearance.m"; sourceTree = "<group>"; };
 		6FE08CDA1E8AA8E300EC4716 /* BundleFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BundleFix.m; sourceTree = "<group>"; };
@@ -156,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F0EE5852316B40500328674 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6F0EE5862316B40500328674 /* Resources.h */,
+				6F0EE5872316B40500328674 /* Resources.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		6FA09D2C1D9E6F8900EDCA64 = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +186,7 @@
 			children = (
 				6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */,
 				6FA09D661D9E85BC00EDCA64 /* SRGAppearance-tests.xctest */,
-				6FE08C5F1E8A865800EC4716 /* SRGAppearance-ios-demo.app */,
+				6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */,
 				6F926B99210F3D2400D2E3D0 /* SRGAppearance.bundle */,
 			);
 			name = Products;
@@ -244,6 +259,7 @@
 				6FE08CBB1E8A86FB00EC4716 /* Sources */,
 				6FE08CC91E8A886000EC4716 /* Resources */,
 				6FE08CBA1E8A86FB00EC4716 /* Info.plist */,
+				6F0EE5822316AE8B00328674 /* Demo.xcconfig */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -253,6 +269,7 @@
 			children = (
 				6FE08CBC1E8A86FB00EC4716 /* Application */,
 				6FE08CC01E8A86FB00EC4716 /* Fonts */,
+				6F0EE5852316B40500328674 /* Helpers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -272,7 +289,8 @@
 			children = (
 				6FE08CC41E8A877200EC4716 /* FontsViewController.h */,
 				6FE08CC51E8A877200EC4716 /* FontsViewController.m */,
-				6FE08CC71E8A87AA00EC4716 /* FontsViewController.storyboard */,
+				6FE08CC71E8A87AA00EC4716 /* FontsViewController~ios.storyboard */,
+				6F0EE5832316B1EA00328674 /* FontsViewController~tvos.storyboard */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -281,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				6F9453D4223FF5890039974F /* Images.xcassets */,
-				6FE08CCA1E8A886000EC4716 /* LaunchScreen.storyboard */,
+				6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -379,9 +397,9 @@
 			productReference = 6FA09D661D9E85BC00EDCA64 /* SRGAppearance-tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6FE08C5E1E8A865800EC4716 /* SRGAppearance-ios-demo */ = {
+		6FE08C5E1E8A865800EC4716 /* SRGAppearance-demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-ios-demo" */;
+			buildConfigurationList = 6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-demo" */;
 			buildPhases = (
 				6FE08C5B1E8A865800EC4716 /* Sources */,
 				6FE08C5C1E8A865800EC4716 /* Frameworks */,
@@ -393,9 +411,9 @@
 			dependencies = (
 				6FE08CD11E8A8A0300EC4716 /* PBXTargetDependency */,
 			);
-			name = "SRGAppearance-ios-demo";
+			name = "SRGAppearance-demo";
 			productName = "SRGAppearance-demo";
-			productReference = 6FE08C5F1E8A865800EC4716 /* SRGAppearance-ios-demo.app */;
+			productReference = 6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -445,7 +463,7 @@
 				6FA09D351D9E6F8900EDCA64 /* SRGAppearance */,
 				6F926B98210F3D2400D2E3D0 /* SRGAppearance-resources */,
 				6FA09D651D9E85BC00EDCA64 /* SRGAppearance-tests */,
-				6FE08C5E1E8A865800EC4716 /* SRGAppearance-ios-demo */,
+				6FE08C5E1E8A865800EC4716 /* SRGAppearance-demo */,
 			);
 		};
 /* End PBXProject section */
@@ -484,8 +502,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9453D5223FF5890039974F /* Images.xcassets in Resources */,
-				6FE08CC81E8A87AA00EC4716 /* FontsViewController.storyboard in Resources */,
-				6FE08CCB1E8A886000EC4716 /* LaunchScreen.storyboard in Resources */,
+				6FE08CC81E8A87AA00EC4716 /* FontsViewController~ios.storyboard in Resources */,
+				6F0EE5842316B1EA00328674 /* FontsViewController~tvos.storyboard in Resources */,
+				6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */,
+				6F0EE5882316B40500328674 /* Resources.m in Sources */,
 				6FE08CC31E8A86FB00EC4716 /* main.m in Sources */,
 				6FE08CC21E8A86FB00EC4716 /* AppDelegate.m in Sources */,
 			);
@@ -651,13 +671,12 @@
 		};
 		6F926B78210F342E00D2E3D0 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F0EE5822316AE8B00328674 /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-static";
 		};
@@ -751,13 +770,12 @@
 		};
 		6F926B7C210F343500D2E3D0 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F0EE5822316AE8B00328674 /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release-static";
 		};
@@ -1014,25 +1032,23 @@
 		};
 		6FE08C741E8A865800EC4716 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F0EE5822316AE8B00328674 /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		6FE08C751E8A865800EC4716 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F0EE5822316AE8B00328674 /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1083,7 +1099,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-ios-demo" */ = {
+		6FE08C731E8A865800EC4716 /* Build configuration list for PBXNativeTarget "SRGAppearance-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FE08C741E8A865800EC4716 /* Debug */,
