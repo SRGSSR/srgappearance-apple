@@ -10,12 +10,14 @@ CARTHAGE_PLATFORM[sdk=appletv*] = tvOS
 // See https://davedelong.com/blog/2018/07/25/conditional-compilation-in-swift-part-2/
 IOS_FILES = *~ios.*
 TVOS_FILES = *~tvos.*
+MACOS_FILES = $(IOS_FILES) *~macos.*
 
-EXCLUDED_SOURCE_FILE_NAMES = $(IOS_FILES) $(TVOS_FILES)
+EXCLUDED_SOURCE_FILE_NAMES = $(IOS_FILES) $(TVOS_FILES) $(MACOS_FILES)
 
 INCLUDED_SOURCE_FILE_NAMES =
 INCLUDED_SOURCE_FILE_NAMES[sdk=iphone*] = $(IOS_FILES)
 INCLUDED_SOURCE_FILE_NAMES[sdk=appletv*] = $(TVOS_FILES)
+INCLUDED_SOURCE_FILE_NAMES[sdk=mac*] = $(MACOS_FILES)
 
 // Catalyst support
 SDKROOT = iphoneos
