@@ -75,7 +75,7 @@ NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSi
 
 __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
-    NSString *fontsDirectory = [[NSBundle srg_appearanceBundle] pathForResource:@"Fonts" ofType:nil];
+    NSString *fontsDirectory = [NSBundle.srg_appearanceBundle pathForResource:@"Fonts" ofType:nil];
     NSArray<NSString *> *fontFileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:fontsDirectory error:NULL];
     for (NSString *fontFileName in fontFileNames) {
         NSString *fontFilePath = [fontsDirectory stringByAppendingPathComponent:fontFileName];

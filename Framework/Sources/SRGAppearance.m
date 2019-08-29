@@ -10,5 +10,5 @@
 
 NSString *SRGAppearanceMarketingVersion(void)
 {
-    return [NSBundle srg_appearanceBundle].infoDictionary[@"CFBundleShortVersionString"];
+    return NSBundle.srg_appearanceBundle.infoDictionary[@"CFBundleShortVersionString"];
 }
