@@ -16,3 +16,8 @@ EXCLUDED_SOURCE_FILE_NAMES = $(IOS_FILES) $(TVOS_FILES)
 INCLUDED_SOURCE_FILE_NAMES =
 INCLUDED_SOURCE_FILE_NAMES[sdk=iphone*] = $(IOS_FILES)
 INCLUDED_SOURCE_FILE_NAMES[sdk=appletv*] = $(TVOS_FILES)
+
+// Catalyst support
+SDKROOT = iphoneos
+SUPPORTED_PLATFORMS = iphoneos iphonesimulator appletvos appletvsimulator
+SUPPORTS_MACCATALYST = YES
