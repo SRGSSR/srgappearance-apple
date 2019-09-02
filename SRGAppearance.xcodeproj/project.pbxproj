@@ -94,6 +94,7 @@
 		6F5769AC1EBCB38A00F931CA /* UIImage+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SRGAppearance.h"; sourceTree = "<group>"; };
 		6F5769AD1EBCB38A00F931CA /* UIImage+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SRGAppearance.m"; sourceTree = "<group>"; };
 		6F5769B01EBCBE6100F931CA /* ImageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTestCase.m; path = Tests/Sources/ImageTestCase.m; sourceTree = SOURCE_ROOT; };
+		6F706D44231D2AB600DCBC6F /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		6F926B99210F3D2400D2E3D0 /* SRGAppearance.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRGAppearance.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9453D4223FF5890039974F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGAppearance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +175,7 @@
 		6FA09D2C1D9E6F8900EDCA64 = {
 			isa = PBXGroup;
 			children = (
+				6F706D44231D2AB600DCBC6F /* Common.xcconfig */,
 				6FA09D411D9E6FDA00EDCA64 /* Framework */,
 				6FA09D711D9E861600EDCA64 /* Tests */,
 				6FE08CB91E8A86FB00EC4716 /* Demo */,
