@@ -5,3 +5,6 @@ LAUNCH_SCREEN[sdk=appletv*] =
 
 APP_ICONS_SOURCE[sdk=iphone*] = AppIcon
 APP_ICONS_SOURCE[sdk=appletv*] = App Icon & Top Shelf Image
+
+// Catalyst support
+DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES
