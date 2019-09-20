@@ -671,6 +671,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = "Debug-static";
 		};
@@ -770,6 +771,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = "Release-static";
 		};
@@ -1032,6 +1034,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1043,6 +1046,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
