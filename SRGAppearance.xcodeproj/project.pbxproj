@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F0EE5842316B1EA00328674 /* FontsViewController~tvos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F0EE5832316B1EA00328674 /* FontsViewController~tvos.storyboard */; };
 		6F0EE5882316B40500328674 /* Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EE5872316B40500328674 /* Resources.m */; };
 		6F131A7A1E8C1E17000D6BEC /* Sketch.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A781E8C1E17000D6BEC /* Sketch.ttf */; };
 		6F131A7C1E8C1EBC000D6BEC /* Venetian.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F131A7B1E8C1EBC000D6BEC /* Venetian.otf */; };
@@ -31,7 +30,6 @@
 		6FE08CC21E8A86FB00EC4716 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CBE1E8A86FB00EC4716 /* AppDelegate.m */; };
 		6FE08CC31E8A86FB00EC4716 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CBF1E8A86FB00EC4716 /* main.m */; };
 		6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CC51E8A877200EC4716 /* FontsViewController.m */; };
-		6FE08CC81E8A87AA00EC4716 /* FontsViewController~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CC71E8A87AA00EC4716 /* FontsViewController~ios.storyboard */; };
 		6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */; };
 		6FE08CCE1E8A8A0300EC4716 /* SRGAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; };
 		6FE08CCF1E8A8A0300EC4716 /* SRGAppearance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09D361D9E6F8900EDCA64 /* SRGAppearance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -83,7 +81,6 @@
 
 /* Begin PBXFileReference section */
 		6F0EE5822316AE8B00328674 /* Demo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Demo.xcconfig; sourceTree = "<group>"; };
-		6F0EE5832316B1EA00328674 /* FontsViewController~tvos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "FontsViewController~tvos.storyboard"; sourceTree = "<group>"; };
 		6F0EE5862316B40500328674 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
 		6F0EE5872316B40500328674 /* Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resources.m; sourceTree = "<group>"; };
 		6F131A781E8C1E17000D6BEC /* Sketch.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sketch.ttf; sourceTree = "<group>"; };
@@ -118,7 +115,6 @@
 		6FE08CBF1E8A86FB00EC4716 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6FE08CC41E8A877200EC4716 /* FontsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontsViewController.h; sourceTree = "<group>"; };
 		6FE08CC51E8A877200EC4716 /* FontsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsViewController.m; sourceTree = "<group>"; };
-		6FE08CC71E8A87AA00EC4716 /* FontsViewController~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "FontsViewController~ios.storyboard"; sourceTree = "<group>"; };
 		6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ios.storyboard"; sourceTree = "<group>"; };
 		6FE08CD31E8A8AA700EC4716 /* UIColor+SRGAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SRGAppearance.h"; sourceTree = "<group>"; };
 		6FE08CD41E8A8AA700EC4716 /* UIColor+SRGAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SRGAppearance.m"; sourceTree = "<group>"; };
@@ -291,8 +287,6 @@
 			children = (
 				6FE08CC41E8A877200EC4716 /* FontsViewController.h */,
 				6FE08CC51E8A877200EC4716 /* FontsViewController.m */,
-				6FE08CC71E8A87AA00EC4716 /* FontsViewController~ios.storyboard */,
-				6F0EE5832316B1EA00328674 /* FontsViewController~tvos.storyboard */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -425,7 +419,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SRG;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "SRG SSR";
 				TargetAttributes = {
 					6F926B98210F3D2400D2E3D0 = {
@@ -504,8 +498,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9453D5223FF5890039974F /* Images.xcassets in Resources */,
-				6FE08CC81E8A87AA00EC4716 /* FontsViewController~ios.storyboard in Resources */,
-				6F0EE5842316B1EA00328674 /* FontsViewController~tvos.storyboard in Resources */,
 				6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,7 +600,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -646,7 +638,6 @@
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -665,6 +656,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_VERSION = 3.0;
@@ -679,6 +671,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = "Debug-static";
 		};
@@ -714,7 +707,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -746,7 +739,6 @@
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -764,6 +756,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_VERSION = 3.0;
@@ -778,6 +771,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = "Release-static";
 		};
@@ -789,7 +783,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -807,7 +800,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -825,7 +817,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -843,7 +834,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -885,7 +875,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -949,7 +939,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -980,7 +970,6 @@
 			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -999,7 +988,6 @@
 			baseConfigurationReference = 6F50EBA02315730400A6C0B0 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1016,6 +1004,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_VERSION = 3.0;
@@ -1026,6 +1015,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F50EBA12315731300A6C0B0 /* Tests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_VERSION = 3.0;
@@ -1040,6 +1030,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1051,6 +1042,7 @@
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

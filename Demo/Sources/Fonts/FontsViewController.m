@@ -71,8 +71,7 @@
 
 - (instancetype)init
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:ResourceNameForUIClass(self.class) bundle:nil];
-    return [storyboard instantiateInitialViewController];
+    return [self initWithStyle:UITableViewStyleGrouped];
 }
 
 #pragma mark View lifecycle
@@ -131,7 +130,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"FontCell"];
+    static NSString * const kCellIdentifier = @"FontCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    if (! cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
+    }
+    
+    return cell;
 }
 
 #pragma mark UITableViewDelegate protocol
