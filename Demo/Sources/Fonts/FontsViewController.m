@@ -49,7 +49,7 @@
                                     SRGAppearanceFontTextStyleSubtitle : @"Subtitle",
                                     SRGAppearanceFontTextStyleBody : @"Body",
                                     SRGAppearanceFontTextStyleHeadline : @"Headline",
-                                    SRGAppearanceFontTextStyleTitle : @"Subheadline" };
+                                    SRGAppearanceFontTextStyleTitle : @"Title" };
     });
     return [self titlesForTextStyles:s_customTextStyleNames];
 }
