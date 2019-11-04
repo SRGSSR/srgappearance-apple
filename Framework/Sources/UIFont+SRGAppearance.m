@@ -87,6 +87,20 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 + (NSNumber *)pointSizeForCustomFontTextStyle:(NSString *)textStyle
 {
+#if TARGET_OS_TV
+    static NSDictionary<NSString *, NSNumber *> *s_customTextStylesMap;
+    static dispatch_once_t s_onceToken;
+    dispatch_once(&s_onceToken, ^{
+        s_customTextStylesMap = @{ SRGAppearanceFontTextStyleCaption : @20,
+                                   SRGAppearanceFontTextStyleSubtitle : @29,
+                                   SRGAppearanceFontTextStyleBody : @26,
+                                   SRGAppearanceFontTextStyleHeadline : @31,
+                                   SRGAppearanceFontTextStyleTitle : @48 };
+    });
+    
+    // There are no content size category specialization on tvOS (the only one is `UIContentSizeCategoryLarge`).
+    return s_customTextStylesMap[textStyle];
+#else
     // We introduce custom SRG text styles for which we can choose the exact behavior we want
     static NSDictionary<NSString *, NSDictionary<NSString *, NSNumber *> *> *s_customTextStylesMap;
     static dispatch_once_t s_onceToken;
@@ -161,6 +175,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     // The default content size category of an iOS device is `UIContentSizeCategoryLarge`.
     UIContentSizeCategory contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
     return s_customTextStylesMap[textStyle][contentSizeCategory];
+#endif
 }
 
 + (UIFont *)srg_fontWithName:(NSString *)name textStyle:(NSString *)textStyle
