@@ -64,7 +64,7 @@
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
     }
-    return [titles copy];
+    return titles.copy;
 }
 
 #pragma mark Object lifecycle
