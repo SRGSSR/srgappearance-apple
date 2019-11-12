@@ -43,7 +43,10 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 + (UIFont *)srg_mediumFontWithTextStyle:(NSString *)textStyle;
 + (UIFont *)srg_italicFontWithTextStyle:(NSString *)textStyle;
 + (UIFont *)srg_boldItalicFontWithTextStyle:(NSString *)textStyle;
+
 + (UIFont *)srg_regularSerifFontWithTextStyle:(NSString *)textStyle;
++ (UIFont *)srg_lightSerifFontWithTextStyle:(NSString *)textStyle;
++ (UIFont *)srg_mediumSerifFontWithTextStyle:(NSString *)textStyle;
 
 /**
  *  Return a font with the given text style. Supports standard SRG SSR as well as iOS standard text styles.
@@ -62,7 +65,10 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 + (UIFont *)srg_mediumFontWithSize:(CGFloat)size;
 + (UIFont *)srg_italicFontWithSize:(CGFloat)size;
 + (UIFont *)srg_boldItalicFontWithSize:(CGFloat)size;
+
 + (UIFont *)srg_regularSerifFontWithSize:(CGFloat)size;
++ (UIFont *)srg_lightSerifFontWithSize:(CGFloat)size;
++ (UIFont *)srg_mediumSerifFontWithSize:(CGFloat)size;
 
 @end
 
