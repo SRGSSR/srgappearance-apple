@@ -80,6 +80,8 @@
 {
     [super viewDidLoad];
     
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"FontCell"];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(contentSizeCategoryDidChange:)
                                                  name:UIContentSizeCategoryDidChangeNotification
@@ -130,14 +132,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * const kCellIdentifier = @"FontCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    if (! cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
-    }
-    
-    return cell;
+    return [tableView dequeueReusableCellWithIdentifier:@"FontCell"];
 }
 
 #pragma mark UITableViewDelegate protocol

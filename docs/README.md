@@ -1,6 +1,6 @@
-[![SRG Appearance logo](README-images/logo.png)](https://github.com/SRGSSR/srgappearance-ios)
+[![SRG Appearance logo](README-images/logo.png)](https://github.com/SRGSSR/srgappearance-apple)
 
-[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgappearance-ios)](https://github.com/SRGSSR/srgappearance-ios/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgappearance-ios) [![Build Status](https://travis-ci.org/SRGSSR/srgappearance-ios.svg?branch=master)](https://travis-ci.org/SRGSSR/srgappearance-ios/branches) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![GitHub license](https://img.shields.io/github/license/SRGSSR/srgappearance-ios)](https://github.com/SRGSSR/srgappearance-ios/blob/master/LICENSE)
+[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgappearance-apple)](https://github.com/SRGSSR/srgappearance-apple/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgappearance-apple) [![Build Status](https://travis-ci.org/SRGSSR/srgappearance-apple.svg?branch=master)](https://travis-ci.org/SRGSSR/srgappearance-apple/branches) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![GitHub license](https://img.shields.io/github/license/SRGSSR/srgappearance-apple)](https://github.com/SRGSSR/srgappearance-apple/blob/master/LICENSE)
 
 ## About
 
@@ -12,7 +12,7 @@ SRG Appearance is a lightweight library providing unified SRG SSR appearance to 
 
 ## Compatibility
 
-The library is suitable for applications running on iOS 9, tvOS 9 and above. The project is meant to be opened with the latest Xcode version.
+The library is suitable for applications running on iOS 9, tvOS 12 and above. The project is meant to be opened with the latest Xcode version.
 
 ## Contributing
 
@@ -23,7 +23,7 @@ If you want to contribute to the project, have a look at our [contributing guide
 The library can be added to a project using [Carthage](https://github.com/Carthage/Carthage) by adding the following dependency to your `Cartfile`:
     
 ```
-github "SRGSSR/srgappearance-ios"
+github "SRGSSR/srgappearance-apple"
 ```
 
 For more information about Carthage and its use, refer to the [official documentation](https://github.com/Carthage/Carthage).
@@ -32,7 +32,7 @@ For more information about Carthage and its use, refer to the [official document
 
 The library requires the following frameworks to be added to any target requiring it:
 
-* `SRGAppearance `: The main library framework.
+* `SRGAppearance`: The main library framework.
 
 ### Dynamic framework integration
 
@@ -91,7 +91,7 @@ Alternatively, you can of course open the project with Xcode and use the availab
 
 Two sets of font methods are provided in `UIFont+SRGAppearance.h`:
 
-* Methods returning a font with a given size. You can also set fonts with a given size directly in Interface Builder. Simply install the fonts available in `Carthage/Checkouts/(iOS|tvOS)/srgappearance-ios/Framework/Resources/Fonts` by double-clicking on them first.
+* Methods returning a font with a given size. You can also set fonts with a given size directly in Interface Builder. Simply install the fonts available in `Carthage/Checkouts/(iOS|tvOS)/srgappearance-apple/Framework/Resources/Fonts` by double-clicking on them first.
 * Methods returning a font for a given text style. The exact font size is determined by the corresponding system accessibility setting. Setting custom fonts for a given style is sadly currently not supported in Interface Builder and must be performed in code.
 
 You can also register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function available from the same header file.
