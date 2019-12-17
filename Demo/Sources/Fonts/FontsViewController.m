@@ -6,6 +6,8 @@
 
 #import "FontsViewController.h"
 
+#import "Resources.h"
+
 #import <SRGAppearance/SRGAppearance.h>
 
 @interface FontsViewController ()
@@ -47,7 +49,7 @@
                                     SRGAppearanceFontTextStyleSubtitle : @"Subtitle",
                                     SRGAppearanceFontTextStyleBody : @"Body",
                                     SRGAppearanceFontTextStyleHeadline : @"Headline",
-                                    SRGAppearanceFontTextStyleTitle : @"Subheadline" };
+                                    SRGAppearanceFontTextStyleTitle : @"Title" };
     });
     return [self titlesForTextStyles:s_customTextStyleNames];
 }
@@ -62,15 +64,14 @@
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
     }
-    return [titles copy];
+    return titles.copy;
 }
 
 #pragma mark Object lifecycle
 
 - (instancetype)init
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass(self.class) bundle:nil];
-    return [storyboard instantiateInitialViewController];
+    return [self initWithStyle:UITableViewStyleGrouped];
 }
 
 #pragma mark View lifecycle
@@ -78,6 +79,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"FontCell"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(contentSizeCategoryDidChange:)

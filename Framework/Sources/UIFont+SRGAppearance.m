@@ -87,6 +87,20 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 + (NSNumber *)pointSizeForCustomFontTextStyle:(NSString *)textStyle
 {
+#if TARGET_OS_TV
+    static NSDictionary<NSString *, NSNumber *> *s_customTextStylesMap;
+    static dispatch_once_t s_onceToken;
+    dispatch_once(&s_onceToken, ^{
+        s_customTextStylesMap = @{ SRGAppearanceFontTextStyleCaption : @20,
+                                   SRGAppearanceFontTextStyleSubtitle : @29,
+                                   SRGAppearanceFontTextStyleBody : @26,
+                                   SRGAppearanceFontTextStyleHeadline : @31,
+                                   SRGAppearanceFontTextStyleTitle : @48 };
+    });
+    
+    // There are no content size category specialization on tvOS (the only one is `UIContentSizeCategoryLarge`).
+    return s_customTextStylesMap[textStyle];
+#else
     // We introduce custom SRG text styles for which we can choose the exact behavior we want
     static NSDictionary<NSString *, NSDictionary<NSString *, NSNumber *> *> *s_customTextStylesMap;
     static dispatch_once_t s_onceToken;
@@ -161,6 +175,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     // The default content size category of an iOS device is `UIContentSizeCategoryLarge`.
     UIContentSizeCategory contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
     return s_customTextStylesMap[textStyle][contentSizeCategory];
+#endif
 }
 
 + (UIFont *)srg_fontWithName:(NSString *)name textStyle:(NSString *)textStyle
@@ -175,84 +190,109 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     }
 }
 
++ (UIFont *)srg_fontWithName:(NSString *)name size:(CGFloat)size
+{
+    return [UIFont fontWithName:name size:size] ?: [UIFont fontWithName:@"Helvetica" size:size];
+}
+
 + (UIFont *)srg_regularFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRType-Regular" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeTextApp-Regular" textStyle:textStyle];
 }
 
 + (UIFont *)srg_boldFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRType-Bold" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeTextApp-Bold" textStyle:textStyle];
 }
 
 + (UIFont *)srg_heavyFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRType-Heavy" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeTextApp-Heavy" textStyle:textStyle];
 }
 
 + (UIFont *)srg_lightFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRType-Light" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeTextApp-Light" textStyle:textStyle];
 }
 
 + (UIFont *)srg_mediumFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRType-Medium" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeTextApp-Medium" textStyle:textStyle];
 }
 
 + (UIFont *)srg_italicFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRType-Italic" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeTextApp-Italic" textStyle:textStyle];
 }
 
 + (UIFont *)srg_boldItalicFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRType-BoldItalic" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeTextApp-BoldItalic" textStyle:textStyle];
 }
 
 + (UIFont *)srg_regularSerifFontWithTextStyle:(NSString *)textStyle
 {
-    return [self srg_fontWithName:@"SRGSSRTypeSerif-Regular" textStyle:textStyle];
+    return [self srg_fontWithName:@"SRGSSRTypeSerifTextApp-Regular" textStyle:textStyle];
+}
+
++ (UIFont *)srg_lightSerifFontWithTextStyle:(NSString *)textStyle
+{
+    return [self srg_fontWithName:@"SRGSSRTypeSerifTextApp-Light" textStyle:textStyle];
+}
+
++ (UIFont *)srg_mediumSerifFontWithTextStyle:(NSString *)textStyle
+{
+    return [self srg_fontWithName:@"SRGSSRTypeSerifTextApp-Medium" textStyle:textStyle];
 }
 
 + (UIFont *)srg_regularFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRType-Regular" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeTextApp-Regular" size:size];
 }
 
 + (UIFont *)srg_boldFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRType-Bold" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeTextApp-Bold" size:size];
 }
 
 + (UIFont *)srg_heavyFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRType-Heavy" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeTextApp-Heavy" size:size];
 }
 
 + (UIFont *)srg_lightFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRType-Light" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeTextApp-Light" size:size];
 }
 
 + (UIFont *)srg_mediumFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRType-Medium" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeTextApp-Medium" size:size];
 }
 
 + (UIFont *)srg_italicFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRType-Italic" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeTextApp-Italic" size:size];
 }
 
 + (UIFont *)srg_boldItalicFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRType-BoldItalic" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeTextApp-BoldItalic" size:size];
 }
 
 + (UIFont *)srg_regularSerifFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"SRGSSRTypeSerif-Regular" size:size];
+    return [UIFont srg_fontWithName:@"SRGSSRTypeSerifTextApp-Regular" size:size];
+}
+
++ (UIFont *)srg_lightSerifFontWithSize:(CGFloat)size
+{
+    return [UIFont srg_fontWithName:@"SRGSSRTypeSerifTextApp-Light" size:size];
+}
+
++ (UIFont *)srg_mediumSerifFontWithSize:(CGFloat)size
+{
+    return [UIFont srg_fontWithName:@"SRGSSRTypeSerifTextApp-Medium" size:size];
 }
 
 @end
