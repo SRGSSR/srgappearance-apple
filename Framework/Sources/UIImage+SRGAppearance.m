@@ -6,6 +6,8 @@
 
 #import "UIImage+SRGAppearance.h"
 
+#import "UIColor+SRGAppearance.h"
+
 // Implementation borrowed from https://github.com/erica/useful-things
 
 static CGFloat SRGAppearanceImageAspectScaleFit(CGSize sourceSize, CGRect destRect)
@@ -91,7 +93,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
 + (NSURL *)srg_URLForVectorImageAtPath:(NSString *)filePath withSize:(CGSize)size fillColor:(UIColor *)fillColor
 {
     // Check cached image existence at the very beginning, and return it if available
-    NSString *cachedFileName = [NSString stringWithFormat:@"%@_%@_%@.png", @(filePath.hash), @(size.width), @(size.height)];
+    NSString *cachedFileName = [NSString stringWithFormat:@"%@_%@_%@_%@.png", @(filePath.hash), @(size.width), @(size.height), fillColor.srg_hexadecimalString ?: @"none"];
     NSString *cachesDirectory = SRGAppearanceVectorImageCachesDirectory();
     NSString *cachedFilePath = [cachesDirectory stringByAppendingPathComponent:cachedFileName];
     if ([[NSFileManager defaultManager] fileExistsAtPath:cachedFilePath]) {
