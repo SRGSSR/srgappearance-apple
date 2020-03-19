@@ -32,6 +32,11 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
  */
 + (nullable UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString;
 
+/**
+ *  Return the color as a hexadecimal value.
+ */
+@property (nonatomic, readonly, copy) NSString *srg_hexadecimalString;
+
 @end
 
 NS_ASSUME_NONNULL_END

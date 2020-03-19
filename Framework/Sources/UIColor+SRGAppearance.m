@@ -12,6 +12,8 @@
 
 @implementation UIColor (SRGAppearance)
 
+#pragma mark Class methods
+
 + (UIColor *)srg_redColor
 {
     return [UIColor srg_colorFromHexadecimalString:@"#9d0018"];
@@ -25,6 +27,13 @@
 + (UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString
 {
     return [SRGHexadecimalColorTransformer() transformedValue:hexadecimalString];
+}
+
+#pragma mark Getters and setters
+
+- (NSString *)srg_hexadecimalString
+{
+    return [SRGHexadecimalColorTransformer() reverseTransformedValue:self];
 }
 
 @end
