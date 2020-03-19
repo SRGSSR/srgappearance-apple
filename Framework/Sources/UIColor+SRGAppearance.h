@@ -27,13 +27,13 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
 @property (class, nonatomic, readonly) UIColor *srg_blueColor;
 
 /**
- *  Return the color matching a hexadecimal string (with or without leading wildcard), `nil` if the string does
- *  not correspond to a color.
+ *  Return the color matching a hexadecimal #rrggbbaa or #rrggbb string (the leading wildcard is optional), or `nil` if
+ *  the string does not correspond to a color.
  */
 + (nullable UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString;
 
 /**
- *  Return the color as a hexadecimal value.
+ *  Return the color as a hexadecimal value #rrggbbaa, or simply #rrggbb if the alpha channel is 1.
  */
 @property (nonatomic, readonly, copy) NSString *srg_hexadecimalString;
 
