@@ -6,6 +6,8 @@
 
 #import "UIImage+SRGAppearance.h"
 
+// Implementation borrowed from https://github.com/erica/useful-things
+
 static CGFloat SRGAppearanceImageAspectScaleFit(CGSize sourceSize, CGRect destRect)
 {
     CGSize destSize = destRect.size;
@@ -27,7 +29,7 @@ static CGRect SRGAppearanceImageRectByFittingRect(CGRect sourceRect, CGRect dest
     return SRGAppearanceImageRectAroundCenter(center, targetSize);
 }
 
-static void SRGAppearanceImageDrawPDFPageInRect(CGPDFPageRef pageRef, CGRect rect)
+static void SRGAppearanceImageDrawPDFPageInRect(CGPDFPageRef pageRef, CGRect rect, CGColorRef fillColor)
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -42,6 +44,11 @@ static void SRGAppearanceImageDrawPDFPageInRect(CGPDFPageRef pageRef, CGRect rec
     
     // Flip the rect, which remains in UIKit space
     CGRect d = CGRectApplyAffineTransform(rect, transform);
+    
+    if (fillColor) {
+        CGContextSetFillColorWithColor(context, fillColor);
+        CGContextFillRect(context, d);
+    }
     
     // Calculate a rectangle to draw to
     CGRect pageRect = CGPDFPageGetBoxRect(pageRef, kCGPDFCropBox);
@@ -70,14 +77,18 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
 
 @implementation UIImage (SRGAppearance)
 
-// Implementation borrowed from https://github.com/erica/useful-things
-+ (UIImage *)srg_vectorImageAtPath:(NSString *)filePath withSize:(CGSize)size
++ (UIImage *)srg_vectorImageAtPath:(NSString *)filePath withSize:(CGSize)size fillColor:(UIColor *)fillColor
 {
-    NSURL *fileURL = [self srg_URLForVectorImageAtPath:filePath withSize:size];
+    NSURL *fileURL = [self srg_URLForVectorImageAtPath:filePath withSize:size fillColor:fillColor];
     return fileURL ? [UIImage imageWithContentsOfFile:fileURL.path] : nil;
 }
 
-+ (NSURL *)srg_URLForVectorImageAtPath:(NSString *)filePath withSize:(CGSize)size
++ (UIImage *)srg_vectorImageAtPath:(NSString *)filePath withSize:(CGSize)size
+{
+    return [self srg_vectorImageAtPath:filePath withSize:size fillColor:nil];
+}
+
++ (NSURL *)srg_URLForVectorImageAtPath:(NSString *)filePath withSize:(CGSize)size fillColor:(UIColor *)fillColor
 {
     // Check cached image existence at the very beginning, and return it if available
     NSString *cachedFileName = [NSString stringWithFormat:@"%@_%@_%@.png", @(filePath.hash), @(size.width), @(size.height)];
@@ -102,7 +113,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
     
     UIGraphicsBeginImageContextWithOptions(size, NO, 1. /* Force scale to 1 (0 would use device scale) */);
     CGPDFPageRef pageRef = CGPDFDocumentGetPage(pdfDocumentRef, 1);
-    SRGAppearanceImageDrawPDFPageInRect(pageRef, CGRectMake(0.f, 0.f, size.width, size.height));
+    SRGAppearanceImageDrawPDFPageInRect(pageRef, CGRectMake(0.f, 0.f, size.width, size.height), fillColor.CGColor);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -118,6 +129,11 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
     }
     
     return [NSURL fileURLWithPath:cachedFilePath];
+}
+
++ (NSURL *)srg_URLForVectorImageAtPath:(NSString *)filePath withSize:(CGSize)size
+{
+    return [self srg_URLForVectorImageAtPath:filePath withSize:size fillColor:nil];
 }
 
 + (void)srg_clearVectorImageCache
