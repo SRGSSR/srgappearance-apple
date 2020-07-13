@@ -95,7 +95,7 @@
 
 - (void)reloadData
 {
-    NSString *contentSizeCategoryShortName = [[UIApplication sharedApplication].preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
+    NSString *contentSizeCategoryShortName = [UIApplication.sharedApplication.preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
     self.title = [NSString stringWithFormat:@"%@ (%@)", NSLocalizedString(@"Fonts", nil), contentSizeCategoryShortName];
     
     self.customTitles = [FontsViewController titlesForCustomTextStyles];

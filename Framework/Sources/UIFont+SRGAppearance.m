@@ -173,7 +173,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     });
     
     // The default content size category of an iOS device is `UIContentSizeCategoryLarge`.
-    UIContentSizeCategory contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
+    UIContentSizeCategory contentSizeCategory = UIApplication.sharedApplication.preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
     return s_customTextStylesMap[textStyle][contentSizeCategory];
 #endif
 }

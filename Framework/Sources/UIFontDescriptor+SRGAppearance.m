@@ -33,7 +33,7 @@
         fontDescriptorsForNameMap[style] = fontDescriptorForCategoryMap;
     }
     
-    NSString *contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
+    NSString *contentSizeCategory = UIApplication.sharedApplication.preferredContentSizeCategory ?: UIContentSizeCategoryLarge;
     UIFontDescriptor *fontDescriptor = fontDescriptorForCategoryMap[contentSizeCategory];
     if (! fontDescriptor) {
         UIFontDescriptor *systemFontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:style];
