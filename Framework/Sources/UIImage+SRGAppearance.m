@@ -111,13 +111,13 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
     NSString *cachedFileName = [NSString stringWithFormat:@"%@_%@_%@_%@.png", @(filePath.hash), @(size.width), @(size.height), fillColor.srg_hexadecimalString ?: @"none"];
     NSString *cachesDirectory = SRGAppearanceVectorImageCachesDirectory();
     NSString *cachedFilePath = [cachesDirectory stringByAppendingPathComponent:cachedFileName];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:cachedFilePath]) {
+    if ([NSFileManager.defaultManager fileExistsAtPath:cachedFilePath]) {
         return [NSURL fileURLWithPath:cachedFilePath];
     }
     
     // Check cache directory existence, since the cache might be cleared anytime
-    if (! [[NSFileManager defaultManager] fileExistsAtPath:cachesDirectory]) {
-        if (! [[NSFileManager defaultManager] createDirectoryAtPath:cachesDirectory withIntermediateDirectories:YES attributes:nil error:NULL]) {
+    if (! [NSFileManager.defaultManager fileExistsAtPath:cachesDirectory]) {
+        if (! [NSFileManager.defaultManager createDirectoryAtPath:cachesDirectory withIntermediateDirectories:YES attributes:nil error:NULL]) {
             return nil;
         }
     }
@@ -153,7 +153,7 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
         return nil;
     }
     
-    if (! [[NSFileManager defaultManager] createFileAtPath:cachedFilePath contents:imageData attributes:nil]) {
+    if (! [NSFileManager.defaultManager createFileAtPath:cachedFilePath contents:imageData attributes:nil]) {
         return nil;
     }
     
@@ -183,8 +183,8 @@ static NSString *SRGAppearanceVectorImageCachesDirectory(void)
 + (void)srg_clearVectorImageCache
 {
     NSString *cachesDirectory = SRGAppearanceVectorImageCachesDirectory();
-    if ([[NSFileManager defaultManager] fileExistsAtPath:cachesDirectory]) {
-        [[NSFileManager defaultManager] removeItemAtPath:cachesDirectory error:NULL];
+    if ([NSFileManager.defaultManager fileExistsAtPath:cachesDirectory]) {
+        [NSFileManager.defaultManager removeItemAtPath:cachesDirectory error:NULL];
     }
 }
 
