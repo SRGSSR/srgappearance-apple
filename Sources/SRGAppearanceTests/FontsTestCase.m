@@ -4,8 +4,8 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <SRGAppearance/SRGAppearance.h>
-#import <XCTest/XCTest.h>
+@import SRGAppearance;
+@import XCTest;
 
 @interface FontsTestCase : XCTestCase
 
@@ -15,7 +15,7 @@
 
 - (void)testValidFontRegistration
 {
-    NSString *fontFilePath = [[NSBundle mainBundle] pathForResource:@"FontAwesome" ofType:@"otf"];
+    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"FontAwesome" ofType:@"otf"];
     XCTAssertFalse([[UIFont familyNames] containsObject:@"FontAwesome"]);
     XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
     XCTAssertTrue([[UIFont familyNames] containsObject:@"FontAwesome"]);
@@ -23,19 +23,19 @@
 
 - (void)testCorruptFontRegistration
 {
-    NSString *fontFilePath = [[NSBundle mainBundle] pathForResource:@"Corrupt" ofType:@"otf"];
+    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Corrupt" ofType:@"otf"];
     XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
 }
 
 - (void)testMissingFontRegistration
 {
-    NSString *fontFilePath = [[NSBundle mainBundle] pathForResource:@"Missing" ofType:@"otf"];
+    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Missing" ofType:@"otf"];
     XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
 }
 
 - (void)testMultipleFontRegistration
 {
-    NSString *fontFilePath = [[NSBundle mainBundle] pathForResource:@"Sketch" ofType:@"ttf"];
+    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Sketch" ofType:@"ttf"];
     XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
     XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
 }
@@ -280,7 +280,7 @@
 
 - (void)testCustomFont
 {
-    NSString *fontFilePath = [[NSBundle mainBundle] pathForResource:@"Venetian" ofType:@"otf"];
+    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Venetian" ofType:@"otf"];
     XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
     
     static NSString *kFontName = @"Venetian";

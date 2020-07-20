@@ -4,12 +4,12 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <SRGAppearance/SRGAppearance.h>
-#import <XCTest/XCTest.h>
+@import SRGAppearance;
+@import XCTest;
 
 NSString *TestImagePath(void)
 {
-    return [[NSBundle mainBundle] pathForResource:@"TestImage" ofType:@"pdf"];
+    return [SWIFTPM_MODULE_BUNDLE pathForResource:@"TestImage" ofType:@"pdf"];
 }
 
 @interface ImageTestCase : XCTestCase

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1200"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FA09D351D9E6F8900EDCA64"
-               BuildableName = "SRGAppearance.framework"
-               BlueprintName = "SRGAppearance"
+               BlueprintIdentifier = "6FE08C5E1E8A865800EC4716"
+               BuildableName = "SRGAppearance-demo.app"
+               BlueprintName = "SRGAppearance-demo"
                ReferencedContainer = "container:SRGAppearance.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,30 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6FA09D351D9E6F8900EDCA64"
-            BuildableName = "SRGAppearance.framework"
-            BlueprintName = "SRGAppearance"
-            ReferencedContainer = "container:SRGAppearance.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FA09D651D9E85BC00EDCA64"
-               BuildableName = "SRGAppearance-tests.xctest"
-               BlueprintName = "SRGAppearance-tests"
-               ReferencedContainer = "container:SRGAppearance.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -62,15 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6FA09D351D9E6F8900EDCA64"
-            BuildableName = "SRGAppearance.framework"
-            BlueprintName = "SRGAppearance"
+            BlueprintIdentifier = "6FE08C5E1E8A865800EC4716"
+            BuildableName = "SRGAppearance-demo.app"
+            BlueprintName = "SRGAppearance-demo"
             ReferencedContainer = "container:SRGAppearance.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -78,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6FA09D351D9E6F8900EDCA64"
-            BuildableName = "SRGAppearance.framework"
-            BlueprintName = "SRGAppearance"
+            BlueprintIdentifier = "6FE08C5E1E8A865800EC4716"
+            BuildableName = "SRGAppearance-demo.app"
+            BlueprintName = "SRGAppearance-demo"
             ReferencedContainer = "container:SRGAppearance.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

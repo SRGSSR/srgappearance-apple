@@ -6,9 +6,7 @@
 
 #import "SRGAppearance.h"
 
-#import "NSBundle+SRGAppearance.h"
-
 NSString *SRGAppearanceMarketingVersion(void)
 {
-    return [NSBundle srg_appearanceBundle].infoDictionary[@"CFBundleShortVersionString"];
+    return @"2.1.1";
 }

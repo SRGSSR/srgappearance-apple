@@ -4,8 +4,8 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <SRGAppearance/SRGAppearance.h>
-#import <XCTest/XCTest.h>
+@import SRGAppearance;
+@import XCTest;
 
 @interface ColorTestCase : XCTestCase
 

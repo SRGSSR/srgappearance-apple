@@ -8,7 +8,7 @@
 
 #import "Resources.h"
 
-#import <SRGAppearance/SRGAppearance.h>
+@import SRGAppearance;
 
 @interface FontsViewController ()
 
