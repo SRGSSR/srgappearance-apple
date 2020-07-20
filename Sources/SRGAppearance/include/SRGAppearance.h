@@ -6,10 +6,6 @@
 
 @import Foundation;
 
-// Framework standard version number.
-FOUNDATION_EXPORT double SRGAppearanceVersionNumber;
-FOUNDATION_EXPORT const unsigned char SRGAppearanceVersionString[];
-
 // Oficial version number.
 FOUNDATION_EXPORT NSString *SRGAppearanceMarketingVersion(void);
 

@@ -2,6 +2,10 @@
 
 import PackageDescription
 
+struct ProjectSettings {
+    static let marketingVersion: String = "2.1.1"
+}
+
 let package = Package(
     name: "SRGAppearance",
     platforms: [
@@ -19,6 +23,9 @@ let package = Package(
             name: "SRGAppearance",
             resources: [
                 .copy("Fonts")
+            ],
+            cSettings: [
+                .define("MARKETING_VERSION", to: "\"\(ProjectSettings.marketingVersion)\""),
             ]
         ),
         .testTarget(
