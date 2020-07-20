@@ -25,7 +25,7 @@ let package = Package(
                 .copy("Fonts")
             ],
             cSettings: [
-                .define("MARKETING_VERSION", to: "\"\(ProjectSettings.marketingVersion)\""),
+                .define("MARKETING_VERSION", to: "\"\(ProjectSettings.marketingVersion)\"")
             ]
         ),
         .testTarget(
