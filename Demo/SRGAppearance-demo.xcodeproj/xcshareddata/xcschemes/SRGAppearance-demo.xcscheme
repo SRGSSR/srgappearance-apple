@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6FE08C5E1E8A865800EC4716"
                BuildableName = "SRGAppearance-demo.app"
                BlueprintName = "SRGAppearance-demo"
-               ReferencedContainer = "container:SRGAppearance.xcodeproj">
+               ReferencedContainer = "container:SRGAppearance-demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "6FE08C5E1E8A865800EC4716"
             BuildableName = "SRGAppearance-demo.app"
             BlueprintName = "SRGAppearance-demo"
-            ReferencedContainer = "container:SRGAppearance.xcodeproj">
+            ReferencedContainer = "container:SRGAppearance-demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "6FE08C5E1E8A865800EC4716"
             BuildableName = "SRGAppearance-demo.app"
             BlueprintName = "SRGAppearance-demo"
-            ReferencedContainer = "container:SRGAppearance.xcodeproj">
+            ReferencedContainer = "container:SRGAppearance-demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
