@@ -1,6 +1,6 @@
 [![SRG Appearance logo](README-images/logo.png)](https://github.com/SRGSSR/srgappearance-apple)
 
-[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgappearance-apple)](https://github.com/SRGSSR/srgappearance-apple/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgappearance-apple) [![Build Status](https://travis-ci.org/SRGSSR/srgappearance-apple.svg?branch=master)](https://travis-ci.org/SRGSSR/srgappearance-apple/branches) [![GitHub license](https://img.shields.io/github/license/SRGSSR/srgappearance-apple)](https://github.com/SRGSSR/srgappearance-apple/blob/master/LICENSE)
+[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgappearance-apple)](https://github.com/SRGSSR/srgappearance-apple/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgappearance-apple) [![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager) [![Build Status](https://travis-ci.org/SRGSSR/srgappearance-apple.svg?branch=master)](https://travis-ci.org/SRGSSR/srgappearance-apple/branches) [![GitHub license](https://img.shields.io/github/license/SRGSSR/srgappearance-apple)](https://github.com/SRGSSR/srgappearance-apple/blob/master/LICENSE)
 
 ## About
 
