@@ -35,13 +35,13 @@ BOOL SRGAppearanceRegisterFont(NSString *filePath)
     return success;
 }
 
-NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2)
+NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2)
 {
     if ([contentSizeCategory1 isEqualToString:contentSizeCategory2]) {
         return NSOrderedSame;
     }
     
-    static NSArray *s_contentSizeCategories;
+    static NSArray<UIContentSizeCategory> *s_contentSizeCategories;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
         s_contentSizeCategories = @[ UIContentSizeCategoryExtraSmall,
@@ -101,7 +101,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return s_customTextStylesMap[textStyle];
 #else
     // We introduce custom SRG text styles for which we can choose the exact behavior we want
-    static NSDictionary<NSString *, NSDictionary<NSString *, NSNumber *> *> *s_customTextStylesMap;
+    static NSDictionary<NSString *, NSDictionary<UIContentSizeCategory, NSNumber *> *> *s_customTextStylesMap;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
         s_customTextStylesMap = @{ SRGAppearanceFontTextStyleCaption : @{

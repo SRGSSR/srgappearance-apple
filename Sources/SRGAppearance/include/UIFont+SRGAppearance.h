@@ -29,7 +29,7 @@ OBJC_EXPORT BOOL SRGAppearanceRegisterFont(NSString *filePath);
  *
  *  @dicussion In debug builds, this method throws if the content size category is not an official one.
  */
-OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2);
+OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2);
 
 @interface UIFont (SRGAppearance)
 
