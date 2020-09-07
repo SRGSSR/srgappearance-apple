@@ -6,8 +6,6 @@
 
 #import "UIFont+SRGAppearance.h"
 
-#import "UIFontDescriptor+SRGAppearance.h"
-
 @import CoreText;
 
 SRGAppearanceFontTextStyle const SRGAppearanceFontTextStyleCaption = @"SRGAppearanceFontTextStyleCaption";
@@ -35,7 +33,7 @@ BOOL SRGAppearanceRegisterFont(NSString *filePath)
     return success;
 }
 
-NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2)
+NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2)
 {
     if ([contentSizeCategory1 isEqualToString:contentSizeCategory2]) {
         return NSOrderedSame;
@@ -84,10 +82,10 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 @implementation UIFont (SRGAppearance)
 
-+ (NSNumber *)pointSizeForCustomFontTextStyle:(NSString *)textStyle
++ (NSNumber *)pointSizeForCustomFontTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
 #if TARGET_OS_TV
-    static NSDictionary<NSString *, NSNumber *> *s_customTextStylesMap;
+    static NSDictionary<SRGAppearanceFontTextStyle, NSNumber *> *s_customTextStylesMap;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
         s_customTextStylesMap = @{ SRGAppearanceFontTextStyleCaption : @20,
@@ -101,7 +99,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return s_customTextStylesMap[textStyle];
 #else
     // We introduce custom SRG text styles for which we can choose the exact behavior we want
-    static NSDictionary<NSString *, NSDictionary<UIContentSizeCategory, NSNumber *> *> *s_customTextStylesMap;
+    static NSDictionary<SRGAppearanceFontTextStyle, NSDictionary<UIContentSizeCategory, NSNumber *> *> *s_customTextStylesMap;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
         s_customTextStylesMap = @{ SRGAppearanceFontTextStyleCaption : @{
@@ -177,16 +175,11 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 #endif
 }
 
-+ (UIFont *)srg_fontWithName:(NSString *)name textStyle:(NSString *)textStyle
++ (UIFont *)srg_fontWithName:(NSString *)name textStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     NSNumber *pointSize = [self pointSizeForCustomFontTextStyle:textStyle];
-    if (pointSize) {
-        return [UIFont fontWithName:name size:pointSize.floatValue] ?: [UIFont fontWithName:@"Helvetica" size:pointSize.floatValue];
-    }
-    else {
-        UIFontDescriptor *fontDescriptor = [UIFontDescriptor srg_preferredFontDescriptorWithName:name textStyle:textStyle];
-        return [UIFont fontWithDescriptor:fontDescriptor size:0.f];
-    }
+    NSAssert(pointSize != nil, @"Only SRGAppearanceFontTextStyle styles are supported");
+    return [UIFont fontWithName:name size:pointSize.floatValue] ?: [UIFont fontWithName:@"Helvetica" size:pointSize.floatValue];
 }
 
 + (UIFont *)srg_fontWithName:(NSString *)name size:(CGFloat)size
@@ -194,52 +187,52 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [UIFont fontWithName:name size:size] ?: [UIFont fontWithName:@"Helvetica" size:size];
 }
 
-+ (UIFont *)srg_regularFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_regularFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeTextApp-Regular" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_boldFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_boldFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeTextApp-Bold" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_heavyFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_heavyFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeTextApp-Heavy" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_lightFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_lightFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeTextApp-Light" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_mediumFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_mediumFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeTextApp-Medium" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_italicFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_italicFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeTextApp-Italic" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_boldItalicFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_boldItalicFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeTextApp-BoldItalic" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_regularSerifFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_regularSerifFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeSerifTextApp-Regular" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_lightSerifFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_lightSerifFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeSerifTextApp-Light" textStyle:textStyle];
 }
 
-+ (UIFont *)srg_mediumSerifFontWithTextStyle:(NSString *)textStyle
++ (UIFont *)srg_mediumSerifFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle
 {
     return [self srg_fontWithName:@"SRGSSRTypeSerifTextApp-Medium" textStyle:textStyle];
 }

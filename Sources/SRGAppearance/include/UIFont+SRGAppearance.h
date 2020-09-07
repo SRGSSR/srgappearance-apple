@@ -29,31 +29,24 @@ OBJC_EXPORT BOOL SRGAppearanceRegisterFont(NSString *filePath);
  *
  *  @dicussion In debug builds, this method throws if the content size category is not an official one.
  */
-OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2);
+OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2);
 
 @interface UIFont (SRGAppearance)
 
 /**
- *  SRG SSR official fonts with size set in the system settings. Supports standard SRG SSR as well as iOS standard text styles.
+ *  SRG SSR official fonts with size set in the system settings.
  */
-+ (UIFont *)srg_regularFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_boldFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_heavyFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_lightFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_mediumFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_italicFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_boldItalicFontWithTextStyle:(NSString *)textStyle;
++ (UIFont *)srg_regularFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_boldFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_heavyFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_lightFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_mediumFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_italicFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_boldItalicFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
 
-+ (UIFont *)srg_regularSerifFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_lightSerifFontWithTextStyle:(NSString *)textStyle;
-+ (UIFont *)srg_mediumSerifFontWithTextStyle:(NSString *)textStyle;
-
-/**
- *  Return a font with the given text style. Supports standard SRG SSR as well as iOS standard text styles.
- *
- *  @discussion If the specified font does not exist, the method returns the Helvetica font.
- */
-+ (UIFont *)srg_fontWithName:(NSString *)name textStyle:(NSString *)textStyle;
++ (UIFont *)srg_regularSerifFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_lightSerifFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
++ (UIFont *)srg_mediumSerifFontWithTextStyle:(SRGAppearanceFontTextStyle)textStyle;
 
 /**
  *  SRG SSR official fonts with fixed sizes.
