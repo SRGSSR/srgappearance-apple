@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:/Users/defagos/Development/repositories/srgappearance-apple/Demo/SRGAppearance-demo.xcodeproj">
+      location = "container:SRGAppearance-demo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:..">
