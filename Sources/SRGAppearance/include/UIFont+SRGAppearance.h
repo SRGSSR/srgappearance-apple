@@ -63,6 +63,13 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 + (UIFont *)srg_lightSerifFontWithSize:(CGFloat)size;
 + (UIFont *)srg_mediumSerifFontWithSize:(CGFloat)size;
 
+/**
+ *  Return a font with the given SRG SSR font text style.
+ *
+ *  @discussion If the specified font does not exist, the method returns the Helvetica font.
+ */
++ (UIFont *)srg_fontWithName:(NSString *)name textStyle:(SRGAppearanceFontTextStyle)textStyle;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -168,4 +168,30 @@
     XCTAssertNotNil([UIFont srg_mediumSerifFontWithTextStyle:SRGAppearanceFontTextStyleTitle]);
 }
 
+- (void)testCustomFont
+{
+    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Venetian" ofType:@"otf"];
+    XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
+    
+    static NSString *kFontName = @"Venetian";
+    
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleCaption]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleSubtitle]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleBody]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleHeadline]);
+    XCTAssertNotNil([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleTitle]);
+}
+
+- (void)testMissingFont
+{
+    static NSString *kFontName = @"Missing";
+    static NSString *kFallbackFontName = @"Helvetica";
+    
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleCaption].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleSubtitle].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleBody].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleHeadline].fontName, kFallbackFontName);
+    XCTAssertEqualObjects([UIFont srg_fontWithName:kFontName textStyle:SRGAppearanceFontTextStyleTitle].fontName, kFallbackFontName);
+}
+
 @end
