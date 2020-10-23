@@ -8,37 +8,17 @@
 
 #import "Resources.h"
 
-#import <SRGAppearance/SRGAppearance.h>
+@import SRGAppearance;
 
 @interface FontsViewController ()
 
 @property (nonatomic) NSArray<NSAttributedString *> *customTitles;
-@property (nonatomic) NSArray<NSAttributedString *> *standardTitles;
 
 @end
 
 @implementation FontsViewController
 
 #pragma mark Class methods
-
-+ (NSArray<NSAttributedString *> *)titlesForStandardTextStyles
-{
-    static NSDictionary<NSString *, NSString *> *s_standardTextStyleNames;
-    static dispatch_once_t s_onceToken;
-    dispatch_once(&s_onceToken, ^{
-        s_standardTextStyleNames = @{ UIFontTextStyleTitle1 : @"Title1",
-                                      UIFontTextStyleTitle2 : @"Title2",
-                                      UIFontTextStyleTitle3 : @"Title3",
-                                      UIFontTextStyleHeadline : @"Headline",
-                                      UIFontTextStyleSubheadline : @"Subheadline",
-                                      UIFontTextStyleBody : @"Body",
-                                      UIFontTextStyleCallout : @"Callout",
-                                      UIFontTextStyleFootnote : @"Footnote",
-                                      UIFontTextStyleCaption1 : @"Caption1",
-                                      UIFontTextStyleCaption2 : @"Caption2" };
-    });
-    return [self titlesForTextStyles:s_standardTextStyleNames];
-}
 
 + (NSArray<NSAttributedString *> *)titlesForCustomTextStyles
 {
@@ -95,39 +75,23 @@
 
 - (void)reloadData
 {
-    NSString *contentSizeCategoryShortName = [[UIApplication sharedApplication].preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
+    NSString *contentSizeCategoryShortName = [UIApplication.sharedApplication.preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
     self.title = [NSString stringWithFormat:@"%@ (%@)", NSLocalizedString(@"Fonts", nil), contentSizeCategoryShortName];
     
     self.customTitles = [FontsViewController titlesForCustomTextStyles];
-    self.standardTitles = [FontsViewController titlesForStandardTextStyles];
     [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource protocol
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return NSLocalizedString(@"Custom SRG SSR text styles", nil);
-    }
-    else {
-        return NSLocalizedString(@"Standard text styles", nil);
-    }
+    return NSLocalizedString(@"SRG SSR regular font with appearance text styles", nil);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return self.customTitles.count;
-    }
-    else {
-        return self.standardTitles.count;
-    }
+    return self.customTitles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,14 +103,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSAttributedString *title = nil;
-    if (indexPath.section == 0) {
-        title = self.customTitles[indexPath.row];
-    }
-    else {
-        title = self.standardTitles[indexPath.row];
-    }
-    cell.textLabel.attributedText = title;
+    cell.textLabel.attributedText = self.customTitles[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

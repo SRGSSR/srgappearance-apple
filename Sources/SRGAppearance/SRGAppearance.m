@@ -4,6 +4,9 @@
 //  License information is available from the LICENSE file.
 //
 
-@import Foundation;
+#import "SRGAppearance.h"
 
-OBJC_EXPORT NSString *ResourceNameForUIClass(Class cls);
+NSString *SRGAppearanceMarketingVersion(void)
+{
+    return @MARKETING_VERSION;
+}
