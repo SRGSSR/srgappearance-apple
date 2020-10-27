@@ -72,10 +72,8 @@ NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSi
 
 __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
-    NSString *fontsDirectory = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Fonts" ofType:nil];
-    NSArray<NSString *> *fontFileNames = [NSFileManager.defaultManager contentsOfDirectoryAtPath:fontsDirectory error:NULL];
-    for (NSString *fontFileName in fontFileNames) {
-        NSString *fontFilePath = [fontsDirectory stringByAppendingPathComponent:fontFileName];
+    NSArray<NSString *> *fontFilePaths = [SWIFTPM_MODULE_BUNDLE pathsForResourcesOfType:@"ttf" inDirectory:nil];
+    for (NSString *fontFilePath in fontFilePaths) {
         SRGAppearanceRegisterFont(fontFilePath);
     }
 }

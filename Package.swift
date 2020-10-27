@@ -22,7 +22,7 @@ let package = Package(
         .target(
             name: "SRGAppearance",
             resources: [
-                .copy("Fonts")
+                .process("Fonts")
             ],
             cSettings: [
                 .define("MARKETING_VERSION", to: "\"\(ProjectSettings.marketingVersion)\"")
