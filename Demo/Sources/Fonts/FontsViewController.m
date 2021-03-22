@@ -12,7 +12,8 @@
 
 @interface FontsViewController ()
 
-@property (nonatomic) NSArray<NSAttributedString *> *customTitles;
+@property (nonatomic) NSArray<NSAttributedString *> *textFontDescriptions;
+@property (nonatomic) NSArray<NSAttributedString *> *displayFontDescriptions;
 
 @end
 
@@ -20,27 +21,34 @@
 
 #pragma mark Class methods
 
-+ (NSArray<NSAttributedString *> *)titlesForCustomTextStyles
++ (NSArray<NSAttributedString *> *)descriptionsForFontWithName:(SRGFontName)fontName
 {
-    static NSDictionary<NSString *, NSString *> *s_customTextStyleNames;
+    static NSDictionary<NSNumber *, NSString *> *s_fontStyleNames;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
-        s_customTextStyleNames = @{ SRGAppearanceFontTextStyleCaption : @"Caption",
-                                    SRGAppearanceFontTextStyleSubtitle : @"Subtitle",
-                                    SRGAppearanceFontTextStyleBody : @"Body",
-                                    SRGAppearanceFontTextStyleHeadline : @"Headline",
-                                    SRGAppearanceFontTextStyleTitle : @"Title" };
+        s_fontStyleNames = @{ @(SRGFontStyleTitle1) : @"Title1",
+                              @(SRGFontStyleTitle2) : @"Title2",
+                              @(SRGFontStyleHeadline1) : @"Headline1",
+                              @(SRGFontStyleHeadline2) : @"Headline2",
+                              @(SRGFontStyleSubtitle) : @"Subtitle",
+                              @(SRGFontStyleBody) : @"Body",
+                              @(SRGFontStyleButton1) : @"Button1",
+                              @(SRGFontStyleButton2) : @"Button2",
+                              @(SRGFontStyleOverline) : @"Overline",
+                              @(SRGFontStyleLabel) : @"Label",
+                              @(SRGFontStyleCaption) : @"Caption"
+        };
     });
-    return [self titlesForTextStyles:s_customTextStyleNames];
+    return [self descriptionsForFontWithName:fontName styles:s_fontStyleNames];
 }
 
-+ (NSArray<NSAttributedString *> *)titlesForTextStyles:(NSDictionary<NSString *, NSString *> *)textStyles
++ (NSArray<NSAttributedString *> *)descriptionsForFontWithName:(SRGFontName)fontName styles:(NSDictionary<NSNumber *, NSString *> *)fontStyles
 {
     NSMutableArray<NSAttributedString *> *titles = [NSMutableArray array];
-    NSArray<NSString *> *textStylesKeys = [textStyles.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    for (NSString *textStyleKey in textStylesKeys) {
-        UIFont *font = [UIFont srg_regularFontWithTextStyle:textStyleKey];
-        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", textStyles[textStyleKey], @(font.pointSize)];
+    NSArray<NSNumber *> *fontStylesKeys = [fontStyles.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    for (NSNumber *fontStyleKey in fontStylesKeys) {
+        UIFont *font = [SRGFont fontWithName:fontName style:fontStyleKey.integerValue textStyle:UIFontTextStyleBody];
+        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", fontStyles[fontStyleKey], @(font.pointSize)];
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
     }
@@ -78,20 +86,37 @@
     NSString *contentSizeCategoryShortName = [UIApplication.sharedApplication.preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
     self.title = [NSString stringWithFormat:@"%@ (%@)", NSLocalizedString(@"Fonts", nil), contentSizeCategoryShortName];
     
-    self.customTitles = [FontsViewController titlesForCustomTextStyles];
+    self.textFontDescriptions = [FontsViewController descriptionsForFontWithName:SRGFontNameText];
+    self.displayFontDescriptions = [FontsViewController descriptionsForFontWithName:SRGFontNameDisplay];
+    
     [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource protocol
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return NSLocalizedString(@"SRG SSR regular font with appearance text styles", nil);
+    if (section == 0) {
+        return NSLocalizedString(@"Text Font", nil);
+    }
+    else {
+        return NSLocalizedString(@"Display Font", nil);
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.customTitles.count;
+    if (section == 0) {
+        return self.textFontDescriptions.count;
+    }
+    else {
+        return self.displayFontDescriptions.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,7 +128,12 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.textLabel.attributedText = self.customTitles[indexPath.row];
+    if (indexPath.section == 0) {
+        cell.textLabel.attributedText = self.textFontDescriptions[indexPath.row];
+    }
+    else {
+        cell.textLabel.attributedText = self.displayFontDescriptions[indexPath.row];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

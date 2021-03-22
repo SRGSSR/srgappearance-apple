@@ -38,10 +38,7 @@ import SRGAppearance
 
 ## SRG SSR fonts
 
-Two sets of font methods are provided in `UIFont+SRGAppearance.h`:
-
-* Methods returning a font with a given size. You can also set fonts with a given size directly in Interface Builder. Simply install the fonts available in `Carthage/Checkouts/(iOS|tvOS)/srgappearance-apple/Framework/Resources/Fonts` by double-clicking on them first.
-* Methods returning a font for a given text style. The exact font size is determined by the corresponding system accessibility setting. Setting custom fonts for a given style is sadly currently not supported in Interface Builder and must be performed in code.
+Official SRG Fonts are available from the `SRGFont` class. In general you should use fonts scaling according to a given text style, as these correctly take into account system accessibility settings.
 
 You can also register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function available from the same header file.
 
