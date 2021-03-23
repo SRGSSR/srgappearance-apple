@@ -96,16 +96,12 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 // TODO: Try to display something to check this works correctly
 + (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type textStyle:(UIFontTextStyle)textStyle;
 
-@end
-
-//TODO:
-#if 0
-@interface UIFontMetrics (SRGFont)
-
-// TODO: Extract text style for font style and return font metrics
-+ (instancetype)metricsForFontStyle:(SRGFontStyle)fontStyle;
+/**
+ *  Metrics associated with an SRG font type. Can be used to scale arbitrary values where SRG font styles are used
+ *  (e.g. margins).
+ */
++ (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style;
 
 @end
-#endif
 
 NS_ASSUME_NONNULL_END

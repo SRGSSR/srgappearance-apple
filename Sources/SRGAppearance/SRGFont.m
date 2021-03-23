@@ -241,4 +241,9 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
                                                                  UIFontDescriptorTextStyleAttribute : textStyle }];
 }
 
++ (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style
+{
+    return [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
+}
+
 @end
