@@ -50,42 +50,42 @@
 
 - (void)testTextFontWithStyleAndTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleTitle1 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleTitle2 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleHeadline1 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleHeadline2 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleSubtitle textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleBody textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleButton1 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleButton2 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleOverline textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleLabel textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleCaption textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleTitle1 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleTitle2 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleHeadline1 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleHeadline2 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleSubtitle relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleBody relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleButton1 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleButton2 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleOverline relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleLabel relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText style:SRGFontStyleCaption relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
 }
 
 - (void)testDisplayFontWithStyleAndTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleTitle1 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleTitle2 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleHeadline1 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleHeadline2 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleSubtitle textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleBody textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleButton1 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleButton2 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleOverline textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleLabel textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleCaption textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleTitle1 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleTitle2 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleHeadline1 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleHeadline2 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleSubtitle relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleBody relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleButton1 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleButton2 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleOverline relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleLabel relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay style:SRGFontStyleCaption relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
 }
 
 - (void)testTextFontWithWeightSizeAndTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText weight:UIFontWeightRegular size:10 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameText weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
 }
 
 - (void)testDisplayFontWithWeightSizeAndTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay weight:UIFontWeightRegular size:10 textStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithName:SRGFontNameDisplay weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
 }
 
 - (void)testTextFontWithWeightAndFixedSize

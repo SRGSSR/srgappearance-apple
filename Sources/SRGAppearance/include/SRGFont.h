@@ -62,14 +62,14 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 /**
  *  Font with a given name and predefined style, scaling like the provided system text style (with an optional maximum size).
  */
-+ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style textStyle:(UIFontTextStyle)textStyle;
-+ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style textStyle:(UIFontTextStyle)textStyle maximumPointSize:(CGFloat)maximumPointSize;
++ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style relativeToTextStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle;
 
 /**
  *  Font with a given name, weight and size, scaling like the provided system text style (with an optional maximum size).
  */
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size textStyle:(UIFontTextStyle)textStyle;
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size textStyle:(UIFontTextStyle)textStyle maximumPointSize:(CGFloat)maximumPointSize;
++ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle;
 
 /**
  *  Font with a given name, weight and fixed size.

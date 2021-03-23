@@ -47,7 +47,7 @@
     NSMutableArray<NSAttributedString *> *titles = [NSMutableArray array];
     NSArray<NSNumber *> *fontStylesKeys = [fontStyles.allKeys sortedArrayUsingSelector:@selector(compare:)];
     for (NSNumber *fontStyleKey in fontStylesKeys) {
-        UIFont *font = [SRGFont fontWithName:fontName style:fontStyleKey.integerValue textStyle:UIFontTextStyleBody];
+        UIFont *font = [SRGFont fontWithName:fontName style:fontStyleKey.integerValue relativeToTextStyle:UIFontTextStyleBody];
         NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", fontStyles[fontStyleKey], @(font.pointSize)];
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
