@@ -62,12 +62,14 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 /**
  *  Font with a given name and predefined style, scaling like the provided system text style (with an optional maximum size).
  */
+// TODO: Bind text style to font style
 + (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style relativeToTextStyle:(UIFontTextStyle)textStyle;
 + (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle;
 
 /**
  *  Font with a given name, weight and size, scaling like the provided system text style (with an optional maximum size).
  */
+// TODO: Possible to extract the official font weights of the font?
 + (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle;
 + (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle;
 
@@ -83,5 +85,15 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 + (UIFontDescriptor *)fontDescriptorForFontWithName:(SRGFontName)name textStyle:(UIFontTextStyle)textStyle;
 
 @end
+
+//TODO:
+#if 0
+@interface UIFontMetrics (SRGFont)
+
+// TODO: Extract text style for font style and return font metrics
++ (instancetype)metricsForFontStyle:(SRGFontStyle)fontStyle;
+
+@end
+#endif
 
 NS_ASSUME_NONNULL_END
