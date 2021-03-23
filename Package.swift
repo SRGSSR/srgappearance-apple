@@ -9,7 +9,7 @@ struct ProjectSettings {
 let package = Package(
     name: "SRGAppearance",
     platforms: [
-        .iOS(.v9),
+        .iOS(.v12),
         .tvOS(.v12)
     ],
     products: [
