@@ -29,6 +29,10 @@ let package = Package(
                 .define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))
             ]
         ),
+        .target(
+            name: "SRGAppearanceSwift",
+            dependencies: ["SRGAppearance"]
+        ),
         .testTarget(
             name: "SRGAppearanceTests",
             dependencies: ["SRGAppearance"],

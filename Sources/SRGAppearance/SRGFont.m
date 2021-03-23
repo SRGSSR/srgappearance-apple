@@ -216,14 +216,14 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [fontMetrics scaledFontForFont:font];
 }
 
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeTo:(UIFontTextStyle)textStyle
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
 {
     UIFont *font = [self unscaledFontWithType:type weight:weight size:size];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
     return [fontMetrics scaledFontForFont:font];
 }
 
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeTo:(UIFontTextStyle)textStyle
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle
 {
     UIFont *font = [self unscaledFontWithType:type weight:weight size:size];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];

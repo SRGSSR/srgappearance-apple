@@ -72,7 +72,7 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
  *  Font with a given type and predefined style. The font scales according to an internally associated matching text style
  *  and the current accessibility settings.
  */
-+ (UIFont *)fontWithType:(SRGFontType)type style:(SRGFontStyle)style;
++ (UIFont *)fontWithType:(SRGFontType)type style:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
 
 /**
  *  Font with a given type, weight and size. The font scales relative to the provided text style and the current
@@ -81,13 +81,13 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
  *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategoryLarge` default accessibility
  *              setting.
  */
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeTo:(UIFontTextStyle)textStyle;
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeTo:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
 
 /**
  *  Font with a given type, weight and fixed size. Does not scale with accessibility settings.
  */
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize NS_REFINED_FOR_SWIFT;
 
 /**
  *  Font descriptor for a font with the given name, scaling relative to the provided text style. Can be used for
