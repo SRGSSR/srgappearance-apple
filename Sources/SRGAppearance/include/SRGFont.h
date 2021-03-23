@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, SRGFontName) {
 /**
  *  Standard semantic styles which define both a size and a weight.
  */
+// TODO: Document Large sizes for iOS and tvOS
 typedef NS_ENUM(NSInteger, SRGFontStyle) {
     SRGFontStyleTitle1 = 1,             // Bold
     SRGFontStyleTitle2,                 // Medium
@@ -59,14 +60,16 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 @interface SRGFont: NSObject
 
 /**
- *  Font with a given name and predefined style, scaling like the provided system text style.
+ *  Font with a given name and predefined style, scaling like the provided system text style (with an optional maximum size).
  */
 + (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style textStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style textStyle:(UIFontTextStyle)textStyle maximumPointSize:(CGFloat)maximumPointSize;
 
 /**
- *  Font with a given name, weight and size, scaling like the provided system text style.
+ *  Font with a given name, weight and size, scaling like the provided system text style (with an optional maximum size).
  */
 + (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size textStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size textStyle:(UIFontTextStyle)textStyle maximumPointSize:(CGFloat)maximumPointSize;
 
 /**
  *  Font with a given name, weight and fixed size.

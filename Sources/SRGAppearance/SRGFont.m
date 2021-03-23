@@ -167,11 +167,25 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [fontMetrics scaledFontForFont:font];
 }
 
++ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style textStyle:(UIFontTextStyle)textStyle maximumPointSize:(CGFloat)maximumPointSize
+{
+    UIFont *font = [self unscaledFontWithName:name style:style];
+    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
+    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumPointSize];
+}
+
 + (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size textStyle:(UIFontTextStyle)textStyle
 {
     UIFont *font = [self unscaledFontWithName:name weight:weight size:size];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
     return [fontMetrics scaledFontForFont:font];
+}
+
++ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size textStyle:(UIFontTextStyle)textStyle maximumPointSize:(CGFloat)maximumPointSize
+{
+    UIFont *font = [self unscaledFontWithName:name weight:weight size:size];
+    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
+    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumPointSize];
 }
 
 + (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize
