@@ -9,36 +9,45 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Available SRG fonts.
+ *  Available SRG font types.
  */
-typedef NS_ENUM(NSInteger, SRGFontName) {
+typedef NS_CLOSED_ENUM(NSInteger, SRGFontType) {
     /**
-     *  Font optimized for readability.
+     *  Font optimized for text readability.
      */
-    SRGFontNameText = 1,
+    SRGFontTypeText = 1,
     /**
      *  Font emphasizing branding at the expense of readability for small sizes.
      */
-    SRGFontNameDisplay
+    SRGFontTypeDisplay
 };
 
 /**
  *  Standard semantic styles which define both a size and a weight.
  */
-// TODO: Document Large sizes for iOS and tvOS
-typedef NS_ENUM(NSInteger, SRGFontStyle) {
-    SRGFontStyleTitle1 = 1,             // Bold
-    SRGFontStyleTitle2,                 // Medium
-    SRGFontStyleHeadline1,              // Regular
-    SRGFontStyleHeadline2,              // Medium
-    SRGFontStyleSubtitle,               // Light
-    SRGFontStyleBody,                   // Regular
-    SRGFontStyleButton1,                // Medium
-    SRGFontStyleButton2,                // Regular
-    SRGFontStyleOverline,               // Regular
-    SRGFontStyleLabel,                  // Bold
-    SRGFontStyleCaption                 // Medium
+typedef NS_CLOSED_ENUM(NSInteger, SRGFontStyle) {
+    SRGFontStyleTitle1 = 1,
+    SRGFontStyleTitle2,
+    SRGFontStyleHeadline1,
+    SRGFontStyleHeadline2,
+    SRGFontStyleSubtitle,
+    SRGFontStyleBody,
+    SRGFontStyleButton1,
+    SRGFontStyleButton2,
+    SRGFontStyleOverline,
+    SRGFontStyleLabel,
+    SRGFontStyleCaption
 };
+
+/**
+ *  Standard SRG SSR font weights.
+ */
+// TODO: Check API method calls in Swift (SRG vs. UIKit constants with same prototype)
+OBJC_EXPORT const UIFontWeight SRGFontWeightLight;
+OBJC_EXPORT const UIFontWeight SRGFontWeightRegular;
+OBJC_EXPORT const UIFontWeight SRGFontWeightMedium;
+OBJC_EXPORT const UIFontWeight SRGFontWeightBold;
+OBJC_EXPORT const UIFontWeight SRGFontWeightHeavy;
 
 /**
  *  Register a font from the specified file. Returns `YES` iff successful.
@@ -60,29 +69,32 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 @interface SRGFont: NSObject
 
 /**
- *  Font with a given name and predefined style, scaling like the provided system text style (with an optional maximum size).
+ *  Font with a given type and predefined style. The font scales according to an internally associated matching text style
+ *  and the current accessibility settings.
  */
-// TODO: Bind text style to font style
-+ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style relativeToTextStyle:(UIFontTextStyle)textStyle;
-+ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithType:(SRGFontType)type style:(SRGFontStyle)style;
 
 /**
- *  Font with a given name, weight and size, scaling like the provided system text style (with an optional maximum size).
+ *  Font with a given type, weight and size. The font scales relative to the provided text style and the current
+ *  accessibility settings, starting from the specified size. A maximum size can optionally be provided.
+ *
+ *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategoryLarge` default accessibility
+ *              setting.
  */
-// TODO: Possible to extract the official font weights of the font?
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle;
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle;
 
 /**
- *  Font with a given name, weight and fixed size.
+ *  Font with a given type, weight and fixed size. Does not scale with accessibility settings.
  */
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize;
 
 /**
- *  Font descriptor for a font with the given name, scaling like the provided system text style. Can be used for more
- *  advanced purposes like applying traits fort tight or loose leading, for example.
+ *  Font descriptor for a font with the given name, scaling relative to the provided text style. Can be used for
+ *  advanced purposes like applying traits for tight or loose leading, for example.
  */
-+ (UIFontDescriptor *)fontDescriptorForFontWithName:(SRGFontName)name textStyle:(UIFontTextStyle)textStyle;
+// TODO: Try to display something to check this works correctly
++ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type textStyle:(UIFontTextStyle)textStyle;
 
 @end
 

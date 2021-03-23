@@ -6,7 +6,16 @@
 
 #import "SRGFont.h"
 
+#import "SRGVariationAxis.h"
+
 @import CoreText;
+
+// TODO: Correct values
+const UIFontWeight SRGFontWeightLight = -1.f;
+const UIFontWeight SRGFontWeightRegular = -0.5f;
+const UIFontWeight SRGFontWeightMedium = 0.f;
+const UIFontWeight SRGFontWeightBold = 0.5f;
+const UIFontWeight SRGFontWeightHeavy = 1.f;
 
 BOOL SRGAppearanceRegisterFont(NSString *filePath)
 {
@@ -15,15 +24,15 @@ BOOL SRGAppearanceRegisterFont(NSString *filePath)
         return NO;
     }
     
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
-    CGFontRef font = CGFontCreateWithDataProvider(provider);
+    CGDataProviderRef providerRef = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
+    CGFontRef fontRef = CGFontCreateWithDataProvider(providerRef);
     
     BOOL success = NO;
-    if (font) {
-        success = CTFontManagerRegisterGraphicsFont(font, NULL);
-        CFRelease(font);
+    if (fontRef) {
+        success = CTFontManagerRegisterGraphicsFont(fontRef, NULL);
+        CFRelease(fontRef);
     }
-    CFRelease(provider);
+    CFRelease(providerRef);
     return success;
 }
 
@@ -64,20 +73,29 @@ NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSi
     }
 }
 
-static NSString *SRGFontNameForName(SRGFontName name)
+static NSString *SRGFontNameForType(SRGFontType fontType)
 {
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSString *> *s_names;
     dispatch_once(&s_onceToken, ^{
-        s_names = @{ @(SRGFontNameText) : @"SRG SSR Type Text VF App",
-                     @(SRGFontNameDisplay) : @"SRG SSR Type Display VF App" };
+        // Postscript names
+        s_names = @{ @(SRGFontTypeText) : @"SRGSSRTypeTextVFApp-Medium",
+                     @(SRGFontTypeDisplay) : @"SRGSSRTypeDisplayVFApp-Medium" };
     });
-    NSString *fontName = s_names[@(name)];
+    NSString *fontName = s_names[@(fontType)];
     NSCAssert(fontName != nil, @"Font name is missing for some name");
     return fontName;
 }
 
-static CGFloat SRGFontSizeForStyle(SRGFontStyle style)
+static SRGVariationAxis *SRGVariationAxisWithName(SRGFontType fontType, NSString *axisName)
+{
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(SRGVariationAxis * _Nullable variationAxis, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [variationAxis.name isEqualToString:axisName];
+    }];
+    return [[SRGVariationAxis variationAxesForFontWithName:SRGFontNameForType(fontType)] filteredArrayUsingPredicate:predicate].firstObject;
+}
+
+static CGFloat SRGFontSizeForStyle(SRGFontStyle fontStyle)
 {
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSNumber *> *s_sizes;
@@ -109,31 +127,54 @@ static CGFloat SRGFontSizeForStyle(SRGFontStyle style)
                      @(SRGFontStyleCaption) : @11 };
 #endif
     });
-    NSNumber *size = s_sizes[@(style)];
+    NSNumber *size = s_sizes[@(fontStyle)];
     NSCAssert(size != nil, @"Size is missing for some font style");
     return size.floatValue;
 }
 
-static UIFontWeight SRGFontWeightForStyle(SRGFontStyle style)
+static UIFontWeight SRGFontWeightForStyle(SRGFontStyle fontStyle)
 {
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSNumber *> *s_weights;
     dispatch_once(&s_onceToken, ^{
-        s_weights = @{ @(SRGFontStyleTitle1) : @(UIFontWeightBold),
-                       @(SRGFontStyleTitle2) : @(UIFontWeightMedium),
-                       @(SRGFontStyleHeadline1) : @(UIFontWeightRegular),
-                       @(SRGFontStyleHeadline2) : @(UIFontWeightMedium),
-                       @(SRGFontStyleSubtitle) : @(UIFontWeightLight),
-                       @(SRGFontStyleBody) : @(UIFontWeightRegular),
-                       @(SRGFontStyleButton1) : @(UIFontWeightMedium),
-                       @(SRGFontStyleButton2) : @(UIFontWeightRegular),
-                       @(SRGFontStyleOverline) : @(UIFontWeightRegular),
-                       @(SRGFontStyleLabel) : @(UIFontWeightBold),
-                       @(SRGFontStyleCaption) : @(UIFontWeightMedium) };
+        s_weights = @{ @(SRGFontStyleTitle1) : @(SRGFontWeightBold),
+                       @(SRGFontStyleTitle2) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleHeadline1) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleHeadline2) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleSubtitle) : @(SRGFontWeightLight),
+                       @(SRGFontStyleBody) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleButton1) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleButton2) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleOverline) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleLabel) : @(SRGFontWeightBold),
+                       @(SRGFontStyleCaption) : @(SRGFontWeightMedium) };
     });
-    NSNumber *weight = s_weights[@(style)];
+    NSNumber *weight = s_weights[@(fontStyle)];
     NSCAssert(weight != nil, @"Weight is missing for some font style");
     return weight.floatValue;
+}
+
+static UIFontTextStyle SRGTextStyleForStyle(SRGFontStyle fontStyle)
+{
+    // TODO: Decide correct text styles to apply
+    static dispatch_once_t s_onceToken;
+    static NSDictionary<NSNumber *, UIFontTextStyle> *s_textStyles;
+    dispatch_once(&s_onceToken, ^{
+        s_textStyles = @{ @(SRGFontStyleTitle1) : UIFontTextStyleTitle1,
+                          @(SRGFontStyleTitle2) : UIFontTextStyleTitle2,
+                          @(SRGFontStyleHeadline1) : UIFontTextStyleTitle3,
+                          @(SRGFontStyleHeadline2) : UIFontTextStyleTitle3,
+                          @(SRGFontStyleSubtitle) : UIFontTextStyleBody,
+                          @(SRGFontStyleBody) : UIFontTextStyleBody,
+                          @(SRGFontStyleButton1) : UIFontTextStyleBody,
+                          @(SRGFontStyleButton2) : UIFontTextStyleBody,
+                          @(SRGFontStyleOverline) : UIFontTextStyleCallout,
+                          @(SRGFontStyleLabel) : UIFontTextStyleCallout,
+                          @(SRGFontStyleCaption) : UIFontTextStyleCaption1 };
+    });
+    UIFontTextStyle textStyle = s_textStyles[@(fontStyle)];
+    NSCAssert(textStyle != nil, @"Text style is missing for some font style");
+    return textStyle;
 }
 
 __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
@@ -146,56 +187,57 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 @implementation SRGFont
 
-+ (UIFont *)unscaledFontWithName:(SRGFontName)name style:(SRGFontStyle)style
++ (UIFont *)unscaledFontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size
 {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForName(name),
-                                                                                             UIFontWeightTrait : @(SRGFontWeightForStyle(style)) }];
-    return [UIFont fontWithDescriptor:fontDescriptor size:SRGFontSizeForStyle(style)];
-}
-
-+ (UIFont *)unscaledFontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size
-{
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForName(name),
-                                                                                             UIFontWeightTrait : @(weight) }];
+    NSMutableDictionary<UIFontDescriptorAttributeName, id> *variationAttributes = [NSMutableDictionary dictionary];
+    
+    SRGVariationAxis *variationAxis = SRGVariationAxisWithName(type, @"Weight");
+    if (variationAxis) {
+        // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
+        CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
+        variationAttributes[variationAxis.attribute] = @(absoluteWeight);
+    }
+    
+    UIFontDescriptor *fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForType(type),
+                                                                                             (UIFontDescriptorAttributeName)kCTFontVariationAttribute : variationAttributes.copy }];
     return [UIFont fontWithDescriptor:fontDescriptor size:size];
 }
 
-+ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style relativeToTextStyle:(UIFontTextStyle)textStyle
++ (UIFont *)unscaledFontWithType:(SRGFontType)type style:(SRGFontStyle)style
 {
-    UIFont *font = [self unscaledFontWithName:name style:style];
+    return [self unscaledFontWithType:type weight:SRGFontWeightForStyle(style) size:SRGFontSizeForStyle(style)];
+}
+
++ (UIFont *)fontWithType:(SRGFontType)type style:(SRGFontStyle)style
+{
+    UIFont *font = [self unscaledFontWithType:type style:style];
+    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
+    // TODO: Currently there is no maximum size associated with each style. Should we define one?
+    return [fontMetrics scaledFontForFont:font];
+}
+
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
+{
+    UIFont *font = [self unscaledFontWithType:type weight:weight size:size];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
     return [fontMetrics scaledFontForFont:font];
 }
 
-+ (UIFont *)fontWithName:(SRGFontName)name style:(SRGFontStyle)style maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle
 {
-    UIFont *font = [self unscaledFontWithName:name style:style];
+    UIFont *font = [self unscaledFontWithType:type weight:weight size:size];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
-    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumPointSize];
+    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumSize];
 }
 
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize
 {
-    UIFont *font = [self unscaledFontWithName:name weight:weight size:size];
-    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
-    return [fontMetrics scaledFontForFont:font];
+    return [self unscaledFontWithType:type weight:weight size:fixedSize];
 }
 
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight size:(CGFloat)size maximumPointSize:(CGFloat)maximumPointSize relativeToTextStyle:(UIFontTextStyle)textStyle
++ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type textStyle:(UIFontTextStyle)textStyle
 {
-    UIFont *font = [self unscaledFontWithName:name weight:weight size:size];
-    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:textStyle];
-    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumPointSize];
-}
-
-+ (UIFont *)fontWithName:(SRGFontName)name weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize
-{
-    return [self unscaledFontWithName:name weight:weight size:fixedSize];
-}
-
-+ (UIFontDescriptor *)fontDescriptorForFontWithName:(SRGFontName)name textStyle:(UIFontTextStyle)textStyle
-{
-    return [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForName(name),
+    return [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorFamilyAttribute : SRGFontNameForType(type),
                                                                  UIFontDescriptorTextStyleAttribute : textStyle }];
 }
 

@@ -21,7 +21,7 @@
 
 #pragma mark Class methods
 
-+ (NSArray<NSAttributedString *> *)descriptionsForFontWithName:(SRGFontName)fontName
++ (NSArray<NSAttributedString *> *)descriptionsForFontWithType:(SRGFontType)fontType
 {
     static NSDictionary<NSNumber *, NSString *> *s_fontStyleNames;
     static dispatch_once_t s_onceToken;
@@ -39,15 +39,15 @@
                               @(SRGFontStyleCaption) : @"Caption"
         };
     });
-    return [self descriptionsForFontWithName:fontName styles:s_fontStyleNames];
+    return [self descriptionsForFontWithType:fontType styles:s_fontStyleNames];
 }
 
-+ (NSArray<NSAttributedString *> *)descriptionsForFontWithName:(SRGFontName)fontName styles:(NSDictionary<NSNumber *, NSString *> *)fontStyles
++ (NSArray<NSAttributedString *> *)descriptionsForFontWithType:(SRGFontType)fontType styles:(NSDictionary<NSNumber *, NSString *> *)fontStyles
 {
     NSMutableArray<NSAttributedString *> *titles = [NSMutableArray array];
     NSArray<NSNumber *> *fontStylesKeys = [fontStyles.allKeys sortedArrayUsingSelector:@selector(compare:)];
     for (NSNumber *fontStyleKey in fontStylesKeys) {
-        UIFont *font = [SRGFont fontWithName:fontName style:fontStyleKey.integerValue relativeToTextStyle:UIFontTextStyleBody];
+        UIFont *font = [SRGFont fontWithType:fontType style:fontStyleKey.integerValue];
         NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", fontStyles[fontStyleKey], @(font.pointSize)];
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
@@ -86,8 +86,8 @@
     NSString *contentSizeCategoryShortName = [UIApplication.sharedApplication.preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
     self.title = [NSString stringWithFormat:@"%@ (%@)", NSLocalizedString(@"Fonts", nil), contentSizeCategoryShortName];
     
-    self.textFontDescriptions = [FontsViewController descriptionsForFontWithName:SRGFontNameText];
-    self.displayFontDescriptions = [FontsViewController descriptionsForFontWithName:SRGFontNameDisplay];
+    self.textFontDescriptions = [FontsViewController descriptionsForFontWithType:SRGFontTypeText];
+    self.displayFontDescriptions = [FontsViewController descriptionsForFontWithType:SRGFontTypeDisplay];
     
     [self.tableView reloadData];
 }
