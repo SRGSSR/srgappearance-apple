@@ -81,8 +81,8 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
  *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategoryLarge` default accessibility
  *              setting.
  */
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle;
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeTo:(UIFontTextStyle)textStyle;
++ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeTo:(UIFontTextStyle)textStyle;
 
 /**
  *  Font with a given type, weight and fixed size. Does not scale with accessibility settings.

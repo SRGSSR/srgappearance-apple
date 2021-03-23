@@ -80,12 +80,12 @@
 
 - (void)testTextFontWithWeightSizeAndTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeText weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeText weight:UIFontWeightRegular size:10 relativeTo:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
 }
 
 - (void)testDisplayFontWithWeightSizeAndTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeDisplay weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeDisplay weight:UIFontWeightRegular size:10 relativeTo:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
 }
 
 - (void)testTextFontWithWeightAndFixedSize
