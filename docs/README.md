@@ -33,18 +33,24 @@ When you want to use classes or functions provided by the library in your code, 
 or in Swift:
 
 ```swift
-import SRGAppearance
+import SRGAppearanceSwift
 ```
+
+This requires your target to link against the corresponding Swift package product.
 
 ## SRG SSR fonts
 
-Official SRG Fonts are available from the `SRGFont` class. In general you should use fonts scaling according to a given text style, as these correctly take into account system accessibility settings.
+Official SRG SSR Fonts are available from the `SRGFont` class. Several types of fonts are provided (text and display fonts) and they can be used in various ways:
 
-You can also register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function available from the same header file.
+- With a standard style: The library defines a set of semantic styles which have a size, weight and scale according to a given text style, both on iOS and tvOS.
+- With manually specified size, weight and font style: If you cannot or don't want to use the standard styles, your application can set font settings directly. Instead of providing these settings each time, your application should probably just define its own set of styles.
+- With a fixed size and weight.
 
-## SRG SSR text styles
+The SDK also provides access to standard `UIFontDescriptors` for advanced font customization, as well as `UIFontMetrics` for scaling values according to accessibility text size settings.
 
-A limited set of SRG SSR custom font styles is provided as well. SRG SSR fonts are readily compatible with those styles, and a method is provided to apply them to arbitrary fonts as well.
+## Custom fonts
+
+You can register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function. Note that this method is only provided as a convenience but that the public API does not provide any other API for integrating into your application.
 
 ## SRG SSR colors
 
