@@ -7,7 +7,7 @@
 import SRGAppearanceSwift
 import SwiftUI
 
-@available(iOS 13, *)
+@available(iOS 13.0, *)
 class PlaygroundHostViewController: UIViewController {
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
@@ -44,7 +44,7 @@ class PlaygroundHostViewController: UIViewController {
     }
 }
 
-@available(iOS 13, *)
+@available(iOS 13.0, *)
 struct PlaygroundView: View {
     @State var type: SRGFont.`Type` = .text
     @State var size: CGFloat = 24
@@ -90,7 +90,7 @@ struct PlaygroundView: View {
     }
 }
 
-@available(iOS 13, *)
+@available(iOS 13.0, *)
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
         PlaygroundView()
