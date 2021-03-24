@@ -8,6 +8,7 @@
 
 #import "PlaygroundViewController.h"
 #import "Resources.h"
+#import "SRGAppearance_demo-Swift.h"
 
 @import SRGAppearance;
 
@@ -151,7 +152,14 @@
 
 - (IBAction)openPlayground:(id)sender
 {
-    PlaygroundViewController *playgroundViewController = [[PlaygroundViewController alloc] init];
+    // The playground is implemented in SwiftUI for iOS 13+
+    UIViewController *playgroundViewController = nil;
+    if (@available(iOS 13, *)) {
+        playgroundViewController = [[PlaygroundHostViewController alloc] init];
+    }
+    else {
+        playgroundViewController = [[PlaygroundViewController alloc] init];
+    }
     UINavigationController *playgroundNavigationController = [[UINavigationController alloc] initWithRootViewController:playgroundViewController];
     [self presentViewController:playgroundNavigationController animated:YES completion:nil];
 }
