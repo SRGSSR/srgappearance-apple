@@ -19,7 +19,7 @@ let package = Package(
         ),
         .library(
             name: "SRGAppearanceSwift",
-            targets: ["SRGAppearance"]
+            targets: ["SRGAppearanceSwift"]
         )
     ],
     targets: [
