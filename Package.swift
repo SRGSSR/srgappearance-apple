@@ -39,6 +39,10 @@ let package = Package(
             resources: [
                 .process("Resources")
             ]
+        ),
+        .testTarget(
+            name: "SRGAppearanceSwiftTests",
+            dependencies: ["SRGAppearanceSwift"]
         )
     ]
 )

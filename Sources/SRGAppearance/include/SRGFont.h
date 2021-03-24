@@ -20,7 +20,7 @@ typedef NS_CLOSED_ENUM(NSInteger, SRGFontType) {
      *  Font emphasizing branding at the expense of readability for small sizes.
      */
     SRGFontTypeDisplay
-};
+} NS_SWIFT_NAME(SRGFont.Type);
 
 /**
  *  Standard semantic styles which define both a size and a weight.
@@ -37,17 +37,17 @@ typedef NS_CLOSED_ENUM(NSInteger, SRGFontStyle) {
     SRGFontStyleOverline,
     SRGFontStyleLabel,
     SRGFontStyleCaption
-};
+} NS_SWIFT_NAME(SRGFont.Style);
 
 /**
  *  Standard SRG SSR font weights.
  */
 // TODO: Check API method calls in Swift (SRG vs. UIKit constants with same prototype)
-OBJC_EXPORT const UIFontWeight SRGFontWeightLight;
-OBJC_EXPORT const UIFontWeight SRGFontWeightRegular;
-OBJC_EXPORT const UIFontWeight SRGFontWeightMedium;
-OBJC_EXPORT const UIFontWeight SRGFontWeightBold;
-OBJC_EXPORT const UIFontWeight SRGFontWeightHeavy;
+OBJC_EXPORT const UIFontWeight SRGFontWeightLight NS_SWIFT_NAME(srg_light);
+OBJC_EXPORT const UIFontWeight SRGFontWeightRegular NS_SWIFT_NAME(srg_regular);
+OBJC_EXPORT const UIFontWeight SRGFontWeightMedium NS_SWIFT_NAME(srg_medium);
+OBJC_EXPORT const UIFontWeight SRGFontWeightBold NS_SWIFT_NAME(srg_bold);
+OBJC_EXPORT const UIFontWeight SRGFontWeightHeavy NS_SWIFT_NAME(srg_heavy);
 
 /**
  *  Register a font from the specified file. Returns `YES` iff successful.

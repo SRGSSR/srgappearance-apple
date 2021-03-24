@@ -96,6 +96,16 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SRGAppearanceSwiftTests"
+               BuildableName = "SRGAppearanceSwiftTests"
+               BlueprintName = "SRGAppearanceSwiftTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
