@@ -189,17 +189,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 + (UIFont *)unscaledFontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size
 {
-    NSMutableDictionary<UIFontDescriptorAttributeName, id> *variationAttributes = [NSMutableDictionary dictionary];
-    
-    SRGVariationAxis *variationAxis = SRGVariationAxisWithName(type, @"Weight");
-    if (variationAxis) {
-        // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
-        CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
-        variationAttributes[variationAxis.attribute] = @(absoluteWeight);
-    }
-    
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForType(type),
-                                                                                             (UIFontDescriptorAttributeName)kCTFontVariationAttribute : variationAttributes.copy }];
+    UIFontDescriptor *fontDescriptor = [self fontDescriptorForFontWithType:type weight:weight];
     return [UIFont fontWithDescriptor:fontDescriptor size:size];
 }
 
@@ -235,10 +225,24 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [self unscaledFontWithType:type weight:weight size:fixedSize];
 }
 
-+ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type textStyle:(UIFontTextStyle)textStyle
++ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type style:(SRGFontStyle)style
 {
-    return [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorFamilyAttribute : SRGFontNameForType(type),
-                                                                 UIFontDescriptorTextStyleAttribute : textStyle }];
+    return [self fontDescriptorForFontWithType:type weight:SRGFontWeightForStyle(style)];
+}
+
++ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type weight:(UIFontWeight)weight
+{
+    NSMutableDictionary<UIFontDescriptorAttributeName, id> *variationAttributes = [NSMutableDictionary dictionary];
+    
+    SRGVariationAxis *variationAxis = SRGVariationAxisWithName(type, @"Weight");
+    if (variationAxis) {
+        // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
+        CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
+        variationAttributes[variationAxis.attribute] = @(absoluteWeight);
+    }
+    
+    return [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForType(type),
+                                                                 (UIFontDescriptorAttributeName)kCTFontVariationAttribute : variationAttributes.copy }];
 }
 
 + (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style

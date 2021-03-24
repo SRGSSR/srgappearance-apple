@@ -90,11 +90,20 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
 + (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize NS_REFINED_FOR_SWIFT;
 
 /**
- *  Font descriptor for a font with the given name, scaling relative to the provided text style. Can be used for
- *  advanced purposes like applying traits for tight or loose leading, for example.
+ *  Font descriptor for a font with the given type and style. Can be used for advanced purposes like applying traits for
+ *  tight or loose leading, for example.
+ *
+ *  Use a `UIFontMetrics` returned by `-metricsForFontWithStyle:` to scale the font according to its style.
  */
-// TODO: Try to display something to check this works correctly
-+ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type textStyle:(UIFontTextStyle)textStyle;
++ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type style:(SRGFontStyle)style;
+
+/**
+ *  Font descriptor for a font with the given type and weight. Can be used for advanced purposes like applying traits for
+ *  tight or loose leading, for example.
+ *
+ *  Use a `UIFontMetrics` returned by `-metricsForTextStyle:` to scale the font according to a system text style.
+ */
++ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type weight:(UIFontWeight)weight;
 
 /**
  *  Metrics associated with an SRG font type. Can be used to scale arbitrary values where SRG font styles are used
