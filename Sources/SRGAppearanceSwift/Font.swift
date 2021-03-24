@@ -99,6 +99,42 @@ public extension Text {
     }
 }
 
-// TODO:
-//  - Swift UI API (font modifiers + @ScaledMetric relative to SRG styles; if not possible, expose conversion
-//    from SRG style to text style and remove metrics static method since not useful anymore)
+@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+extension ScaledMetric {
+    private static func textStyle(from style: UIFont.TextStyle) -> Font.TextStyle {
+        switch style {
+        case .largeTitle:
+            return .largeTitle
+        case .title1:
+            return .title
+        case .title2:
+            return .title2
+        case .title3:
+            return .title3
+        case .headline:
+            return .headline
+        case .subheadline:
+            return .subheadline
+        case .body:
+            return .body
+        case .callout:
+            return .callout
+        case .footnote:
+            return .footnote
+        case .caption1:
+            return .caption
+        case .caption2:
+            return .caption2
+        default:
+            return .body
+        }
+    }
+    
+    /**
+     *  Scales the wrapped value based on the text style associated with the font style.
+     */
+    public init(wrappedValue: Value, with style: SRGFont.Style) {
+        let textStyle = Self.textStyle(from: SRGFont.recommendedTextStyleForScalingFont(with: style))
+        self.init(wrappedValue: wrappedValue, relativeTo: textStyle)
+    }
+}

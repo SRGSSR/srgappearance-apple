@@ -89,6 +89,18 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
  */
 + (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize NS_REFINED_FOR_SWIFT;
 
+@end
+
+/**
+ *  Advanced APIs.
+ */
+@interface SRGFont (Advanced)
+
+/**
+ *  Return the recommended text style according to which the font of the specified style should be scaled.
+ */
++ (UIFontTextStyle)recommendedTextStyleForScalingFontWithStyle:(SRGFontStyle)style;
+
 /**
  *  Font descriptor for a font with the given type and style. Can be used for advanced purposes like applying traits for
  *  tight or loose leading, for example.

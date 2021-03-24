@@ -225,6 +225,11 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [self unscaledFontWithType:type weight:weight size:fixedSize];
 }
 
++ (UIFontTextStyle)recommendedTextStyleForScalingFontWithStyle:(SRGFontStyle)style
+{
+    return SRGTextStyleForStyle(style);
+}
+
 + (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type style:(SRGFontStyle)style
 {
     return [self fontDescriptorForFontWithType:type weight:SRGFontWeightForStyle(style)];
