@@ -23,7 +23,7 @@ typedef NS_CLOSED_ENUM(NSInteger, SRGFontType) {
 } NS_SWIFT_NAME(SRGFont.Type);
 
 /**
- *  Standard semantic styles which define both a size and a weight.
+ *  Standard semantic styles which define both a size and a weight (and a text style if the font needs to be scaled).
  */
 typedef NS_CLOSED_ENUM(NSInteger, SRGFontStyle) {
     SRGFontStyleTitle1 = 1,
@@ -93,7 +93,8 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
  *  Font descriptor for a font with the given type and style. Can be used for advanced purposes like applying traits for
  *  tight or loose leading, for example.
  *
- *  Use a `UIFontMetrics` returned by `-metricsForFontWithStyle:` to scale the font according to its style.
+ *  Use a `UIFontMetrics` returned by `-metricsForFontWithStyle:` to scale the font according to its associated text style,
+ *  or `+[UIFont fontWithDescriptor:size:]` to create a font with fixed size.
  */
 + (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type style:(SRGFontStyle)style;
 
@@ -101,7 +102,8 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
  *  Font descriptor for a font with the given type and weight. Can be used for advanced purposes like applying traits for
  *  tight or loose leading, for example.
  *
- *  Use a `UIFontMetrics` returned by `-metricsForTextStyle:` to scale the font according to a system text style.
+ *  Use a `UIFontMetrics` returned by `-metricsForTextStyle:` to scale the font according to a system text style,
+ *  or `+[UIFont fontWithDescriptor:size:]` to create a font with fixed size.
  */
 + (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type weight:(UIFontWeight)weight;
 
