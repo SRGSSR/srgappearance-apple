@@ -14,6 +14,8 @@
 		6FE08CC31E8A86FB00EC4716 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CBF1E8A86FB00EC4716 /* main.m */; };
 		6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CC51E8A877200EC4716 /* FontsViewController.m */; };
 		6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */; };
+		6FE48639260B292E00671546 /* PlaygroundViewController~ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE48638260B292E00671546 /* PlaygroundViewController~ios.m */; };
+		6FE4863E260B298A00671546 /* PlaygroundViewController~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE4863D260B298A00671546 /* PlaygroundViewController~ios.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,9 @@
 		6FE08CC41E8A877200EC4716 /* FontsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontsViewController.h; sourceTree = "<group>"; };
 		6FE08CC51E8A877200EC4716 /* FontsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsViewController.m; sourceTree = "<group>"; };
 		6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ios.storyboard"; sourceTree = "<group>"; };
+		6FE48637260B292E00671546 /* PlaygroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
+		6FE48638260B292E00671546 /* PlaygroundViewController~ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PlaygroundViewController~ios.m"; sourceTree = "<group>"; };
+		6FE4863D260B298A00671546 /* PlaygroundViewController~ios.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "PlaygroundViewController~ios.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,9 @@
 			children = (
 				6FE08CC41E8A877200EC4716 /* FontsViewController.h */,
 				6FE08CC51E8A877200EC4716 /* FontsViewController.m */,
+				6FE48637260B292E00671546 /* PlaygroundViewController.h */,
+				6FE48638260B292E00671546 /* PlaygroundViewController~ios.m */,
+				6FE4863D260B298A00671546 /* PlaygroundViewController~ios.storyboard */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9453D5223FF5890039974F /* Images.xcassets in Resources */,
+				6FE4863E260B298A00671546 /* PlaygroundViewController~ios.storyboard in Resources */,
 				6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +206,7 @@
 				6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */,
 				6F0EE5882316B40500328674 /* Resources.m in Sources */,
 				6FE08CC31E8A86FB00EC4716 /* main.m in Sources */,
+				6FE48639260B292E00671546 /* PlaygroundViewController~ios.m in Sources */,
 				6FE08CC21E8A86FB00EC4716 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

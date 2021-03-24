@@ -6,6 +6,7 @@
 
 #import "FontsViewController.h"
 
+#import "PlaygroundViewController.h"
 #import "Resources.h"
 
 @import SRGAppearance;
@@ -75,6 +76,13 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
     
+#if TARGET_OS_IOS
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Playground", nil)
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(openPlayground:)];
+#endif
+    
     self.tableView.rowHeight = 60.f;
     [self reloadData];
 }
@@ -136,6 +144,19 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
+
+#if TARGET_OS_IOS
+
+#pragma mark Actions
+
+- (IBAction)openPlayground:(id)sender
+{
+    PlaygroundViewController *playgroundViewController = [[PlaygroundViewController alloc] init];
+    UINavigationController *playgroundNavigationController = [[UINavigationController alloc] initWithRootViewController:playgroundViewController];
+    [self presentViewController:playgroundNavigationController animated:YES completion:nil];
+}
+
+#endif
 
 #pragma mark Notifications
 
