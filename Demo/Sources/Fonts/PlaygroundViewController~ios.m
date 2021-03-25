@@ -14,7 +14,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *textLabel;
 
-@property (nonatomic, weak) IBOutlet UISegmentedControl *typeSegmentedControl;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *familySegmentedControl;
 @property (nonatomic, weak) IBOutlet UISlider *sizeSlider;
 @property (nonatomic, weak) IBOutlet UISlider *maximumSizeSlider;
 @property (nonatomic, weak) IBOutlet UISlider *weightSlider;
@@ -64,16 +64,16 @@
     return NSLocalizedString(@"Playground", nil);
 }
 
-- (SRGFontType)fontType
+- (SRGFontFamily)fontFamily
 {
-    return (self.typeSegmentedControl.selectedSegmentIndex == 1) ? SRGFontTypeDisplay : SRGFontTypeText;
+    return (self.familySegmentedControl.selectedSegmentIndex == 1) ? SRGFontFamilyDisplay : SRGFontFamilyText;
 }
 
 #pragma mark Fonts
 
 - (void)updateFont
 {
-    self.textLabel.font = [SRGFont fontWithType:[self fontType]
+    self.textLabel.font = [SRGFont fontWithFamily:[self fontFamily]
                                          weight:self.weightSlider.value
                                            size:self.sizeSlider.value
                                     maximumSize:self.maximumSizeSlider.value
@@ -82,7 +82,7 @@
 
 #pragma mark Actions
 
-- (IBAction)changeType:(id)sender
+- (IBAction)changeFamily:(id)sender
 {
     [self updateFont];
 }

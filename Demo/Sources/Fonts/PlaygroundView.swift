@@ -46,7 +46,7 @@ class PlaygroundHostViewController: UIViewController {
 
 @available(iOS 13.0, *)
 struct PlaygroundView: View {
-    @State var type: SRGFont.`Type` = .text
+    @State var family: SRGFont.Family = .text
     @State var size: CGFloat = 24
     @State var maximumSize: CGFloat = 70
     @State var weight: CGFloat = 0
@@ -60,14 +60,13 @@ struct PlaygroundView: View {
 
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                 """
-            ).srgFont(type, weight: .init(rawValue: weight), size: size, maximumSize: maximumSize)
+            ).srgFont(family, weight: .init(rawValue: weight), size: size, maximumSize: maximumSize)
             Spacer(minLength: 20)
             
             VStack {
-                Picker("Font type", selection: $type) {
-                    // SRGFont.`Type`.text is not understood by the compiler
-                    Text("Text font").tag(.text as SRGFont.`Type`)
-                    Text("Display font").tag(.display as SRGFont.`Type`)
+                Picker("Font family", selection: $family) {
+                    Text("Text font").tag(SRGFont.Family.text)
+                    Text("Display font").tag(SRGFont.Family.display)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 

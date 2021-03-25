@@ -50,20 +50,20 @@
 
 - (void)testFontsWithStyle
 {
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeText style:SRGFontStyleTitle1].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeDisplay style:SRGFontStyleTitle1].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText style:SRGFontStyleTitle1].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay style:SRGFontStyleTitle1].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
 }
 
 - (void)testFontsWithWeightSizeRelativeToTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeText weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeDisplay weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
 }
 
 - (void)testFontsWithWeightAndFixedSize
 {
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeText weight:UIFontWeightRegular fixedSize:10].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithType:SRGFontTypeDisplay weight:UIFontWeightRegular fixedSize:10].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText weight:UIFontWeightRegular fixedSize:10].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay weight:UIFontWeightRegular fixedSize:10].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
 }
 
 @end

@@ -9,18 +9,18 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Available SRG font types.
+ *  Available SRG font families.
  */
-typedef NS_CLOSED_ENUM(NSInteger, SRGFontType) {
+typedef NS_CLOSED_ENUM(NSInteger, SRGFontFamily) {
     /**
      *  Font optimized for text readability.
      */
-    SRGFontTypeText = 1,
+    SRGFontFamilyText = 1,
     /**
-     *  Font emphasizing branding at the expense of readability for small sizes.
+     *  Font emphasizing branding on some capital letters. Should be avoided for text blocks.
      */
-    SRGFontTypeDisplay
-} NS_SWIFT_NAME(SRGFont.Type);
+    SRGFontFamilyDisplay
+} NS_SWIFT_NAME(SRGFont.Family);
 
 /**
  *  Standard semantic styles which define both a size and a weight (and a text style if the font needs to be scaled).
@@ -68,24 +68,24 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIConte
 @interface SRGFont: NSObject
 
 /**
- *  Font with a given type and predefined style. The font scales according to an internally associated matching text style
+ *  Font with a given family and predefined style. The font scales according to an internally associated matching text style
  *  and the current accessibility settings.
  */
-+ (UIFont *)fontWithType:(SRGFontType)type style:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
 
 /**
- *  Font with a given type, weight and size. The font scales relative to the provided text style and the current
+ *  Font with a given family, weight and size. The font scales relative to the provided text style and the current
  *  accessibility settings, starting from the specified size. A maximum size can optionally be provided.
  *
  *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategoryLarge` default accessibility setting.
  */
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
 
 /**
- *  Font with a given type, weight and fixed size. Does not scale with accessibility settings.
+ *  Font with a given family, weight and fixed size. Does not scale with accessibility settings.
  */
-+ (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -100,25 +100,25 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIConte
 + (UIFontTextStyle)recommendedTextStyleForScalingFontWithStyle:(SRGFontStyle)style;
 
 /**
- *  Font descriptor for a font with the given type and style. Can be used for advanced purposes like applying traits for
+ *  Font descriptor for a font with the given family and style. Can be used for advanced purposes like applying traits for
  *  tight or loose leading, for example.
  *
  *  Use a `UIFontMetrics` returned by `-metricsForFontWithStyle:` to scale the font according to its associated text style,
  *  or `+[UIFont fontWithDescriptor:size:]` to create a font with fixed size.
  */
-+ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type style:(SRGFontStyle)style;
++ (UIFontDescriptor *)fontDescriptorForFontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style;
 
 /**
- *  Font descriptor for a font with the given type and weight. Can be used for advanced purposes like applying traits for
+ *  Font descriptor for a font with the given family and weight. Can be used for advanced purposes like applying traits for
  *  tight or loose leading, for example.
  *
  *  Use a `UIFontMetrics` returned by `-metricsForTextStyle:` to scale the font according to a system text style,
  *  or `+[UIFont fontWithDescriptor:size:]` to create a font with fixed size.
  */
-+ (UIFontDescriptor *)fontDescriptorForFontWithType:(SRGFontType)type weight:(UIFontWeight)weight;
++ (UIFontDescriptor *)fontDescriptorForFontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight;
 
 /**
- *  Metrics associated with an SRG font type. Can be used to scale arbitrary values where SRG font styles are used
+ *  Metrics associated with an SRG font style. Can be used to scale arbitrary values where SRG font styles are used
  *  (e.g. margins).
  */
 + (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style;

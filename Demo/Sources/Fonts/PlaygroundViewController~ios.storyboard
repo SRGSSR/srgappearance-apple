@@ -22,11 +22,11 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCl-y0-73P">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="467"/>
-                                        <mutableString key="text">abcdefghijklmnopqrstuvwxyz
+                                        <string key="text">abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 0123456789
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</mutableString>
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
                                             <segment title="Display font"/>
                                         </segments>
                                         <connections>
-                                            <action selector="changeType:" destination="daw-I6-lsW" eventType="valueChanged" id="CuK-Rr-bFF"/>
+                                            <action selector="changeFamily:" destination="daw-I6-lsW" eventType="valueChanged" id="CuK-Rr-bFF"/>
                                         </connections>
                                     </segmentedControl>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRE-j9-YcE" userLabel="Spacer View">
@@ -122,10 +122,10 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="familySegmentedControl" destination="4Kr-d9-wos" id="aCn-5I-p6E"/>
                         <outlet property="maximumSizeSlider" destination="DE7-aj-EVu" id="wPV-AM-LJx"/>
                         <outlet property="sizeSlider" destination="LV6-Co-Rpd" id="spg-0M-o6i"/>
                         <outlet property="textLabel" destination="hCl-y0-73P" id="sUO-iG-4YK"/>
-                        <outlet property="typeSegmentedControl" destination="4Kr-d9-wos" id="aCn-5I-p6E"/>
                         <outlet property="weightSlider" destination="twH-Aw-eQs" id="GA9-rh-jPH"/>
                     </connections>
                 </viewController>

@@ -23,34 +23,34 @@
 
 #pragma mark Class methods
 
-+ (NSArray<NSAttributedString *> *)descriptionsForFontWithType:(SRGFontType)fontType
++ (NSArray<NSAttributedString *> *)descriptionsForFontWithFamily:(SRGFontFamily)family
 {
-    static NSDictionary<NSNumber *, NSString *> *s_fontStyleNames;
+    static NSDictionary<NSNumber *, NSString *> *styles;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
-        s_fontStyleNames = @{ @(SRGFontStyleTitle1) : @"Title1",
-                              @(SRGFontStyleTitle2) : @"Title2",
-                              @(SRGFontStyleHeadline1) : @"Headline1",
-                              @(SRGFontStyleHeadline2) : @"Headline2",
-                              @(SRGFontStyleSubtitle) : @"Subtitle",
-                              @(SRGFontStyleBody) : @"Body",
-                              @(SRGFontStyleButton1) : @"Button1",
-                              @(SRGFontStyleButton2) : @"Button2",
-                              @(SRGFontStyleOverline) : @"Overline",
-                              @(SRGFontStyleLabel) : @"Label",
-                              @(SRGFontStyleCaption) : @"Caption"
+        styles = @{ @(SRGFontStyleTitle1) : @"Title1",
+                    @(SRGFontStyleTitle2) : @"Title2",
+                    @(SRGFontStyleHeadline1) : @"Headline1",
+                    @(SRGFontStyleHeadline2) : @"Headline2",
+                    @(SRGFontStyleSubtitle) : @"Subtitle",
+                    @(SRGFontStyleBody) : @"Body",
+                    @(SRGFontStyleButton1) : @"Button1",
+                    @(SRGFontStyleButton2) : @"Button2",
+                    @(SRGFontStyleOverline) : @"Overline",
+                    @(SRGFontStyleLabel) : @"Label",
+                    @(SRGFontStyleCaption) : @"Caption"
         };
     });
-    return [self descriptionsForFontWithType:fontType styles:s_fontStyleNames];
+    return [self descriptionsForFontWithFamily:family styles:styles];
 }
 
-+ (NSArray<NSAttributedString *> *)descriptionsForFontWithType:(SRGFontType)fontType styles:(NSDictionary<NSNumber *, NSString *> *)fontStyles
++ (NSArray<NSAttributedString *> *)descriptionsForFontWithFamily:(SRGFontFamily)family styles:(NSDictionary<NSNumber *, NSString *> *)styles
 {
     NSMutableArray<NSAttributedString *> *titles = [NSMutableArray array];
-    NSArray<NSNumber *> *fontStylesKeys = [fontStyles.allKeys sortedArrayUsingSelector:@selector(compare:)];
-    for (NSNumber *fontStyleKey in fontStylesKeys) {
-        UIFont *font = [SRGFont fontWithType:fontType style:fontStyleKey.integerValue];
-        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", fontStyles[fontStyleKey], @(font.pointSize)];
+    NSArray<NSNumber *> *stylesKeys = [styles.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    for (NSNumber *styleKey in stylesKeys) {
+        UIFont *font = [SRGFont fontWithFamily:family style:styleKey.integerValue];
+        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", styles[styleKey], @(font.pointSize)];
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
     }
@@ -95,8 +95,8 @@
     NSString *contentSizeCategoryShortName = [UIApplication.sharedApplication.preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
     self.title = [NSString stringWithFormat:@"%@ (%@)", NSLocalizedString(@"Fonts", nil), contentSizeCategoryShortName];
     
-    self.textFontDescriptions = [FontsViewController descriptionsForFontWithType:SRGFontTypeText];
-    self.displayFontDescriptions = [FontsViewController descriptionsForFontWithType:SRGFontTypeDisplay];
+    self.textFontDescriptions = [FontsViewController descriptionsForFontWithFamily:SRGFontFamilyText];
+    self.displayFontDescriptions = [FontsViewController descriptionsForFontWithFamily:SRGFontFamilyDisplay];
     
     [self.tableView reloadData];
 }
