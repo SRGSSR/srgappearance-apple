@@ -12,8 +12,13 @@ public extension SRGFont {
      *  Font with a given family and predefined style. The font scales according to an internally associated matching text style
      *  and the current accessibility settings.
      */
-    static func font(_ family: SRGFont.Family = .text, style: SRGFont.Style) -> UIFont {
-        return __font(with: family, style: style)
+    static func font(_ family: SRGFont.Family = .text, style: SRGFont.Style, maximumSize: CGFloat? = nil) -> UIFont {
+        if let maximumSize = maximumSize {
+            return __font(with: family, style: style, maximumSize: maximumSize)
+        }
+        else {
+            return __font(with: family, style: style)
+        }
     }
     
     /**

@@ -202,8 +202,14 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
     UIFont *font = [self unscaledfontWithFamily:family style:style];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
-    // TODO: Currently there is no maximum size associated with each style. Should we define one?
     return [fontMetrics scaledFontForFont:font];
+}
+
++ (UIFont *)fontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
+{
+    UIFont *font = [self unscaledfontWithFamily:family style:style];
+    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
+    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumSize];
 }
 
 + (UIFont *)fontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
@@ -228,6 +234,11 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 + (UIFont *)fontWithStyle:(SRGFontStyle)style
 {
     return [self fontWithFamily:SRGFontFamilyText style:style];
+}
+
++ (UIFont *)fontWithStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
+{
+    return [self fontWithFamily:SRGFontFamilyText style:style maximumSize:maximumSize];
 }
 
 + (UIFont *)fontWithWeight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle

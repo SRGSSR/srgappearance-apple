@@ -69,9 +69,10 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIConte
 
 /**
  *  Font with a given family and predefined style. The font scales according to an internally associated matching text style
- *  and the current accessibility settings.
+ *  and the current accessibility settings. A maximum size can optionally be provided.
  */
 + (UIFont *)fontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize NS_REFINED_FOR_SWIFT;
 
 /**
  *  Font with a given family, weight and size. The font scales relative to the provided text style and the current
@@ -96,9 +97,10 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIConte
 
 /**
  *  Font with the text family and a predefined style. The font scales according to an internally associated matching text style
- *  and the current accessibility settings.
+ *  and the current accessibility settings. A maximum size can optionally be provided.
  */
 + (UIFont *)fontWithStyle:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize NS_REFINED_FOR_SWIFT;
 
 /**
  *  Font with the text family, a weight and a size. The font scales relative to the provided text style and the current
