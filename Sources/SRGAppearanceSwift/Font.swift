@@ -20,8 +20,7 @@ public extension SRGFont {
      *  Font with a given type, weight and size. The font scales relative to the provided text style and the current
      *  accessibility settings, starting from the specified size. A maximum size can optionally be provided.
      *
-     *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large`
-     *              setting.
+     *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large` setting.
      */
     static func font(_ type: SRGFont.`Type`, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> UIFont {
         if let maximumSize = maximumSize {
@@ -54,8 +53,7 @@ public extension SRGFont {
      *  Font with a given type, weight and size. The font scales relative to the provided text style and the current
      *  accessibility settings, starting from the specified size. A maximum size can optionally be provided.
      *
-     *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large`
-     *              setting.
+     *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large` setting.
      */
     static func font(_ type: SRGFont.`Type`, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> Font {
         return Font(font(type, weight: weight, size: size, maximumSize: maximumSize, relativeTo: textStyle))
@@ -84,8 +82,7 @@ public extension Text {
      *  style and the current accessibility settings, starting from the specified size. A maximum size can optionally be
      *  provided.
      *
-     *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large`
-     *              setting.
+     *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large` setting.
      */
     func srgFont(_ type: SRGFont.`Type`, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> Text {
         return font(SRGFont.font(type, weight: weight, size: size, maximumSize: maximumSize, relativeTo: textStyle))

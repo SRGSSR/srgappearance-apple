@@ -36,7 +36,7 @@ BOOL SRGAppearanceRegisterFont(NSString *filePath)
     return success;
 }
 
-NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2)
+NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2)
 {
     if ([contentSizeCategory1 isEqualToString:contentSizeCategory2]) {
         return NSOrderedSame;

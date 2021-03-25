@@ -60,7 +60,7 @@ OBJC_EXPORT BOOL SRGAppearanceRegisterFont(NSString *filePath);
  *
  *  @dicussion In debug builds, this method throws if the content size category is not an official one.
  */
-OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSString *contentSizeCategory1, NSString *contentSizeCategory2);
+OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2);
 
 /**
  *  Official SRG SSR font.
@@ -77,8 +77,7 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(NSStrin
  *  Font with a given type, weight and size. The font scales relative to the provided text style and the current
  *  accessibility settings, starting from the specified size. A maximum size can optionally be provided.
  *
- *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategoryLarge` default accessibility
- *              setting.
+ *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategoryLarge` default accessibility setting.
  */
 + (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
 + (UIFont *)fontWithType:(SRGFontType)type weight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
