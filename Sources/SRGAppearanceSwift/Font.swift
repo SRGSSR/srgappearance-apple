@@ -163,7 +163,7 @@ extension ScaledMetric {
      *  Scales the wrapped value based on the text style associated with the font style.
      */
     public init(wrappedValue: Value, with style: SRGFont.Style) {
-        let textStyle = Self.textStyle(from: SRGFont.recommendedTextStyleForScalingFont(with: style))
+        let textStyle = Self.textStyle(from: SRGFont.textStyleForScalingFont(with: style))
         self.init(wrappedValue: wrappedValue, relativeTo: textStyle)
     }
 }

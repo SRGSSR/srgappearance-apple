@@ -124,11 +124,6 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIConte
 @interface SRGFont (Advanced)
 
 /**
- *  Return the recommended text style according to which the font of the specified style should be scaled.
- */
-+ (UIFontTextStyle)recommendedTextStyleForScalingFontWithStyle:(SRGFontStyle)style;
-
-/**
  *  Font descriptor for a font with the given family and style. Can be used for advanced purposes like applying traits for
  *  tight or loose leading, for example.
  *
@@ -151,6 +146,23 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIConte
  *  (e.g. margins).
  */
 + (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style;
+
+@end
+
+/**
+ *  Font style properties.
+ */
+@interface SRGFont (Properties)
+
+/**
+ *  Return the size associated with a font style.
+ */
++ (CGFloat)sizeFontWithStyle:(SRGFontStyle)style;
+
+/**
+ *  Return the text style according to which a font with the specified style scales.
+ */
++ (UIFontTextStyle)textStyleForScalingFontWithStyle:(SRGFontStyle)style;
 
 @end
 

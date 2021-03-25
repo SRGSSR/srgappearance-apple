@@ -256,11 +256,6 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [self fontWithFamily:SRGFontFamilyText weight:weight fixedSize:fixedSize];
 }
 
-+ (UIFontTextStyle)recommendedTextStyleForScalingFontWithStyle:(SRGFontStyle)style
-{
-    return SRGTextStyleForStyle(style);
-}
-
 + (UIFontDescriptor *)fontDescriptorForFontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style
 {
     return [self fontDescriptorForFontWithFamily:family weight:SRGFontWeightForStyle(style)];
@@ -284,6 +279,16 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 + (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style
 {
     return [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
+}
+
++ (UIFontTextStyle)textStyleForScalingFontWithStyle:(SRGFontStyle)style
+{
+    return SRGTextStyleForStyle(style);
+}
+
++ (CGFloat)sizeFontWithStyle:(SRGFontStyle)style
+{
+    return SRGFontSizeForStyle(style);
 }
 
 @end
