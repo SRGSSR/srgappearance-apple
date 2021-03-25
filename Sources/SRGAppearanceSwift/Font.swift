@@ -12,7 +12,7 @@ public extension SRGFont {
      *  Font with a given family and predefined style. The font scales according to an internally associated matching text style
      *  and the current accessibility settings.
      */
-    static func font(_ family: SRGFont.Family, style: SRGFont.Style) -> UIFont {
+    static func font(_ family: SRGFont.Family = .text, style: SRGFont.Style) -> UIFont {
         return __font(with: family, style: style)
     }
     
@@ -22,7 +22,7 @@ public extension SRGFont {
      *
      *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large` setting.
      */
-    static func font(_ family: SRGFont.Family, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> UIFont {
+    static func font(_ family: SRGFont.Family = .text, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> UIFont {
         if let maximumSize = maximumSize {
             return __font(with: family, weight: weight, size: size, maximumSize: maximumSize, relativeToTextStyle: textStyle)
         }
@@ -34,7 +34,7 @@ public extension SRGFont {
     /**
      *  Font with a given family, weight and fixed size. Does not scale with accessibility settings.
      */
-    static func font(_ family: SRGFont.Family, weight: UIFont.Weight, fixedSize: CGFloat) -> UIFont {
+    static func font(_ family: SRGFont.Family = .text, weight: UIFont.Weight, fixedSize: CGFloat) -> UIFont {
         return __font(with: family, weight: weight, fixedSize: fixedSize)
     }
 }
@@ -45,7 +45,7 @@ public extension SRGFont {
      *  Font with a given family and predefined style. The font scales according to an internally associated matching text style
      *  and the current accessibility settings.
      */
-    static func font(_ family: SRGFont.Family, style: SRGFont.Style) -> Font {
+    static func font(_ family: SRGFont.Family = .text, style: SRGFont.Style) -> Font {
         return Font(font(family, style: style))
     }
     
@@ -55,14 +55,14 @@ public extension SRGFont {
      *
      *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large` setting.
      */
-    static func font(_ family: SRGFont.Family, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> Font {
+    static func font(_ family: SRGFont.Family = .text, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> Font {
         return Font(font(family, weight: weight, size: size, maximumSize: maximumSize, relativeTo: textStyle))
     }
     
     /**
      *  Font with a given family, weight and fixed size. Does not scale with accessibility settings.
      */
-    static func font(_ family: SRGFont.Family, weight: UIFont.Weight, fixedSize: CGFloat) -> Font {
+    static func font(_ family: SRGFont.Family = .text, weight: UIFont.Weight, fixedSize: CGFloat) -> Font {
         return Font(font(family, weight: weight, fixedSize: fixedSize))
     }
 }
@@ -94,7 +94,7 @@ public extension Text {
      *  Applies a font with a given family and predefined style to the receiver. The font scales according to an internally
      *  associated matching text style and the current accessibility settings.
      */
-    func srgFont(_ family: SRGFont.Family, style: SRGFont.Style) -> some View {
+    func srgFont(_ family: SRGFont.Family = .text, style: SRGFont.Style) -> some View {
         return SizeCategoryTracker {
             font(SRGFont.font(family, style: style))
         }
@@ -107,7 +107,7 @@ public extension Text {
      *
      *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large` setting.
      */
-    func srgFont(_ family: SRGFont.Family, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> some View {
+    func srgFont(_ family: SRGFont.Family = .text, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> some View {
         return SizeCategoryTracker {
             font(SRGFont.font(family, weight: weight, size: size, maximumSize: maximumSize, relativeTo: textStyle))
         }
@@ -116,7 +116,7 @@ public extension Text {
     /**
      *  Applies a font with a given family, weight and fixed size to the receiver. Does not scale with accessibility settings.
      */
-    func srgFont(_ family: SRGFont.Family, weight: UIFont.Weight, fixedSize: CGFloat) -> some View {
+    func srgFont(_ family: SRGFont.Family = .text, weight: UIFont.Weight, fixedSize: CGFloat) -> some View {
         return SizeCategoryTracker {
             font(SRGFont.font(family, weight: weight, fixedSize: fixedSize))
         }
