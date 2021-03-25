@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_CLOSED_ENUM(NSInteger, SRGFontFamily) {
     /**
-     *  Font optimized for text readability.
+     *  Font optimized for text readability. Recommended for most cases.
      */
     SRGFontFamilyText = 1,
     /**
@@ -86,6 +86,33 @@ OBJC_EXPORT NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIConte
  *  Font with a given family, weight and fixed size. Does not scale with accessibility settings.
  */
 + (UIFont *)fontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize NS_REFINED_FOR_SWIFT;
+
+@end
+
+/**
+ *  Convenience methods for the recommended font family (text).
+ */
+@interface SRGFont (Default)
+
+/**
+ *  Font with the text family and a predefined style. The font scales according to an internally associated matching text style
+ *  and the current accessibility settings.
+ */
++ (UIFont *)fontWithStyle:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
+
+/**
+ *  Font with the text family, a weight and a size. The font scales relative to the provided text style and the current
+ *  accessibility settings, starting from the specified size. A maximum size can optionally be provided.
+ *
+ *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategoryLarge` default accessibility setting.
+ */
++ (UIFont *)fontWithWeight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
++ (UIFont *)fontWithWeight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle NS_REFINED_FOR_SWIFT;
+
+/**
+ *  Font with the text family, a weight and a fixed size. Does not scale with accessibility settings.
+ */
++ (UIFont *)fontWithWeight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize NS_REFINED_FOR_SWIFT;
 
 @end
 

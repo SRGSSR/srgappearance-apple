@@ -225,6 +225,26 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [self unscaledfontWithFamily:family weight:weight size:fixedSize];
 }
 
++ (UIFont *)fontWithStyle:(SRGFontStyle)style
+{
+    return [self fontWithFamily:SRGFontFamilyText style:style];
+}
+
++ (UIFont *)fontWithWeight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
+{
+    return [self fontWithFamily:SRGFontFamilyText weight:weight size:size relativeToTextStyle:textStyle];
+}
+
++ (UIFont *)fontWithWeight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle
+{
+    return [self fontWithWeight:SRGFontFamilyText size:size maximumSize:maximumSize relativeToTextStyle:textStyle];
+}
+
++ (UIFont *)fontWithWeight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize
+{
+    return [self fontWithFamily:SRGFontFamilyText weight:weight fixedSize:fixedSize];
+}
+
 + (UIFontTextStyle)recommendedTextStyleForScalingFontWithStyle:(SRGFontStyle)style
 {
     return SRGTextStyleForStyle(style);
