@@ -42,7 +42,6 @@ typedef NS_CLOSED_ENUM(NSInteger, SRGFontStyle) {
 /**
  *  Standard SRG SSR font weights.
  */
-// TODO: Check API method calls in Swift (SRG vs. UIKit constants with same prototype)
 OBJC_EXPORT const UIFontWeight SRGFontWeightLight NS_SWIFT_NAME(srg_light);
 OBJC_EXPORT const UIFontWeight SRGFontWeightRegular NS_SWIFT_NAME(srg_regular);
 OBJC_EXPORT const UIFontWeight SRGFontWeightMedium NS_SWIFT_NAME(srg_medium);
