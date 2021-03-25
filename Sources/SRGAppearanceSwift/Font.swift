@@ -69,12 +69,28 @@ public extension SRGFont {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension Text {
+    private struct SizeCategoryTracker<Content: View>: View {
+        private let content: () -> Content
+        
+        @Environment(\.sizeCategory) private var sizeCategory
+        
+        init(content: @escaping () -> Content) {
+            self.content = content
+        }
+        
+        var body: some View {
+            content()
+        }
+    }
+    
     /**
      *  Applies a font with a given type and predefined style to the receiver. The font scales according to an internally
      *  associated matching text style and the current accessibility settings.
      */
-    func srgFont(_ type: SRGFont.`Type`, style: SRGFont.Style) -> Text {
-        return font(SRGFont.font(type, style: style))
+    func srgFont(_ type: SRGFont.`Type`, style: SRGFont.Style) -> some View {
+        return SizeCategoryTracker {
+            font(SRGFont.font(type, style: style))
+        }
     }
     
     /**
@@ -84,15 +100,19 @@ public extension Text {
      *
      *  @discussion The reference `size` parameter corresponds to the `UIContentSizeCategory.large` setting.
      */
-    func srgFont(_ type: SRGFont.`Type`, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> Text {
-        return font(SRGFont.font(type, weight: weight, size: size, maximumSize: maximumSize, relativeTo: textStyle))
+    func srgFont(_ type: SRGFont.`Type`, weight: UIFont.Weight, size: CGFloat, maximumSize: CGFloat? = nil, relativeTo textStyle: UIFont.TextStyle = .body) -> some View {
+        return SizeCategoryTracker {
+            font(SRGFont.font(type, weight: weight, size: size, maximumSize: maximumSize, relativeTo: textStyle))
+        }
     }
     
     /**
      *  Applies a font with a given type, weight and fixed size to the receiver. Does not scale with accessibility settings.
      */
-    func srgFont(_ type: SRGFont.`Type`, weight: UIFont.Weight, fixedSize: CGFloat) -> Text {
-        return font(SRGFont.font(type, weight: weight, fixedSize: fixedSize))
+    func srgFont(_ type: SRGFont.`Type`, weight: UIFont.Weight, fixedSize: CGFloat) -> some View {
+        return SizeCategoryTracker {
+            font(SRGFont.font(type, weight: weight, fixedSize: fixedSize))
+        }
     }
 }
 
