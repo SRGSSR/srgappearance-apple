@@ -101,10 +101,10 @@ static CGFloat SRGFontSizeForStyle(SRGFontStyle style)
     static NSDictionary<NSNumber *, NSNumber *> *s_sizes;
     dispatch_once(&s_onceToken, ^{
 #if TARGET_OS_TV
-        s_sizes = @{ @(SRGFontStyleTitle1) : @48,
-                     @(SRGFontStyleTitle2) : @42,
-                     @(SRGFontStyleHeadline1) : @32,
-                     @(SRGFontStyleHeadline2) : @30,
+        s_sizes = @{ @(SRGFontStyleH1) : @48,
+                     @(SRGFontStyleH2) : @42,
+                     @(SRGFontStyleH3) : @32,
+                     @(SRGFontStyleH4) : @30,
                      @(SRGFontStyleSubtitle) : @32,
                      @(SRGFontStyleBody) : @30,
                      @(SRGFontStyleButton1) : @32,
@@ -114,10 +114,10 @@ static CGFloat SRGFontSizeForStyle(SRGFontStyle style)
                      @(SRGFontStyleCaption) : @18 };
 #else
         // TODO: Use official values, for the moment these are only guesses based on what we previously had
-        s_sizes = @{ @(SRGFontStyleTitle1) : @22,
-                     @(SRGFontStyleTitle2) : @20,
-                     @(SRGFontStyleHeadline1) : @18,
-                     @(SRGFontStyleHeadline2) : @17,
+        s_sizes = @{ @(SRGFontStyleH1) : @22,
+                     @(SRGFontStyleH2) : @20,
+                     @(SRGFontStyleH3) : @18,
+                     @(SRGFontStyleH4) : @17,
                      @(SRGFontStyleSubtitle) : @13,
                      @(SRGFontStyleBody) : @15,
                      @(SRGFontStyleButton1) : @13,
@@ -137,10 +137,10 @@ static UIFontWeight SRGFontWeightForStyle(SRGFontStyle style)
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSNumber *> *s_weights;
     dispatch_once(&s_onceToken, ^{
-        s_weights = @{ @(SRGFontStyleTitle1) : @(SRGFontWeightBold),
-                       @(SRGFontStyleTitle2) : @(SRGFontWeightMedium),
-                       @(SRGFontStyleHeadline1) : @(SRGFontWeightRegular),
-                       @(SRGFontStyleHeadline2) : @(SRGFontWeightMedium),
+        s_weights = @{ @(SRGFontStyleH1) : @(SRGFontWeightBold),
+                       @(SRGFontStyleH2) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleH3) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleH4) : @(SRGFontWeightMedium),
                        @(SRGFontStyleSubtitle) : @(SRGFontWeightLight),
                        @(SRGFontStyleBody) : @(SRGFontWeightRegular),
                        @(SRGFontStyleButton1) : @(SRGFontWeightMedium),
@@ -160,10 +160,10 @@ static UIFontTextStyle SRGTextStyleForStyle(SRGFontStyle style)
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, UIFontTextStyle> *s_textStyles;
     dispatch_once(&s_onceToken, ^{
-        s_textStyles = @{ @(SRGFontStyleTitle1) : UIFontTextStyleTitle1,
-                          @(SRGFontStyleTitle2) : UIFontTextStyleTitle2,
-                          @(SRGFontStyleHeadline1) : UIFontTextStyleTitle3,
-                          @(SRGFontStyleHeadline2) : UIFontTextStyleTitle3,
+        s_textStyles = @{ @(SRGFontStyleH1) : UIFontTextStyleTitle1,
+                          @(SRGFontStyleH2) : UIFontTextStyleTitle2,
+                          @(SRGFontStyleH3) : UIFontTextStyleTitle3,
+                          @(SRGFontStyleH4) : UIFontTextStyleTitle3,
                           @(SRGFontStyleSubtitle) : UIFontTextStyleBody,
                           @(SRGFontStyleBody) : UIFontTextStyleBody,
                           @(SRGFontStyleButton1) : UIFontTextStyleBody,

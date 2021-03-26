@@ -26,10 +26,10 @@ typedef NS_CLOSED_ENUM(NSInteger, SRGFontFamily) {
  *  Standard semantic styles which define both a size and a weight (and a text style if the font needs to be scaled).
  */
 typedef NS_CLOSED_ENUM(NSInteger, SRGFontStyle) {
-    SRGFontStyleTitle1 = 1,
-    SRGFontStyleTitle2,
-    SRGFontStyleHeadline1,
-    SRGFontStyleHeadline2,
+    SRGFontStyleH1 = 1,
+    SRGFontStyleH2,
+    SRGFontStyleH3,
+    SRGFontStyleH4,
     SRGFontStyleSubtitle,
     SRGFontStyleBody,
     SRGFontStyleButton1,

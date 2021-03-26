@@ -50,8 +50,8 @@
 
 - (void)testFontsWithStyle
 {
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText style:SRGFontStyleTitle1].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay style:SRGFontStyleTitle1].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText style:SRGFontStyleH1].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay style:SRGFontStyleH1].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
 }
 
 - (void)testFontsWithWeightSizeRelativeToTextStyle

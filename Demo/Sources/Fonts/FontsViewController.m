@@ -28,10 +28,10 @@
     static NSDictionary<NSNumber *, NSString *> *styles;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
-        styles = @{ @(SRGFontStyleTitle1) : @"Title1",
-                    @(SRGFontStyleTitle2) : @"Title2",
-                    @(SRGFontStyleHeadline1) : @"Headline1",
-                    @(SRGFontStyleHeadline2) : @"Headline2",
+        styles = @{ @(SRGFontStyleH1) : @"H1",
+                    @(SRGFontStyleH2) : @"H2",
+                    @(SRGFontStyleH3) : @"H3",
+                    @(SRGFontStyleH4) : @"H4",
                     @(SRGFontStyleSubtitle) : @"Subtitle",
                     @(SRGFontStyleBody) : @"Body",
                     @(SRGFontStyleButton1) : @"Button1",
