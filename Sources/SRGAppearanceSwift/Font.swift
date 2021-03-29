@@ -44,7 +44,7 @@ public extension SRGFont {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 public extension SRGFont {
     /**
      *  Font with a given family and predefined style. The font scales according to an internally associated matching text style
@@ -72,7 +72,7 @@ public extension SRGFont {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 public extension Text {
     /**
      *  Wrapper class to observe content size category changes. Fonts created with `Font.custom(...)` initializers
@@ -128,7 +128,7 @@ public extension Text {
     }
 }
 
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 extension ScaledMetric {
     private static func textStyle(from style: UIFont.TextStyle) -> Font.TextStyle {
         switch style {

@@ -154,7 +154,7 @@
 {
     // The playground is implemented in SwiftUI for iOS 13+
     UIViewController *playgroundViewController = nil;
-    if (@available(iOS 13.0, *)) {
+    if (@available(iOS 13, *)) {
         playgroundViewController = [[PlaygroundHostViewController alloc] init];
     }
     else {
