@@ -10,11 +10,10 @@
 
 @import CoreText;
 
-// TODO: Correct values
 const UIFontWeight SRGFontWeightLight = -1.f;
-const UIFontWeight SRGFontWeightRegular = -0.5f;
-const UIFontWeight SRGFontWeightMedium = 0.f;
-const UIFontWeight SRGFontWeightBold = 0.5f;
+const UIFontWeight SRGFontWeightRegular = -2.f / 3.f;
+const UIFontWeight SRGFontWeightMedium = -1.f / 3.f;
+const UIFontWeight SRGFontWeightBold = 1.f / 3.f;
 const UIFontWeight SRGFontWeightHeavy = 1.f;
 
 BOOL SRGAppearanceRegisterFont(NSString *filePath)
