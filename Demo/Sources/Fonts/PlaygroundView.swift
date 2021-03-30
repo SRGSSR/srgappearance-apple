@@ -7,6 +7,8 @@
 import SRGAppearanceSwift
 import SwiftUI
 
+#if os(iOS)
+
 @available(iOS 13, *)
 class PlaygroundHostViewController: UIViewController {
     override func loadView() {
@@ -95,3 +97,5 @@ struct PlaygroundView_Previews: PreviewProvider {
         PlaygroundView()
     }
 }
+
+#endif

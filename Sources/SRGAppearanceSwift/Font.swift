@@ -132,8 +132,10 @@ public extension Text {
 extension ScaledMetric {
     private static func textStyle(from style: UIFont.TextStyle) -> Font.TextStyle {
         switch style {
+        #if os(iOS)
         case .largeTitle:
             return .largeTitle
+        #endif
         case .title1:
             return .title
         case .title2:
