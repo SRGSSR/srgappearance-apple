@@ -40,13 +40,14 @@ This requires your target to link against the corresponding Swift package produc
 
 ## SRG SSR fonts
 
-Official SRG SSR Fonts are available from the `SRGFont` class. Several font families are provided (text and display fonts) and they can be used in various ways:
+Official SRG SSR Fonts are available from the `SRGFont` class. Fonts can be used in two different ways:
 
-- With a standard style: The library defines a set of semantic styles which have a size, weight and scale according to a given text style, both on iOS and tvOS.
-- With manually specified size, weight and font style: If you cannot or don't want to use the standard styles, your application can set font settings directly. Instead of providing these settings each time, your application should probably just define its own set of styles.
-- With a fixed size and weight.
+- Using standard styles: The library defines a set of semantic styles which have an associated font family, size and weight. These fonts are aligned on text styles to automatically scale according to accessibility settings.
+- By manually specifying a family, a size and a weight. The size can be fixed or automatically aligned on a given text style for automatic scaling according to accessibility settings.
 
 The SDK also provides access to standard `UIFontDescriptors` for advanced font customization, as well as `UIFontMetrics` for scaling values according to accessibility text size settings.
+
+If you do not want to use the standard styles provided by SRG Appearance we recommend your application defines its own set of styles, using `SRGFont` API to provide the family, size, weight and text style associated with each style.
 
 ## Custom fonts
 

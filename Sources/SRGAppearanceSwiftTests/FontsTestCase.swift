@@ -9,17 +9,14 @@ import XCTest
 
 class FontsTestCase: XCTestCase {
     func testFontsWithStyle() {
-        XCTAssertTrue(SRGFont.font(.text, style: .body).fontName == "SRGSSRTypeTextVFApp-Medium")
-        XCTAssertTrue(SRGFont.font(.display, style: .body).fontName == "SRGSSRTypeDisplayVFApp-Medium")
+        XCTAssertTrue(SRGFont.font(.body).fontName == "SRGSSRTypeTextVFApp-Medium")
     }
     
     func testFontsWithWeightSizeRelativeToTextStyle() {
-        XCTAssertTrue(SRGFont.font(.text, weight: .ultraLight, size: 10, relativeTo: .body).fontName == "SRGSSRTypeTextVFApp-Medium")
-        XCTAssertTrue(SRGFont.font(.text, weight: .srg_light, size: 10, relativeTo: .body).fontName == "SRGSSRTypeTextVFApp-Medium")
+        XCTAssertTrue(SRGFont.font(family: .text, weight: .ultraLight, size: 10, relativeTo: .body).fontName.contains("SRGSSRType"))
     }
     
     func testFontsWithWeightAndFixedSize() {
-        XCTAssertTrue(SRGFont.font(.text, weight: .ultraLight, fixedSize: 10).fontName == "SRGSSRTypeTextVFApp-Medium")
-        XCTAssertTrue(SRGFont.font(.text, weight: .srg_light, fixedSize: 10).fontName == "SRGSSRTypeTextVFApp-Medium")
+        XCTAssertTrue(SRGFont.font(family: .text, weight: .ultraLight, fixedSize: 10).fontName.contains("SRGSSRType"))
     }
 }

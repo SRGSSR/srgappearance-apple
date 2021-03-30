@@ -94,7 +94,30 @@ static SRGVariationAxis *SRGVariationAxisWithName(SRGFontFamily family, NSString
     return [[SRGVariationAxis variationAxesForFontWithName:SRGFontNameForFamily(family)] filteredArrayUsingPredicate:predicate].firstObject;
 }
 
-static CGFloat SRGFontSizeForStyle(SRGFontStyle style)
+static SRGFontFamily SRGFamilyForStyle(SRGFontStyle style)
+{
+    // TODO: Discuss families to use
+    static dispatch_once_t s_onceToken;
+    static NSDictionary<NSNumber *, NSNumber *> *s_families;
+    dispatch_once(&s_onceToken, ^{
+        s_families = @{ @(SRGFontStyleH1) : @(SRGFontFamilyDisplay),
+                        @(SRGFontStyleH2) : @(SRGFontFamilyText),
+                        @(SRGFontStyleH3) : @(SRGFontFamilyText),
+                        @(SRGFontStyleH4) : @(SRGFontFamilyText),
+                        @(SRGFontStyleSubtitle) : @(SRGFontFamilyText),
+                        @(SRGFontStyleBody) : @(SRGFontFamilyText),
+                        @(SRGFontStyleButton1) : @(SRGFontFamilyText),
+                        @(SRGFontStyleButton2) : @(SRGFontFamilyText),
+                        @(SRGFontStyleOverline) : @(SRGFontFamilyText),
+                        @(SRGFontStyleLabel) : @(SRGFontFamilyText),
+                        @(SRGFontStyleCaption) : @(SRGFontFamilyText) };
+    });
+    NSNumber *family = s_families[@(style)];
+    NSCAssert(family != nil, @"Family is missing for some font style");
+    return family.integerValue;
+}
+
+static CGFloat SRGSizeForStyle(SRGFontStyle style)
 {
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSNumber *> *s_sizes;
@@ -131,7 +154,7 @@ static CGFloat SRGFontSizeForStyle(SRGFontStyle style)
     return size.floatValue;
 }
 
-static UIFontWeight SRGFontWeightForStyle(SRGFontStyle style)
+static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
 {
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSNumber *> *s_weights;
@@ -186,27 +209,31 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 @implementation SRGFont
 
+#pragma mark Helpers
+
 + (UIFont *)unscaledfontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight size:(CGFloat)size
 {
     UIFontDescriptor *fontDescriptor = [self fontDescriptorForFontWithFamily:family weight:weight];
     return [UIFont fontWithDescriptor:fontDescriptor size:size];
 }
 
-+ (UIFont *)unscaledfontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style
++ (UIFont *)unscaledfontWithStyle:(SRGFontStyle)style
 {
-    return [self unscaledfontWithFamily:family weight:SRGFontWeightForStyle(style) size:SRGFontSizeForStyle(style)];
+    return [self unscaledfontWithFamily:SRGFamilyForStyle(style) weight:SRGWeightForStyle(style) size:SRGSizeForStyle(style)];
 }
 
-+ (UIFont *)fontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style
+#pragma mark Public API
+
++ (UIFont *)fontWithStyle:(SRGFontStyle)style
 {
-    UIFont *font = [self unscaledfontWithFamily:family style:style];
+    UIFont *font = [self unscaledfontWithStyle:style];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
     return [fontMetrics scaledFontForFont:font];
 }
 
-+ (UIFont *)fontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
++ (UIFont *)fontWithStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
 {
-    UIFont *font = [self unscaledfontWithFamily:family style:style];
+    UIFont *font = [self unscaledfontWithStyle:style];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
     return [fontMetrics scaledFontForFont:font maximumPointSize:maximumSize];
 }
@@ -230,34 +257,11 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [self unscaledfontWithFamily:family weight:weight size:fixedSize];
 }
 
-+ (UIFont *)fontWithStyle:(SRGFontStyle)style
-{
-    return [self fontWithFamily:SRGFontFamilyText style:style];
-}
+#pragma mark Font descriptors
 
-+ (UIFont *)fontWithStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
++ (UIFontDescriptor *)fontDescriptorForFontWithStyle:(SRGFontStyle)style
 {
-    return [self fontWithFamily:SRGFontFamilyText style:style maximumSize:maximumSize];
-}
-
-+ (UIFont *)fontWithWeight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
-{
-    return [self fontWithFamily:SRGFontFamilyText weight:weight size:size relativeToTextStyle:textStyle];
-}
-
-+ (UIFont *)fontWithWeight:(UIFontWeight)weight size:(CGFloat)size maximumSize:(CGFloat)maximumSize relativeToTextStyle:(UIFontTextStyle)textStyle
-{
-    return [self fontWithWeight:SRGFontFamilyText size:size maximumSize:maximumSize relativeToTextStyle:textStyle];
-}
-
-+ (UIFont *)fontWithWeight:(UIFontWeight)weight fixedSize:(CGFloat)fixedSize
-{
-    return [self fontWithFamily:SRGFontFamilyText weight:weight fixedSize:fixedSize];
-}
-
-+ (UIFontDescriptor *)fontDescriptorForFontWithFamily:(SRGFontFamily)family style:(SRGFontStyle)style
-{
-    return [self fontDescriptorForFontWithFamily:family weight:SRGFontWeightForStyle(style)];
+    return [self fontDescriptorForFontWithFamily:SRGFamilyForStyle(style) weight:SRGWeightForStyle(style)];
 }
 
 + (UIFontDescriptor *)fontDescriptorForFontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight
@@ -280,14 +284,26 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
 }
 
-+ (UIFontTextStyle)textStyleForScalingFontWithStyle:(SRGFontStyle)style
+#pragma mark Properties
+
++ (SRGFontFamily)familyForFontStyle:(SRGFontStyle)style
 {
-    return SRGTextStyleForStyle(style);
+    return SRGFamilyForStyle(style);
 }
 
-+ (CGFloat)sizeFontWithStyle:(SRGFontStyle)style
++ (UIFontWeight)weightForFontStyle:(SRGFontStyle)style
 {
-    return SRGFontSizeForStyle(style);
+    return SRGWeightForStyle(style);
+}
+
++ (CGFloat)sizeForFontStyle:(SRGFontStyle)style
+{
+    return SRGSizeForStyle(style);
+}
+
++ (UIFontTextStyle)textStyleForFontStyle:(SRGFontStyle)style
+{
+    return SRGTextStyleForStyle(style);
 }
 
 @end

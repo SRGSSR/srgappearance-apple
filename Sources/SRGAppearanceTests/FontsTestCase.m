@@ -50,20 +50,20 @@
 
 - (void)testFontsWithStyle
 {
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText style:SRGFontStyleH1].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay style:SRGFontStyleH1].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithStyle:SRGFontStyleH1].fontName containsString:@"SRGSSRType"]);
+    XCTAssertTrue([[SRGFont fontWithStyle:SRGFontStyleH1].fontName containsString:@"SRGSSRType"]);
 }
 
 - (void)testFontsWithWeightSizeRelativeToTextStyle
 {
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName containsString:@"SRGSSRType"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay weight:UIFontWeightRegular size:10 relativeToTextStyle:UIFontTextStyleBody].fontName containsString:@"SRGSSRType"]);
 }
 
 - (void)testFontsWithWeightAndFixedSize
 {
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText weight:UIFontWeightRegular fixedSize:10].fontName isEqualToString:@"SRGSSRTypeTextVFApp-Medium"]);
-    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay weight:UIFontWeightRegular fixedSize:10].fontName isEqualToString:@"SRGSSRTypeDisplayVFApp-Medium"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyText weight:UIFontWeightRegular fixedSize:10].fontName containsString:@"SRGSSRType"]);
+    XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay weight:UIFontWeightRegular fixedSize:10].fontName containsString:@"SRGSSRType"]);
 }
 
 @end

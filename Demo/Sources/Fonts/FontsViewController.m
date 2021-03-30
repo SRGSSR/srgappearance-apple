@@ -14,8 +14,7 @@
 
 @interface FontsViewController ()
 
-@property (nonatomic) NSArray<NSAttributedString *> *textFontDescriptions;
-@property (nonatomic) NSArray<NSAttributedString *> *displayFontDescriptions;
+@property (nonatomic) NSArray<NSAttributedString *> *styleDescriptions;
 
 @end
 
@@ -23,34 +22,30 @@
 
 #pragma mark Class methods
 
-+ (NSArray<NSAttributedString *> *)descriptionsForFontWithFamily:(SRGFontFamily)family
++ (NSArray<NSAttributedString *> *)styleDescriptions
 {
-    static NSDictionary<NSNumber *, NSString *> *styles;
+    static NSDictionary<NSNumber *, NSString *> *s_styles;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
-        styles = @{ @(SRGFontStyleH1) : @"H1",
-                    @(SRGFontStyleH2) : @"H2",
-                    @(SRGFontStyleH3) : @"H3",
-                    @(SRGFontStyleH4) : @"H4",
-                    @(SRGFontStyleSubtitle) : @"Subtitle",
-                    @(SRGFontStyleBody) : @"Body",
-                    @(SRGFontStyleButton1) : @"Button1",
-                    @(SRGFontStyleButton2) : @"Button2",
-                    @(SRGFontStyleOverline) : @"Overline",
-                    @(SRGFontStyleLabel) : @"Label",
-                    @(SRGFontStyleCaption) : @"Caption"
+        s_styles = @{ @(SRGFontStyleH1) : @"H1",
+                      @(SRGFontStyleH2) : @"H2",
+                      @(SRGFontStyleH3) : @"H3",
+                      @(SRGFontStyleH4) : @"H4",
+                      @(SRGFontStyleSubtitle) : @"Subtitle",
+                      @(SRGFontStyleBody) : @"Body",
+                      @(SRGFontStyleButton1) : @"Button1",
+                      @(SRGFontStyleButton2) : @"Button2",
+                      @(SRGFontStyleOverline) : @"Overline",
+                      @(SRGFontStyleLabel) : @"Label",
+                      @(SRGFontStyleCaption) : @"Caption"
         };
     });
-    return [self descriptionsForFontWithFamily:family styles:styles];
-}
-
-+ (NSArray<NSAttributedString *> *)descriptionsForFontWithFamily:(SRGFontFamily)family styles:(NSDictionary<NSNumber *, NSString *> *)styles
-{
+    
     NSMutableArray<NSAttributedString *> *titles = [NSMutableArray array];
-    NSArray<NSNumber *> *stylesKeys = [styles.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    NSArray<NSNumber *> *stylesKeys = [s_styles.allKeys sortedArrayUsingSelector:@selector(compare:)];
     for (NSNumber *styleKey in stylesKeys) {
-        UIFont *font = [SRGFont fontWithFamily:family style:styleKey.integerValue];
-        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", styles[styleKey], @(font.pointSize)];
+        UIFont *font = [SRGFont fontWithStyle:styleKey.integerValue];
+        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", s_styles[styleKey], @(font.pointSize)];
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
     }
@@ -95,37 +90,16 @@
     NSString *contentSizeCategoryShortName = [UIApplication.sharedApplication.preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
     self.title = [NSString stringWithFormat:@"%@ (%@)", NSLocalizedString(@"Fonts", nil), contentSizeCategoryShortName];
     
-    self.textFontDescriptions = [FontsViewController descriptionsForFontWithFamily:SRGFontFamilyText];
-    self.displayFontDescriptions = [FontsViewController descriptionsForFontWithFamily:SRGFontFamilyDisplay];
+    self.styleDescriptions = [FontsViewController styleDescriptions];
     
     [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource protocol
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return NSLocalizedString(@"Text Font", nil);
-    }
-    else {
-        return NSLocalizedString(@"Display Font", nil);
-    }
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return self.textFontDescriptions.count;
-    }
-    else {
-        return self.displayFontDescriptions.count;
-    }
+    return self.styleDescriptions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -137,12 +111,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        cell.textLabel.attributedText = self.textFontDescriptions[indexPath.row];
-    }
-    else {
-        cell.textLabel.attributedText = self.displayFontDescriptions[indexPath.row];
-    }
+    cell.textLabel.attributedText = self.styleDescriptions[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
