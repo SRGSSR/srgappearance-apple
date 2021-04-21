@@ -10,11 +10,13 @@
 
 @import CoreText;
 
-const UIFontWeight SRGFontWeightLight = -1.f;
-const UIFontWeight SRGFontWeightRegular = -2.f / 3.f;
-const UIFontWeight SRGFontWeightMedium = -1.f / 3.f;
-const UIFontWeight SRGFontWeightBold = 1.f / 3.f;
-const UIFontWeight SRGFontWeightHeavy = 1.f;
+// Variable font weight range: 300 to 900. The values below are calculated from the official absolute weights in
+// this range.
+const UIFontWeight SRGFontWeightLight = -1.f;               // 300 = 300 + (900 - 300) * (-1 + 1) / 2
+const UIFontWeight SRGFontWeightRegular = -2.f / 3.f;       // 400 = 300 + (900 - 300) * (-2/3 + 1) / 2
+const UIFontWeight SRGFontWeightMedium = -1.f / 3.f;        // 500 = 300 + (900 - 300) * (-1/3 + 1) / 2
+const UIFontWeight SRGFontWeightBold = 1.f / 3.f;           // 700 = 300 + (900 - 300) * (1/3 + 1) / 2
+const UIFontWeight SRGFontWeightHeavy = 1.f;                // 900 = 300 + (900 - 300) * (1 + 1) / 2
 
 BOOL SRGAppearanceRegisterFont(NSString *filePath)
 {
@@ -96,21 +98,19 @@ static SRGVariationAxis *SRGVariationAxisWithName(SRGFontFamily family, NSString
 
 static SRGFontFamily SRGFamilyForStyle(SRGFontStyle style)
 {
-    // TODO: Discuss families to use
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSNumber *> *s_families;
     dispatch_once(&s_onceToken, ^{
         s_families = @{ @(SRGFontStyleH1) : @(SRGFontFamilyDisplay),
-                        @(SRGFontStyleH2) : @(SRGFontFamilyText),
+                        @(SRGFontStyleH2) : @(SRGFontFamilyDisplay),
                         @(SRGFontStyleH3) : @(SRGFontFamilyText),
                         @(SRGFontStyleH4) : @(SRGFontFamilyText),
-                        @(SRGFontStyleSubtitle) : @(SRGFontFamilyText),
+                        @(SRGFontStyleSubtitle1) : @(SRGFontFamilyText),
+                        @(SRGFontStyleSubtitle2) : @(SRGFontFamilyText),
                         @(SRGFontStyleBody) : @(SRGFontFamilyText),
-                        @(SRGFontStyleButton1) : @(SRGFontFamilyText),
-                        @(SRGFontStyleButton2) : @(SRGFontFamilyText),
-                        @(SRGFontStyleOverline) : @(SRGFontFamilyText),
-                        @(SRGFontStyleLabel) : @(SRGFontFamilyText),
-                        @(SRGFontStyleCaption) : @(SRGFontFamilyText) };
+                        @(SRGFontStyleButton) : @(SRGFontFamilyText),
+                        @(SRGFontStyleCaption) : @(SRGFontFamilyText),
+                        @(SRGFontStyleLabel) : @(SRGFontFamilyText) };
     });
     NSNumber *family = s_families[@(style)];
     NSCAssert(family != nil, @"Family is missing for some font style");
@@ -127,26 +127,23 @@ static CGFloat SRGSizeForStyle(SRGFontStyle style)
                      @(SRGFontStyleH2) : @42,
                      @(SRGFontStyleH3) : @32,
                      @(SRGFontStyleH4) : @30,
-                     @(SRGFontStyleSubtitle) : @32,
+                     @(SRGFontStyleSubtitle1) : @32,
+                     @(SRGFontStyleSubtitle2) : @26,
                      @(SRGFontStyleBody) : @30,
-                     @(SRGFontStyleButton1) : @32,
-                     @(SRGFontStyleButton2) : @26,
-                     @(SRGFontStyleOverline) : @24,
-                     @(SRGFontStyleLabel) : @20,
-                     @(SRGFontStyleCaption) : @18 };
+                     @(SRGFontStyleButton) : @32,
+                     @(SRGFontStyleCaption) : @18,
+                     @(SRGFontStyleLabel) : @20 };
 #else
-        // TODO: Use official values, for the moment these are only guesses based on what we previously had
-        s_sizes = @{ @(SRGFontStyleH1) : @22,
-                     @(SRGFontStyleH2) : @20,
+        s_sizes = @{ @(SRGFontStyleH1) : @26,
+                     @(SRGFontStyleH2) : @22,
                      @(SRGFontStyleH3) : @18,
-                     @(SRGFontStyleH4) : @17,
-                     @(SRGFontStyleSubtitle) : @13,
-                     @(SRGFontStyleBody) : @15,
-                     @(SRGFontStyleButton1) : @13,
-                     @(SRGFontStyleButton2) : @11,
-                     @(SRGFontStyleOverline) : @11,
-                     @(SRGFontStyleLabel) : @11,
-                     @(SRGFontStyleCaption) : @11 };
+                     @(SRGFontStyleH4) : @16,
+                     @(SRGFontStyleSubtitle1) : @14,
+                     @(SRGFontStyleSubtitle2) : @14,
+                     @(SRGFontStyleBody) : @16,
+                     @(SRGFontStyleButton) : @14,
+                     @(SRGFontStyleCaption) : @12,
+                     @(SRGFontStyleLabel) : @12 };
 #endif
     });
     NSNumber *size = s_sizes[@(style)];
@@ -159,17 +156,29 @@ static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSNumber *> *s_weights;
     dispatch_once(&s_onceToken, ^{
+#if TARGET_OS_TV
         s_weights = @{ @(SRGFontStyleH1) : @(SRGFontWeightBold),
                        @(SRGFontStyleH2) : @(SRGFontWeightMedium),
                        @(SRGFontStyleH3) : @(SRGFontWeightRegular),
                        @(SRGFontStyleH4) : @(SRGFontWeightMedium),
-                       @(SRGFontStyleSubtitle) : @(SRGFontWeightLight),
+                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightLight),
+                       @(SRGFontStyleSubtitle2) : @(SRGFontWeightRegular),
                        @(SRGFontStyleBody) : @(SRGFontWeightRegular),
-                       @(SRGFontStyleButton1) : @(SRGFontWeightMedium),
-                       @(SRGFontStyleButton2) : @(SRGFontWeightRegular),
-                       @(SRGFontStyleOverline) : @(SRGFontWeightRegular),
-                       @(SRGFontStyleLabel) : @(SRGFontWeightBold),
-                       @(SRGFontStyleCaption) : @(SRGFontWeightMedium) };
+                       @(SRGFontStyleButton) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleCaption) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleLabel) : @(SRGFontWeightBold) };
+#else
+        s_weights = @{ @(SRGFontStyleH1) : @(SRGFontWeightBold),
+                       @(SRGFontStyleH2) : @(SRGFontWeightBold),
+                       @(SRGFontStyleH3) : @(SRGFontWeightBold),
+                       @(SRGFontStyleH4) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightLight),
+                       @(SRGFontStyleSubtitle2) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleBody) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleButton) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleCaption) : @(SRGFontWeightRegular),
+                       @(SRGFontStyleLabel) : @(SRGFontWeightBold) };
+#endif
     });
     NSNumber *weight = s_weights[@(style)];
     NSCAssert(weight != nil, @"Weight is missing for some font style");
@@ -178,21 +187,19 @@ static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
 
 static UIFontTextStyle SRGTextStyleForStyle(SRGFontStyle style)
 {
-    // TODO: Decide correct text styles to apply
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, UIFontTextStyle> *s_textStyles;
     dispatch_once(&s_onceToken, ^{
         s_textStyles = @{ @(SRGFontStyleH1) : UIFontTextStyleTitle1,
                           @(SRGFontStyleH2) : UIFontTextStyleTitle2,
                           @(SRGFontStyleH3) : UIFontTextStyleTitle3,
-                          @(SRGFontStyleH4) : UIFontTextStyleTitle3,
-                          @(SRGFontStyleSubtitle) : UIFontTextStyleBody,
+                          @(SRGFontStyleH4) : UIFontTextStyleHeadline,
+                          @(SRGFontStyleSubtitle1) : UIFontTextStyleSubheadline,
+                          @(SRGFontStyleSubtitle2) : UIFontTextStyleSubheadline,
                           @(SRGFontStyleBody) : UIFontTextStyleBody,
-                          @(SRGFontStyleButton1) : UIFontTextStyleBody,
-                          @(SRGFontStyleButton2) : UIFontTextStyleBody,
-                          @(SRGFontStyleOverline) : UIFontTextStyleCallout,
-                          @(SRGFontStyleLabel) : UIFontTextStyleCallout,
-                          @(SRGFontStyleCaption) : UIFontTextStyleCaption1 };
+                          @(SRGFontStyleButton) : UIFontTextStyleBody,
+                          @(SRGFontStyleCaption) : UIFontTextStyleCaption1,
+                          @(SRGFontStyleLabel) : UIFontTextStyleCaption2 };
     });
     UIFontTextStyle textStyle = s_textStyles[@(style)];
     NSCAssert(textStyle != nil, @"Text style is missing for some font style");

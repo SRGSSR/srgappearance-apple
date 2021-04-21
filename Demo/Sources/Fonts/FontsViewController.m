@@ -31,13 +31,12 @@
                       @(SRGFontStyleH2) : @"H2",
                       @(SRGFontStyleH3) : @"H3",
                       @(SRGFontStyleH4) : @"H4",
-                      @(SRGFontStyleSubtitle) : @"Subtitle",
+                      @(SRGFontStyleSubtitle1) : @"Subtitle1",
+                      @(SRGFontStyleSubtitle2) : @"Subtitle2",
                       @(SRGFontStyleBody) : @"Body",
-                      @(SRGFontStyleButton1) : @"Button1",
-                      @(SRGFontStyleButton2) : @"Button2",
-                      @(SRGFontStyleOverline) : @"Overline",
-                      @(SRGFontStyleLabel) : @"Label",
-                      @(SRGFontStyleCaption) : @"Caption"
+                      @(SRGFontStyleButton) : @"Button",
+                      @(SRGFontStyleCaption) : @"Caption",
+                      @(SRGFontStyleLabel) : @"Label"
         };
     });
     

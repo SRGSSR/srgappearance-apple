@@ -16,13 +16,12 @@ typedef NS_CLOSED_ENUM(NSInteger, SRGFontStyle) {
     SRGFontStyleH2,
     SRGFontStyleH3,
     SRGFontStyleH4,
-    SRGFontStyleSubtitle,
+    SRGFontStyleSubtitle1,
+    SRGFontStyleSubtitle2,
     SRGFontStyleBody,
-    SRGFontStyleButton1,
-    SRGFontStyleButton2,
-    SRGFontStyleOverline,
-    SRGFontStyleLabel,
-    SRGFontStyleCaption
+    SRGFontStyleButton,
+    SRGFontStyleCaption,
+    SRGFontStyleLabel
 } NS_SWIFT_NAME(SRGFont.Style);
 
 /**
