@@ -17,14 +17,21 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
 @interface UIColor (SRGAppearance)
 
 /**
- *  The official SRG SSR red color.
+ *  Standard colors.
  */
-@property (class, nonatomic, readonly) UIColor *srg_redColor;
+@property (class, nonatomic, readonly) UIColor *srg_redColor;               // Brand color
+@property (class, nonatomic, readonly) UIColor *srg_lightRedColor;
+@property (class, nonatomic, readonly) UIColor *srg_darkRedColor;
+@property (class, nonatomic, readonly) UIColor *srg_blueColor;
 
 /**
- *  The official SRG SSR blue color.
+ *  Standard grays.
  */
-@property (class, nonatomic, readonly) UIColor *srg_blueColor;
+@property (class, nonatomic, readonly) UIColor *srg_gray1Color;
+@property (class, nonatomic, readonly) UIColor *srg_gray2Color;
+@property (class, nonatomic, readonly) UIColor *srg_gray3Color;
+@property (class, nonatomic, readonly) UIColor *srg_gray4Color;
+@property (class, nonatomic, readonly) UIColor *srg_gray5Color;
 
 /**
  *  Return the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
