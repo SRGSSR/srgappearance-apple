@@ -19,31 +19,31 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
 /**
  *  Standard colors.
  */
-@property (class, nonatomic, readonly) UIColor *srg_redColor;               // Brand color
-@property (class, nonatomic, readonly) UIColor *srg_lightRedColor;
-@property (class, nonatomic, readonly) UIColor *srg_darkRedColor;
-@property (class, nonatomic, readonly) UIColor *srg_blueColor;
+@property (class, nonatomic, readonly) UIColor *srg_redColor NS_REFINED_FOR_SWIFT;               // Brand color
+@property (class, nonatomic, readonly) UIColor *srg_lightRedColor NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_darkRedColor NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_blueColor NS_REFINED_FOR_SWIFT;
 
 /**
  *  Standard grays.
  */
-@property (class, nonatomic, readonly) UIColor *srg_gray1Color;
-@property (class, nonatomic, readonly) UIColor *srg_gray2Color;
-@property (class, nonatomic, readonly) UIColor *srg_gray3Color;
-@property (class, nonatomic, readonly) UIColor *srg_gray4Color;
-@property (class, nonatomic, readonly) UIColor *srg_gray5Color;
+@property (class, nonatomic, readonly) UIColor *srg_gray1Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray2Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray3Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray4Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray5Color NS_REFINED_FOR_SWIFT;
 
 /**
- *  Return the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
+ *  Returns the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
  *  or `nil` if the string does not correspond to a color. Supports uppercase or lowercase digits.
  */
-+ (nullable UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString;
++ (nullable UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString NS_REFINED_FOR_SWIFT;
 
 /**
- *  Return the color as a hexadecimal #rrggbbaa (#rrggbb if the alpha channel is 1) string representation. Always return
+ *  Returns the color as a hexadecimal #rrggbbaa (#rrggbb if the alpha channel is 1) string representation. Always return
  *  lowercase digits with a leading wildcard.
  */
-@property (nonatomic, readonly, copy) NSString *srg_hexadecimalString;
+@property (nonatomic, readonly, copy) NSString *srg_hexadecimalString NS_REFINED_FOR_SWIFT;
 
 @end
 
