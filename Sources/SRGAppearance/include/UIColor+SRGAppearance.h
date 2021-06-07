@@ -35,16 +35,13 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
 
 /**
  *  Return the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
- *  or `nil` if the string does not correspond to a color.
- *
- *  @discussion Supports uppercase or lowercase digits.
+ *  or `nil` if the string does not correspond to a color. Supports uppercase or lowercase digits.
  */
 + (nullable UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString;
 
 /**
- *  Return the color as a hexadecimal #rrggbbaa (#rrggbb if the alpha channel is 1) string representation.
- *
- *  @discussion Always return lowercase digits with a leading wildcard.
+ *  Return the color as a hexadecimal #rrggbbaa (#rrggbb if the alpha channel is 1) string representation. Always return
+ *  lowercase digits with a leading wildcard.
  */
 @property (nonatomic, readonly, copy) NSString *srg_hexadecimalString;
 
