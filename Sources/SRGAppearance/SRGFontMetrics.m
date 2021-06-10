@@ -31,27 +31,20 @@
     return self;
 }
 
-#pragma mark Getters and setters
-
-- (CGFloat)maximumValue
-{
-    return [SRGFont maximumSizeForFontStyle:self.style];
-}
-
 #pragma mark Helpers
 
 - (UIFont *)majorizedScaledFontForFont:(UIFont *)font
 {
-    CGFloat maximumValue = [self maximumValue];
+    CGFloat maximumValue = [SRGFont maximumSizeForFontStyle:self.style];
     if (font.pointSize > maximumValue) {
         font = [font fontWithSize:maximumValue];
     }
     return font;
 }
 
-- (CGFloat)majorizedValue:(CGFloat)value
+- (CGFloat)majorizedScaledValue:(CGFloat)scaledValue forValue:(CGFloat)value
 {
-    return fmin(value, [self maximumValue]);
+    return fmin(scaledValue, value * [SRGFont maximumSizeForFontStyle:self.style] / [SRGFont sizeForFontStyle:self.style]);
 }
 
 #pragma mark Overrides
@@ -83,13 +76,13 @@
 - (CGFloat)scaledValueForValue:(CGFloat)value
 {
     CGFloat scaledValue = [super scaledValueForValue:value];
-    return [self majorizedValue:scaledValue];
+    return [self majorizedScaledValue:scaledValue forValue:value];
 }
 
 - (CGFloat)scaledValueForValue:(CGFloat)value compatibleWithTraitCollection:(UITraitCollection *)traitCollection
 {
     CGFloat scaledValue = [super scaledValueForValue:value compatibleWithTraitCollection:traitCollection];
-    return [self majorizedValue:scaledValue];
+    return [self majorizedScaledValue:scaledValue forValue:value];
 }
 
 @end
