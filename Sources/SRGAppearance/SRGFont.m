@@ -151,6 +151,32 @@ static CGFloat SRGSizeForStyle(SRGFontStyle style)
     return size.floatValue;
 }
 
+static CGFloat SRGMaximumSizeForStyle(SRGFontStyle style)
+{
+#if TARGET_OS_TV
+    return CGFLOAT_MAX;
+#else
+    // Maximum sizes when Larger Accessibility Sizes are not enabled.
+    static dispatch_once_t s_onceToken;
+    static NSDictionary<NSNumber *, NSNumber *> *s_sizes;
+    dispatch_once(&s_onceToken, ^{
+        s_sizes = @{ @(SRGFontStyleH1) : @31,
+                     @(SRGFontStyleH2) : @27,
+                     @(SRGFontStyleH3) : @23,
+                     @(SRGFontStyleH4) : @21,
+                     @(SRGFontStyleSubtitle1) : @18,
+                     @(SRGFontStyleSubtitle2) : @18,
+                     @(SRGFontStyleBody) : @21,
+                     @(SRGFontStyleButton) : @18,
+                     @(SRGFontStyleCaption) : @17,
+                     @(SRGFontStyleLabel) : @20 };
+    });
+    NSNumber *size = s_sizes[@(style)];
+    NSCAssert(size != nil, @"Maximum size is missing for some font style");
+    return size.floatValue;
+#endif
+}
+
 static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
 {
     static dispatch_once_t s_onceToken;
@@ -235,14 +261,14 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
     UIFont *font = [self unscaledfontWithStyle:style];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
-    return [fontMetrics scaledFontForFont:font];
+    return [fontMetrics scaledFontForFont:font maximumPointSize:SRGMaximumSizeForStyle(style)];
 }
 
 + (UIFont *)fontWithStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
 {
     UIFont *font = [self unscaledfontWithStyle:style];
     UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
-    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumSize];
+    return [fontMetrics scaledFontForFont:font maximumPointSize:fmin(maximumSize, SRGMaximumSizeForStyle(style))];
 }
 
 + (UIFont *)fontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
@@ -311,6 +337,11 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 + (CGFloat)sizeForFontStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
 {
     return fmin(SRGSizeForStyle(style), fmax(maximumSize, 0.));
+}
+
++ (CGFloat)maximumSizeForFontStyle:(SRGFontStyle)style
+{
+    return SRGMaximumSizeForStyle(style);
 }
 
 + (UIFontTextStyle)textStyleForFontStyle:(SRGFontStyle)style
