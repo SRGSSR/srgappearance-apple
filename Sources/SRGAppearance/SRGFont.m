@@ -6,6 +6,7 @@
 
 #import "SRGFont.h"
 
+#import "SRGFontMetrics.h"
 #import "SRGVariationAxis.h"
 
 @import CoreText;
@@ -260,15 +261,15 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 + (UIFont *)fontWithStyle:(SRGFontStyle)style
 {
     UIFont *font = [self unscaledfontWithStyle:style];
-    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
-    return [fontMetrics scaledFontForFont:font maximumPointSize:SRGMaximumSizeForStyle(style)];
+    UIFontMetrics *fontMetrics = [SRGFontMetrics metricsForFontStyle:style];
+    return [fontMetrics scaledFontForFont:font];
 }
 
 + (UIFont *)fontWithStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
 {
     UIFont *font = [self unscaledfontWithStyle:style];
-    UIFontMetrics *fontMetrics = [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
-    return [fontMetrics scaledFontForFont:font maximumPointSize:fmin(maximumSize, SRGMaximumSizeForStyle(style))];
+    UIFontMetrics *fontMetrics = [SRGFontMetrics metricsForFontStyle:style];
+    return [fontMetrics scaledFontForFont:font maximumPointSize:maximumSize];
 }
 
 + (UIFont *)fontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight size:(CGFloat)size relativeToTextStyle:(UIFontTextStyle)textStyle
@@ -314,7 +315,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 + (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style
 {
-    return [UIFontMetrics metricsForTextStyle:SRGTextStyleForStyle(style)];
+    return [SRGFontMetrics metricsForFontStyle:style];
 }
 
 #pragma mark Properties
