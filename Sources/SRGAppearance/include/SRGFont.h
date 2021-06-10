@@ -10,8 +10,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Standard semantic styles defining a family, a size, a maximum size, a weight as well as a scaling behavior for
- *  accessibility. Note that theses standard styles do not get larger wgen "Larger Accessibility Sizes" has been
- *  enabled.
+ *  accessibility. Note that theses standard styles do not get larger with sizes enabled by the "Larger Accessibility
+ *  Sizes" system setting being enabled.
  */
 typedef NS_CLOSED_ENUM(NSInteger, SRGFontStyle) {
     SRGFontStyleH1 = 1,
@@ -124,7 +124,7 @@ OBJC_EXPORT const UIFontWeight SRGFontWeightHeavy NS_SWIFT_NAME(srg_heavy);
 + (UIFontWeight)weightForFontStyle:(SRGFontStyle)style;
 
 /**
- *  Return the size associated with a font style.
+ *  Return the size associated with a font style (for the default large accessibility category).
  */
 + (CGFloat)sizeForFontStyle:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
 

@@ -45,7 +45,7 @@ Official SRG SSR Fonts are available from the `SRGFont` class. Fonts can be used
 - Using standard styles: The library defines a set of semantic styles which have an associated font family, size and weight. These fonts are aligned on text styles to automatically scale according to accessibility settings.
 - By manually specifying a family, a size and a weight. The size can be fixed or automatically aligned on a given text style for automatic scaling according to accessibility settings.
 
-The SDK also provides access to standard `UIFontDescriptors` for advanced font customization, as well as `UIFontMetrics` for scaling values according to accessibility text size settings.
+The SDK also provides access to standard `UIFontDescriptors` for advanced font customization, as well as `UIFontMetrics` for scaling values according to accessibility text size settings. APIs are available for better integration into SwiftUI code (`Font` methods and `@SRGScaledMetric` for scaling values).
 
 If you do not want to use the standard styles provided by SRG Appearance we recommend your application defines its own set of styles, using `SRGFont` API to provide the family, size, weight and text style associated with each style.
 
