@@ -308,6 +308,11 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     return SRGSizeForStyle(style);
 }
 
++ (CGFloat)sizeForFontStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize
+{
+    return fmin(SRGSizeForStyle(style), fmax(maximumSize, 0.));
+}
+
 + (UIFontTextStyle)textStyleForFontStyle:(SRGFontStyle)style
 {
     return SRGTextStyleForStyle(style);

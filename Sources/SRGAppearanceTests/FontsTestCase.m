@@ -66,4 +66,10 @@
     XCTAssertTrue([[SRGFont fontWithFamily:SRGFontFamilyDisplay weight:UIFontWeightRegular fixedSize:10].fontName containsString:@"SRGSSRType"]);
 }
 
+- (void)testSizeForFontStyle
+{
+    XCTAssertEqual([SRGFont sizeForFontStyle:SRGFontStyleBody maximumSize:4.], 4.);
+    XCTAssertTrue([SRGFont sizeForFontStyle:SRGFontStyleBody] > 4.);
+}
+
 @end

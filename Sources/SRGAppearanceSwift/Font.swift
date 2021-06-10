@@ -42,6 +42,18 @@ public extension SRGFont {
     static func font(family: SRGFont.Family, weight: UIFont.Weight, fixedSize: CGFloat) -> UIFont {
         return __font(with: family, weight: weight, fixedSize: fixedSize)
     }
+    
+    /**
+     *  Return the size associated with a font style (with an optional maximum size).
+     */
+    static func size(for style: SRGFont.Style, maximumSize: CGFloat? = nil) -> CGFloat {
+        if let maximumSize = maximumSize {
+            return __size(for: style, maximumSize: maximumSize)
+        }
+        else {
+            return __size(for: style)
+        }
+    }
 }
 
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)

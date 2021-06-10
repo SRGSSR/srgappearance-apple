@@ -124,7 +124,12 @@ OBJC_EXPORT const UIFontWeight SRGFontWeightHeavy NS_SWIFT_NAME(srg_heavy);
 /**
  *  Return the size associated with a font style.
  */
-+ (CGFloat)sizeForFontStyle:(SRGFontStyle)style;
++ (CGFloat)sizeForFontStyle:(SRGFontStyle)style NS_REFINED_FOR_SWIFT;
+
+/**
+ *  Return the size associated with a font style (capped to a maximum size).
+ */
++ (CGFloat)sizeForFontStyle:(SRGFontStyle)style maximumSize:(CGFloat)maximumSize NS_REFINED_FOR_SWIFT;
 
 /**
  *  Return the text style according to which a font with the specified style scales.
