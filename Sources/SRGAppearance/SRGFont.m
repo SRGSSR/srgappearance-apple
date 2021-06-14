@@ -126,7 +126,7 @@ static CGFloat SRGSizeForStyle(SRGFontStyle style)
 #if TARGET_OS_TV
         s_sizes = @{ @(SRGFontStyleH1) : @48,
                      @(SRGFontStyleH2) : @42,
-                     @(SRGFontStyleH3) : @34,
+                     @(SRGFontStyleH3) : @38,
                      @(SRGFontStyleH4) : @30,
                      @(SRGFontStyleSubtitle1) : @32,
                      @(SRGFontStyleSubtitle2) : @26,
@@ -196,8 +196,8 @@ static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
                        @(SRGFontStyleLabel) : @(SRGFontWeightBold) };
 #else
         s_weights = @{ @(SRGFontStyleH1) : @(SRGFontWeightBold),
-                       @(SRGFontStyleH2) : @(SRGFontWeightBold),
-                       @(SRGFontStyleH3) : @(SRGFontWeightBold),
+                       @(SRGFontStyleH2) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleH3) : @(SRGFontWeightMedium),
                        @(SRGFontStyleH4) : @(SRGFontWeightMedium),
                        @(SRGFontStyleSubtitle1) : @(SRGFontWeightLight),
                        @(SRGFontStyleSubtitle2) : @(SRGFontWeightMedium),
