@@ -10,6 +10,6 @@
 FOUNDATION_EXPORT NSString *SRGAppearanceMarketingVersion(void);
 
 // Public headers.
+#import "SRGFont.h"
 #import "UIColor+SRGAppearance.h"
-#import "UIFont+SRGAppearance.h"
 #import "UIImage+SRGAppearance.h"

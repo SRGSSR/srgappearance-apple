@@ -17,29 +17,33 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
 @interface UIColor (SRGAppearance)
 
 /**
- *  The official SRG SSR red color.
+ *  Standard colors.
  */
-@property (class, nonatomic, readonly) UIColor *srg_redColor;
+@property (class, nonatomic, readonly) UIColor *srg_redColor NS_REFINED_FOR_SWIFT;               // Brand color
+@property (class, nonatomic, readonly) UIColor *srg_lightRedColor NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_darkRedColor NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_blueColor NS_REFINED_FOR_SWIFT;
 
 /**
- *  The official SRG SSR blue color.
+ *  Standard grays.
  */
-@property (class, nonatomic, readonly) UIColor *srg_blueColor;
+@property (class, nonatomic, readonly) UIColor *srg_gray1Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray2Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray3Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray4Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray5Color NS_REFINED_FOR_SWIFT;
 
 /**
- *  Return the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
- *  or `nil` if the string does not correspond to a color.
- *
- *  @discussion Supports uppercase or lowercase digits.
+ *  Returns the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
+ *  or `nil` if the string does not correspond to a color. Supports uppercase or lowercase digits.
  */
-+ (nullable UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString;
++ (nullable UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString NS_REFINED_FOR_SWIFT;
 
 /**
- *  Return the color as a hexadecimal #rrggbbaa (#rrggbb if the alpha channel is 1) string representation.
- *
- *  @discussion Always return lowercase digits with a leading wildcard.
+ *  Returns the color as a hexadecimal #rrggbbaa (#rrggbb if the alpha channel is 1) string representation. Always return
+ *  lowercase digits with a leading wildcard.
  */
-@property (nonatomic, readonly, copy) NSString *srg_hexadecimalString;
+@property (nonatomic, readonly, copy) NSString *srg_hexadecimalString NS_REFINED_FOR_SWIFT;
 
 @end
 

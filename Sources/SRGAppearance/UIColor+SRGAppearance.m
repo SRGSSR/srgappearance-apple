@@ -16,12 +16,47 @@
 
 + (UIColor *)srg_redColor
 {
-    return [UIColor srg_colorFromHexadecimalString:@"#9d0018"];
+    return [UIColor srg_colorFromHexadecimalString:@"#af001e"];
+}
+
++ (UIColor *)srg_lightRedColor
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#d50000"];
+}
+
++ (UIColor *)srg_darkRedColor
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#8b0019"];
 }
 
 + (UIColor *)srg_blueColor
 {
     return [UIColor srg_colorFromHexadecimalString:@"#0f5acb"];
+}
+
++ (UIColor *)srg_gray1Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#161616"];
+}
+
++ (UIColor *)srg_gray2Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#232323"];
+}
+
++ (UIColor *)srg_gray3Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#333333"];
+}
+
++ (UIColor *)srg_gray4Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#969696"];
+}
+
++ (UIColor *)srg_gray5Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#C7C7C7"];
 }
 
 + (UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString

@@ -12,7 +12,7 @@ SRG Appearance is a lightweight library providing unified SRG SSR appearance to 
 
 ## Compatibility
 
-The library is suitable for applications running on iOS 9, tvOS 12 and above. The project is meant to be compiled with the latest Xcode version.
+The library is suitable for applications running on iOS 12, tvOS 12 and above. The project is meant to be compiled with the latest Xcode version.
 
 ## Contributing
 
@@ -33,21 +33,25 @@ When you want to use classes or functions provided by the library in your code, 
 or in Swift:
 
 ```swift
-import SRGAppearance
+import SRGAppearanceSwift
 ```
+
+This requires your target to link against the corresponding Swift package product.
 
 ## SRG SSR fonts
 
-Two sets of font methods are provided in `UIFont+SRGAppearance.h`:
+Official SRG SSR Fonts are available from the `SRGFont` class. Fonts can be used in two different ways:
 
-* Methods returning a font with a given size. You can also set fonts with a given size directly in Interface Builder. Simply install the fonts available in `Carthage/Checkouts/(iOS|tvOS)/srgappearance-apple/Framework/Resources/Fonts` by double-clicking on them first.
-* Methods returning a font for a given text style. The exact font size is determined by the corresponding system accessibility setting. Setting custom fonts for a given style is sadly currently not supported in Interface Builder and must be performed in code.
+- Using standard styles: The library defines a set of semantic styles which have an associated font family, size and weight. These fonts are aligned on text styles to automatically scale according to accessibility settings.
+- By manually specifying a family, a size and a weight. The size can be fixed or automatically aligned on a given text style for automatic scaling according to accessibility settings.
 
-You can also register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function available from the same header file.
+The SDK also provides access to standard `UIFontDescriptors` for advanced font customization, as well as `UIFontMetrics` for scaling values according to accessibility text size settings. APIs are available for better integration into SwiftUI code (`Font` methods and `@SRGScaledMetric` for scaling values).
 
-## SRG SSR text styles
+If you do not want to use the standard styles provided by SRG Appearance we recommend your application defines its own set of styles, using `SRGFont` API to provide the family, size, weight and text style associated with each style.
 
-A limited set of SRG SSR custom font styles is provided as well. SRG SSR fonts are readily compatible with those styles, and a method is provided to apply them to arbitrary fonts as well.
+## Custom fonts
+
+You can register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function. Note that this method is only provided as a convenience but that the public API does not provide any other API for integrating into your application.
 
 ## SRG SSR colors
 
