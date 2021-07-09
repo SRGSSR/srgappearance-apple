@@ -300,17 +300,36 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 
 + (UIFontDescriptor *)fontDescriptorForFontWithFamily:(SRGFontFamily)family weight:(UIFontWeight)weight
 {
-    NSMutableDictionary<UIFontDescriptorAttributeName, id> *variationAttributes = [NSMutableDictionary dictionary];
+    static NSMutableDictionary<NSNumber *, NSMutableDictionary<NSNumber *, UIFontDescriptor *> *> *s_fontDescriptorMap;
     
-    SRGVariationAxis *variationAxis = SRGVariationAxisWithName(family, @"Weight");
-    if (variationAxis) {
-        // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
-        CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
-        variationAttributes[variationAxis.attribute] = @(absoluteWeight);
+    static dispatch_once_t s_onceToken;
+    dispatch_once(&s_onceToken, ^{
+        s_fontDescriptorMap = [NSMutableDictionary dictionary];
+    });
+    
+    NSMutableDictionary<NSNumber *, UIFontDescriptor *> *fontDescriptorsForFamilyMap = s_fontDescriptorMap[@(family)];
+    if (! fontDescriptorsForFamilyMap) {
+        fontDescriptorsForFamilyMap = [NSMutableDictionary dictionary];
+        s_fontDescriptorMap[@(family)] = fontDescriptorsForFamilyMap;
     }
     
-    return [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForFamily(family),
-                                                                 (UIFontDescriptorAttributeName)kCTFontVariationAttribute : variationAttributes.copy }];
+    UIFontDescriptor *fontDescriptor = fontDescriptorsForFamilyMap[@(weight)];
+    if (! fontDescriptor) {
+        NSMutableDictionary<UIFontDescriptorAttributeName, id> *variationAttributes = [NSMutableDictionary dictionary];
+        
+        SRGVariationAxis *variationAxis = SRGVariationAxisWithName(family, @"Weight");
+        if (variationAxis) {
+            // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
+            CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
+            variationAttributes[variationAxis.attribute] = @(absoluteWeight);
+        }
+        
+        fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForFamily(family),
+                                                                               (UIFontDescriptorAttributeName)kCTFontVariationAttribute : variationAttributes.copy }];
+        fontDescriptorsForFamilyMap[@(weight)] = fontDescriptor;
+    }
+    
+    return fontDescriptor;
 }
 
 + (UIFontMetrics *)metricsForFontWithStyle:(SRGFontStyle)style

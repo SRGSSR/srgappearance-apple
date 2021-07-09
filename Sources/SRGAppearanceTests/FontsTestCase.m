@@ -72,4 +72,22 @@
     XCTAssertTrue([SRGFont sizeForFontStyle:SRGFontStyleBody] > 4.);
 }
 
+- (void)testUIFontPerformance
+{
+    [self measureBlock:^{
+        for (NSInteger i = 0; i < 10000; ++i) {
+            __unused UIFont *font = [UIFont fontWithName:@"SRGSSRTypeTextVFApp-Medium" size:16.f];
+        }
+    }];
+}
+
+- (void)testSRGFontPerformance
+{
+    [self measureBlock:^{
+        for (NSInteger i = 0; i < 10000; ++i) {
+            __unused UIFont *font = [SRGFont fontWithStyle:SRGFontStyleBody];
+        }
+    }];
+}
+
 @end
