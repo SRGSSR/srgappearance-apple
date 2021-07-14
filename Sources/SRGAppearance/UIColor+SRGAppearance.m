@@ -34,29 +34,34 @@
     return [UIColor srg_colorFromHexadecimalString:@"#0f5acb"];
 }
 
-+ (UIColor *)srg_gray1Color
++ (UIColor *)srg_gray16Color
 {
     return [UIColor srg_colorFromHexadecimalString:@"#161616"];
 }
 
-+ (UIColor *)srg_gray2Color
++ (UIColor *)srg_gray23Color
 {
     return [UIColor srg_colorFromHexadecimalString:@"#232323"];
 }
 
-+ (UIColor *)srg_gray3Color
++ (UIColor *)srg_gray33Color
 {
     return [UIColor srg_colorFromHexadecimalString:@"#333333"];
 }
 
-+ (UIColor *)srg_gray4Color
++ (UIColor *)srg_gray4AColor
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#4a4a4a"];
+}
+
++ (UIColor *)srg_gray96Color
 {
     return [UIColor srg_colorFromHexadecimalString:@"#969696"];
 }
 
-+ (UIColor *)srg_gray5Color
++ (UIColor *)srg_grayC7Color
 {
-    return [UIColor srg_colorFromHexadecimalString:@"#C7C7C7"];
+    return [UIColor srg_colorFromHexadecimalString:@"#c7c7c7"];
 }
 
 + (UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString

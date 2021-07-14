@@ -19,11 +19,12 @@ public extension UIColor {
     /**
      *  Standard grays.
      */
-    static let srgGray1 = __srg_gray1
-    static let srgGray2 = __srg_gray2
-    static let srgGray3 = __srg_gray3
-    static let srgGray4 = __srg_gray4
-    static let srgGray5 = __srg_gray5
+    static let srgGray16 = __srg_gray16
+    static let srgGray23 = __srg_gray23
+    static let srgGray33 = __srg_gray33
+    static let srgGray4A = __srg_gray4A
+    static let srgGray96 = __srg_gray96
+    static let srgGrayC7 = __srg_grayC7
     
     /**
      *  Returns the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
@@ -51,11 +52,12 @@ public extension Color {
     /**
      *  Standard grays.
      */
-    static let srgGray1 = Color(UIColor.srgGray1)
-    static let srgGray2 = Color(UIColor.srgGray2)
-    static let srgGray3 = Color(UIColor.srgGray3)
-    static let srgGray4 = Color(UIColor.srgGray4)
-    static let srgGray5 = Color(UIColor.srgGray5)
+    static let srgGray16 = Color(UIColor.srgGray16)
+    static let srgGray23 = Color(UIColor.srgGray23)
+    static let srgGray33 = Color(UIColor.srgGray33)
+    static let srgGray4A = Color(UIColor.srgGray4A)
+    static let srgGray96 = Color(UIColor.srgGray96)
+    static let srgGrayC7 = Color(UIColor.srgGrayC7)
     
     /**
      *  Returns the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
