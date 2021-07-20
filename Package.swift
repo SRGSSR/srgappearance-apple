@@ -3,19 +3,23 @@
 import PackageDescription
 
 struct ProjectSettings {
-    static let marketingVersion: String = "3.0.2"
+    static let marketingVersion: String = "4.0.0"
 }
 
 let package = Package(
     name: "SRGAppearance",
     platforms: [
-        .iOS(.v9),
+        .iOS(.v12),
         .tvOS(.v12)
     ],
     products: [
         .library(
             name: "SRGAppearance",
             targets: ["SRGAppearance"]
+        ),
+        .library(
+            name: "SRGAppearanceSwift",
+            targets: ["SRGAppearanceSwift"]
         )
     ],
     targets: [
@@ -29,12 +33,20 @@ let package = Package(
                 .define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release))
             ]
         ),
+        .target(
+            name: "SRGAppearanceSwift",
+            dependencies: ["SRGAppearance"]
+        ),
         .testTarget(
             name: "SRGAppearanceTests",
             dependencies: ["SRGAppearance"],
             resources: [
                 .process("Resources")
             ]
+        ),
+        .testTarget(
+            name: "SRGAppearanceSwiftTests",
+            dependencies: ["SRGAppearanceSwift"]
         )
     ]
 )

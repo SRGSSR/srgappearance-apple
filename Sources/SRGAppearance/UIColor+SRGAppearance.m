@@ -16,12 +16,52 @@
 
 + (UIColor *)srg_redColor
 {
-    return [UIColor srg_colorFromHexadecimalString:@"#9d0018"];
+    return [UIColor srg_colorFromHexadecimalString:@"#af001e"];
+}
+
++ (UIColor *)srg_lightRedColor
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#d50000"];
+}
+
++ (UIColor *)srg_darkRedColor
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#8b0019"];
 }
 
 + (UIColor *)srg_blueColor
 {
     return [UIColor srg_colorFromHexadecimalString:@"#0f5acb"];
+}
+
++ (UIColor *)srg_gray16Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#161616"];
+}
+
++ (UIColor *)srg_gray23Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#232323"];
+}
+
++ (UIColor *)srg_gray33Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#333333"];
+}
+
++ (UIColor *)srg_gray4AColor
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#4a4a4a"];
+}
+
++ (UIColor *)srg_gray96Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#969696"];
+}
+
++ (UIColor *)srg_grayC7Color
+{
+    return [UIColor srg_colorFromHexadecimalString:@"#c7c7c7"];
 }
 
 + (UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString

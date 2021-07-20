@@ -14,6 +14,10 @@
 		6FE08CC31E8A86FB00EC4716 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CBF1E8A86FB00EC4716 /* main.m */; };
 		6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE08CC51E8A877200EC4716 /* FontsViewController.m */; };
 		6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */; };
+		6FE1CB32260B546400E7D399 /* SRGAppearanceSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE1CB31260B546400E7D399 /* SRGAppearanceSwift */; };
+		6FE48639260B292E00671546 /* PlaygroundViewController~ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE48638260B292E00671546 /* PlaygroundViewController~ios.m */; };
+		6FE4863E260B298A00671546 /* PlaygroundViewController~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE4863D260B298A00671546 /* PlaygroundViewController~ios.storyboard */; };
+		6FE48649260B515C00671546 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE48648260B515C00671546 /* PlaygroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,7 @@
 		6F0EE5862316B40500328674 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
 		6F0EE5872316B40500328674 /* Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resources.m; sourceTree = "<group>"; };
 		6F6AE77B24CEE5E600D7C8B6 /* SRGAppearance-demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SRGAppearance-demo.entitlements"; sourceTree = "<group>"; };
+		6F7A3991260B90C6002FA47E /* ObjectiveC-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectiveC-Bridge.h"; sourceTree = "<group>"; };
 		6F9453D4223FF5890039974F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGAppearance-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE08CBA1E8A86FB00EC4716 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +35,10 @@
 		6FE08CC41E8A877200EC4716 /* FontsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontsViewController.h; sourceTree = "<group>"; };
 		6FE08CC51E8A877200EC4716 /* FontsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsViewController.m; sourceTree = "<group>"; };
 		6FE08CCA1E8A886000EC4716 /* LaunchScreen~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ios.storyboard"; sourceTree = "<group>"; };
+		6FE48637260B292E00671546 /* PlaygroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
+		6FE48638260B292E00671546 /* PlaygroundViewController~ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PlaygroundViewController~ios.m"; sourceTree = "<group>"; };
+		6FE4863D260B298A00671546 /* PlaygroundViewController~ios.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "PlaygroundViewController~ios.storyboard"; sourceTree = "<group>"; };
+		6FE48648260B515C00671546 /* PlaygroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FC82AD424C5AA4100459101 /* SRGAppearance in Frameworks */,
+				6FE1CB32260B546400E7D399 /* SRGAppearanceSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +57,7 @@
 		6F0EE5852316B40500328674 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6F7A3991260B90C6002FA47E /* ObjectiveC-Bridge.h */,
 				6F0EE5862316B40500328674 /* Resources.h */,
 				6F0EE5872316B40500328674 /* Resources.m */,
 			);
@@ -106,6 +117,10 @@
 			children = (
 				6FE08CC41E8A877200EC4716 /* FontsViewController.h */,
 				6FE08CC51E8A877200EC4716 /* FontsViewController.m */,
+				6FE48648260B515C00671546 /* PlaygroundView.swift */,
+				6FE48637260B292E00671546 /* PlaygroundViewController.h */,
+				6FE48638260B292E00671546 /* PlaygroundViewController~ios.m */,
+				6FE4863D260B298A00671546 /* PlaygroundViewController~ios.storyboard */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -137,6 +152,7 @@
 			name = "SRGAppearance-demo";
 			packageProductDependencies = (
 				6FC82AD324C5AA4100459101 /* SRGAppearance */,
+				6FE1CB31260B546400E7D399 /* SRGAppearanceSwift */,
 			);
 			productName = "SRGAppearance-demo";
 			productReference = 6FE08C5F1E8A865800EC4716 /* SRGAppearance-demo.app */;
@@ -149,12 +165,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SRG;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "SRG SSR";
 				TargetAttributes = {
 					6FE08C5E1E8A865800EC4716 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = VMGRRW6SG7;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -183,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9453D5223FF5890039974F /* Images.xcassets in Resources */,
+				6FE4863E260B298A00671546 /* PlaygroundViewController~ios.storyboard in Resources */,
 				6FE08CCB1E8A886000EC4716 /* LaunchScreen~ios.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,8 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */,
+				6FE48649260B515C00671546 /* PlaygroundView.swift in Sources */,
 				6F0EE5882316B40500328674 /* Resources.m in Sources */,
 				6FE08CC31E8A86FB00EC4716 /* main.m in Sources */,
+				6FE48639260B292E00671546 /* PlaygroundViewController~ios.m in Sources */,
 				6FE08CC21E8A86FB00EC4716 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +345,7 @@
 			baseConfigurationReference = 6F0EE5822316AE8B00328674 /* Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SRGAppearance-demo.entitlements";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Info.plist;
@@ -334,6 +355,9 @@
 				);
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Sources/Helpers/ObjectiveC-Bridge.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -342,6 +366,7 @@
 			baseConfigurationReference = 6F0EE5822316AE8B00328674 /* Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SRGAppearance-demo.entitlements";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Info.plist;
@@ -351,6 +376,8 @@
 				);
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Sources/Helpers/ObjectiveC-Bridge.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -381,6 +408,10 @@
 		6FC82AD324C5AA4100459101 /* SRGAppearance */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SRGAppearance;
+		};
+		6FE1CB31260B546400E7D399 /* SRGAppearanceSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SRGAppearanceSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

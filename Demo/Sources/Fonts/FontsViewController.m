@@ -6,13 +6,15 @@
 
 #import "FontsViewController.h"
 
+#import "PlaygroundViewController.h"
 #import "Resources.h"
+#import "SRGAppearance_demo-Swift.h"
 
 @import SRGAppearance;
 
 @interface FontsViewController ()
 
-@property (nonatomic) NSArray<NSAttributedString *> *customTitles;
+@property (nonatomic) NSArray<NSAttributedString *> *styleDescriptions;
 
 @end
 
@@ -20,27 +22,29 @@
 
 #pragma mark Class methods
 
-+ (NSArray<NSAttributedString *> *)titlesForCustomTextStyles
++ (NSArray<NSAttributedString *> *)styleDescriptions
 {
-    static NSDictionary<NSString *, NSString *> *s_customTextStyleNames;
+    static NSDictionary<NSNumber *, NSString *> *s_styles;
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
-        s_customTextStyleNames = @{ SRGAppearanceFontTextStyleCaption : @"Caption",
-                                    SRGAppearanceFontTextStyleSubtitle : @"Subtitle",
-                                    SRGAppearanceFontTextStyleBody : @"Body",
-                                    SRGAppearanceFontTextStyleHeadline : @"Headline",
-                                    SRGAppearanceFontTextStyleTitle : @"Title" };
+        s_styles = @{ @(SRGFontStyleH1) : @"H1",
+                      @(SRGFontStyleH2) : @"H2",
+                      @(SRGFontStyleH3) : @"H3",
+                      @(SRGFontStyleH4) : @"H4",
+                      @(SRGFontStyleSubtitle1) : @"Subtitle1",
+                      @(SRGFontStyleSubtitle2) : @"Subtitle2",
+                      @(SRGFontStyleBody) : @"Body",
+                      @(SRGFontStyleButton) : @"Button",
+                      @(SRGFontStyleCaption) : @"Caption",
+                      @(SRGFontStyleLabel) : @"Label"
+        };
     });
-    return [self titlesForTextStyles:s_customTextStyleNames];
-}
-
-+ (NSArray<NSAttributedString *> *)titlesForTextStyles:(NSDictionary<NSString *, NSString *> *)textStyles
-{
+    
     NSMutableArray<NSAttributedString *> *titles = [NSMutableArray array];
-    NSArray<NSString *> *textStylesKeys = [textStyles.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    for (NSString *textStyleKey in textStylesKeys) {
-        UIFont *font = [UIFont srg_regularFontWithTextStyle:textStyleKey];
-        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", textStyles[textStyleKey], @(font.pointSize)];
+    NSArray<NSNumber *> *stylesKeys = [s_styles.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    for (NSNumber *styleKey in stylesKeys) {
+        UIFont *font = [SRGFont fontWithStyle:styleKey.integerValue];
+        NSString *titleString = [NSString stringWithFormat:@"%@ (%@)", s_styles[styleKey], @(font.pointSize)];
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleString attributes:@{ NSFontAttributeName : font }];
         [titles addObject:title];
     }
@@ -67,6 +71,13 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
     
+#if TARGET_OS_IOS
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Playground", nil)
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(openPlayground:)];
+#endif
+    
     self.tableView.rowHeight = 60.f;
     [self reloadData];
 }
@@ -78,20 +89,16 @@
     NSString *contentSizeCategoryShortName = [UIApplication.sharedApplication.preferredContentSizeCategory stringByReplacingOccurrencesOfString:@"UICTContentSizeCategory" withString:@""];
     self.title = [NSString stringWithFormat:@"%@ (%@)", NSLocalizedString(@"Fonts", nil), contentSizeCategoryShortName];
     
-    self.customTitles = [FontsViewController titlesForCustomTextStyles];
+    self.styleDescriptions = [FontsViewController styleDescriptions];
+    
     [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource protocol
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return NSLocalizedString(@"SRG SSR regular font with appearance text styles", nil);
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.customTitles.count;
+    return self.styleDescriptions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,9 +110,29 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.textLabel.attributedText = self.customTitles[indexPath.row];
+    cell.textLabel.attributedText = self.styleDescriptions[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
+
+#if TARGET_OS_IOS
+
+#pragma mark Actions
+
+- (IBAction)openPlayground:(id)sender
+{
+    // The playground is implemented in SwiftUI for iOS 13+
+    UIViewController *playgroundViewController = nil;
+    if (@available(iOS 13, *)) {
+        playgroundViewController = [[PlaygroundHostViewController alloc] init];
+    }
+    else {
+        playgroundViewController = [[PlaygroundViewController alloc] init];
+    }
+    UINavigationController *playgroundNavigationController = [[UINavigationController alloc] initWithRootViewController:playgroundViewController];
+    [self presentViewController:playgroundNavigationController animated:YES completion:nil];
+}
+
+#endif
 
 #pragma mark Notifications
 
