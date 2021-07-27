@@ -31,7 +31,7 @@ class PlaygroundHostViewController: UIViewController {
                 hostView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                 hostView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
                 hostView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                hostView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+                hostView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         }
         
