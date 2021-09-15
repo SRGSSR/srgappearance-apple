@@ -9,7 +9,7 @@ import XCTest
 
 class FontsTestCase: XCTestCase {
     func testFontsWithStyle() {
-        XCTAssertTrue(SRGFont.font(.body).fontName == "SRGSSRTypeTextVFApp-Medium")
+        XCTAssertTrue(SRGFont.font(.body).fontName.contains("SRGSSRType"))
     }
     
     func testFontsWithWeightSizeRelativeToTextStyle() {
