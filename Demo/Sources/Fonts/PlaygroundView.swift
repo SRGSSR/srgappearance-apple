@@ -13,7 +13,7 @@ import SwiftUI
 class PlaygroundHostViewController: UIViewController {
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         self.view = view
     }
     
