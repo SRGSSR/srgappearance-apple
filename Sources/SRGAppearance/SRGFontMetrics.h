@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Font metrics applying behavior matching SRG SSR font styles (scaling behavior for accessibility, maximum
+ *  Font metrics applying behavior matching SRG SSR font styles (scaling behavior for accessibility with maximum
  *  value).
  */
 @interface SRGFontMetrics : UIFontMetrics
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (SRGFontMetrics *)metricsForFontStyle:(SRGFontStyle *)style;
 
 /**
- *  Initialies metrics for an SRG font style.
+ *  Initializes metrics for an SRG font style.
  */
 - (instancetype)initForFontStyle:(SRGFontStyle)style;
 
