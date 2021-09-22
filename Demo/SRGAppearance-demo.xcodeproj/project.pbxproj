@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F052B5326DFAE3800855BB0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F052B5226DFAE3700855BB0 /* SceneDelegate.m */; };
 		6F0EE5882316B40500328674 /* Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EE5872316B40500328674 /* Resources.m */; };
 		6F9453D5223FF5890039974F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9453D4223FF5890039974F /* Images.xcassets */; };
 		6FC82AD424C5AA4100459101 /* SRGAppearance in Frameworks */ = {isa = PBXBuildFile; productRef = 6FC82AD324C5AA4100459101 /* SRGAppearance */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F052B5126DFAE3700855BB0 /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		6F052B5226DFAE3700855BB0 /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		6F0EE5822316AE8B00328674 /* Demo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Demo.xcconfig; sourceTree = "<group>"; };
 		6F0EE5862316B40500328674 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
 		6F0EE5872316B40500328674 /* Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resources.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				6FE08CBD1E8A86FB00EC4716 /* AppDelegate.h */,
 				6FE08CBE1E8A86FB00EC4716 /* AppDelegate.m */,
 				6FE08CBF1E8A86FB00EC4716 /* main.m */,
+				6F052B5126DFAE3700855BB0 /* SceneDelegate.h */,
+				6F052B5226DFAE3700855BB0 /* SceneDelegate.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -165,7 +170,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SRG;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "SRG SSR";
 				TargetAttributes = {
 					6FE08C5E1E8A865800EC4716 = {
@@ -215,6 +220,7 @@
 				6FE08CC61E8A877200EC4716 /* FontsViewController.m in Sources */,
 				6FE48649260B515C00671546 /* PlaygroundView.swift in Sources */,
 				6F0EE5882316B40500328674 /* Resources.m in Sources */,
+				6F052B5326DFAE3800855BB0 /* SceneDelegate.m in Sources */,
 				6FE08CC31E8A86FB00EC4716 /* main.m in Sources */,
 				6FE48639260B292E00671546 /* PlaygroundViewController~ios.m in Sources */,
 				6FE08CC21E8A86FB00EC4716 /* AppDelegate.m in Sources */,
