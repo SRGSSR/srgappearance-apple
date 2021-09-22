@@ -13,7 +13,7 @@ static NSMutableDictionary<NSString *, NSArray<SRGVariationAxis *> *> *s_variati
 
 @interface SRGVariationAxis ()
 
-@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic) NSNumber *identifier;
 @property (nonatomic, copy) NSString *name;
 
 @property (nonatomic) CGFloat minimumValue;
@@ -104,7 +104,7 @@ static NSMutableDictionary<NSString *, NSArray<SRGVariationAxis *> *> *s_variati
 
 #pragma mark Getters and setters
 
-- (NSString *)attribute
+- (id)attribute
 {
     if (@available(iOS 14, *)) {
         return self.identifier;

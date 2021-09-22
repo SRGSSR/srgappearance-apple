@@ -21,12 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Attribute to specify in font descriptor construction.
  */
-@property (nonatomic, readonly, copy) NSString *attribute;
+@property (nonatomic, readonly) id attribute;
 
 /**
  *  Identifier of the axis.
  */
-@property (nonatomic, readonly, copy) NSString *identifier;
+@property (nonatomic, readonly, copy) NSNumber *identifier;
 
 /**
  *  Name of the axis.
