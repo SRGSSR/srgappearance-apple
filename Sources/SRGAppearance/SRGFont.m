@@ -34,7 +34,7 @@ BOOL SRGAppearanceRegisterFont(NSString *filePath)
         success = CTFontManagerRegisterGraphicsFont(fontRef, NULL);
         CFRelease(fontRef);
     }
-    CFRelease(providerRef);
+    CGDataProviderRelease(providerRef);
     return success;
 }
 
