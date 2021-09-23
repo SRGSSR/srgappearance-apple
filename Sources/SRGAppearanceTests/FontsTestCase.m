@@ -13,33 +13,6 @@
 
 @implementation FontsTestCase
 
-- (void)testValidFontRegistration
-{
-    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"FontAwesome" ofType:@"otf"];
-    XCTAssertFalse([[UIFont familyNames] containsObject:@"FontAwesome"]);
-    XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
-    XCTAssertTrue([[UIFont familyNames] containsObject:@"FontAwesome"]);
-}
-
-- (void)testCorruptFontRegistration
-{
-    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Corrupt" ofType:@"otf"];
-    XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
-}
-
-- (void)testMissingFontRegistration
-{
-    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Missing" ofType:@"otf"];
-    XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
-}
-
-- (void)testMultipleFontRegistration
-{
-    NSString *fontFilePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"Sketch" ofType:@"ttf"];
-    XCTAssertTrue(SRGAppearanceRegisterFont(fontFilePath));
-    XCTAssertFalse(SRGAppearanceRegisterFont(fontFilePath));
-}
-
 - (void)testContentSizeCategoriesComparison
 {
     XCTAssertEqual(SRGAppearanceCompareContentSizeCategories(UIContentSizeCategoryExtraSmall, UIContentSizeCategoryExtraSmall), NSOrderedSame);
