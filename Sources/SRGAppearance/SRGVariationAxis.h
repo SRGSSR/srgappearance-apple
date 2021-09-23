@@ -19,11 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSArray<SRGVariationAxis *> *)variationAxesForFontWithName:(NSString *)fontName;
 
 /**
- *  Attribute to specify in font descriptor construction.
- */
-@property (nonatomic, readonly) id attribute;
-
-/**
  *  Identifier of the axis.
  */
 @property (nonatomic, readonly, copy) NSNumber *identifier;

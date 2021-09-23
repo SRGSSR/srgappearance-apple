@@ -102,18 +102,6 @@ static NSMutableDictionary<NSString *, NSArray<SRGVariationAxis *> *> *s_variati
     return self;
 }
 
-#pragma mark Getters and setters
-
-- (id)attribute
-{
-    if (@available(iOS 14, *)) {
-        return self.identifier;
-    }
-    else {
-        return self.name;
-    }
-}
-
 #pragma mark Description
 
 - (NSString *)description

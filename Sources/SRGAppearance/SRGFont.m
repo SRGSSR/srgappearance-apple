@@ -303,7 +303,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
         if (variationAxis) {
             // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
             CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
-            variationAttributes[variationAxis.attribute] = @(absoluteWeight);
+            variationAttributes[variationAxis.identifier] = @(absoluteWeight);
         }
         
         fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForFamily(family),
