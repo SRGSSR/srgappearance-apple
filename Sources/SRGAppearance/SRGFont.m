@@ -219,7 +219,8 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     NSArray<NSURL *> *fontFileURLs = [SWIFTPM_MODULE_BUNDLE URLsForResourcesWithExtension:@"ttf" subdirectory:nil];
     for (NSURL *fileURL in fontFileURLs) {
         __unused BOOL success = CTFontManagerRegisterFontsForURL((CFURLRef)fileURL, kCTFontManagerScopeProcess, NULL);
-        NSCAssert(success, @"The font %@ could not be registered", fileURL);
+        NSCAssert(success, @"The SRG SSR font could not be registered. Please ensure only SRG Appearance registers "
+                  "this font (check font declarations in your application Info.plist)");
     }
 }
 
