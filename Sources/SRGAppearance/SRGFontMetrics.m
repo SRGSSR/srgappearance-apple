@@ -25,7 +25,7 @@
 
 - (instancetype)initForFontStyle:(SRGFontStyle)style
 {
-    if ([super initForTextStyle:[SRGFont textStyleForFontStyle:style]]) {
+    if (self = [super initForTextStyle:[SRGFont textStyleForFontStyle:style]]) {
         self.style = style;
     }
     return self;

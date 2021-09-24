@@ -146,13 +146,6 @@ OBJC_EXPORT const UIFontWeight SRGFontWeightHeavy NS_SWIFT_NAME(srg_heavy);
 @end
 
 /**
- *  Register a font from the specified file. Returns `YES` iff successful.
- *
- *  @discussion The method returns `NO` if the font has already been registered.
- */
-OBJC_EXPORT BOOL SRGAppearanceRegisterFont(NSString *filePath);
-
-/**
  *  Compare font size categories (@see `UIContentSizeCategory.h`).
  *
  *  @dicussion In debug builds, this method throws if the content size category is not an official one.

@@ -49,10 +49,6 @@ The SDK also provides access to standard `UIFontDescriptors` for advanced font c
 
 If you do not want to use the standard styles provided by SRG Appearance we recommend your application defines its own set of styles, using `SRGFont` API to provide the family, size, weight and text style associated with each style.
 
-## Custom fonts
-
-You can register your own custom fonts at runtime by calling the `SRGAppearanceRegisterFont` function. Note that this method is only provided as a convenience but that the public API does not provide any other API for integrating into your application.
-
 ## SRG SSR colors
 
 Standard colors are provided in `UIColor+SRGAppearance.h`.
