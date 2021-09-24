@@ -19,25 +19,6 @@ const UIFontWeight SRGFontWeightMedium = -1.f / 3.f;        // 500 = 300 + (900 
 const UIFontWeight SRGFontWeightBold = 1.f / 3.f;           // 700 = 300 + (900 - 300) * (1/3 + 1) / 2
 const UIFontWeight SRGFontWeightHeavy = 1.f;                // 900 = 300 + (900 - 300) * (1 + 1) / 2
 
-BOOL SRGAppearanceRegisterFont(NSString *filePath)
-{
-    NSData *fontFileData = [NSData dataWithContentsOfFile:filePath];
-    if (! fontFileData) {
-        return NO;
-    }
-    
-    CGDataProviderRef providerRef = CGDataProviderCreateWithCFData((CFDataRef)fontFileData);
-    CGFontRef fontRef = CGFontCreateWithDataProvider(providerRef);
-    
-    BOOL success = NO;
-    if (fontRef) {
-        success = CTFontManagerRegisterGraphicsFont(fontRef, NULL);
-        CFRelease(fontRef);
-    }
-    CFRelease(providerRef);
-    return success;
-}
-
 NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2)
 {
     if ([contentSizeCategory1 isEqualToString:contentSizeCategory2]) {
@@ -235,9 +216,10 @@ static UIFontTextStyle SRGTextStyleForStyle(SRGFontStyle style)
 
 __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
 {
-    NSArray<NSString *> *fontFilePaths = [SWIFTPM_MODULE_BUNDLE pathsForResourcesOfType:@"ttf" inDirectory:nil];
-    for (NSString *fontFilePath in fontFilePaths) {
-        SRGAppearanceRegisterFont(fontFilePath);
+    NSArray<NSURL *> *fontFileURLs = [SWIFTPM_MODULE_BUNDLE URLsForResourcesWithExtension:@"ttf" subdirectory:nil];
+    for (NSURL *fileURL in fontFileURLs) {
+        __unused BOOL success = CTFontManagerRegisterFontsForURL((CFURLRef)fileURL, kCTFontManagerScopeProcess, NULL);
+        NSCAssert(success, @"The font %@ could not be registered", fileURL);
     }
 }
 
@@ -321,7 +303,7 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
         if (variationAxis) {
             // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
             CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
-            variationAttributes[variationAxis.attribute] = @(absoluteWeight);
+            variationAttributes[variationAxis.identifier] = @(absoluteWeight);
         }
         
         fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForFamily(family),

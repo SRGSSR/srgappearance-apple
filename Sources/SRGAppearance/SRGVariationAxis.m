@@ -13,7 +13,7 @@ static NSMutableDictionary<NSString *, NSArray<SRGVariationAxis *> *> *s_variati
 
 @interface SRGVariationAxis ()
 
-@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic) NSNumber *identifier;
 @property (nonatomic, copy) NSString *name;
 
 @property (nonatomic) CGFloat minimumValue;
@@ -100,18 +100,6 @@ static NSMutableDictionary<NSString *, NSArray<SRGVariationAxis *> *> *s_variati
         self.defaultValue = defaultValueNumber.floatValue;
     }
     return self;
-}
-
-#pragma mark Getters and setters
-
-- (NSString *)attribute
-{
-    if (@available(iOS 14, *)) {
-        return self.identifier;
-    }
-    else {
-        return self.name;
-    }
 }
 
 #pragma mark Description
