@@ -10,7 +10,7 @@ import SwiftUI
  *  A dynamic property that scales a numeric value, based on SRG SSR font styles (scaling curve, maximum value).
  */
 @available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
-@propertyWrapper public struct SRGScaledMetric<Value>: DynamicProperty where Value : BinaryFloatingPoint {
+@propertyWrapper public struct SRGScaledMetric<Value>: DynamicProperty where Value: BinaryFloatingPoint {
     let value: Value
     let style: SRGFont.Style
     
