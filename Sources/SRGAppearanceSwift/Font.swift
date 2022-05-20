@@ -85,28 +85,7 @@ public extension SRGFont {
 }
 
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
-public extension Text {
-    /**
-     *  Wrapper class to observe content size category changes. Fonts created with `Font.custom(...)` initializers
-     *  namely automatically reload `Text` displaying them, while this is not the case for fonts created with
-     *  `Font.init()`.
-     */
-    // TODO: If content size changes are automatically tracked for texts using custom fonts in future SwiftUI versions,
-    //       remove this wrapper and return `Text` instead of `some View` from modifiers.
-    private struct SizeCategoryTracker<Content: View>: View {
-        private let content: () -> Content
-        
-        @Environment(\.sizeCategory) private var sizeCategory
-        
-        init(content: @escaping () -> Content) {
-            self.content = content
-        }
-        
-        var body: some View {
-            content()
-        }
-    }
-    
+public extension View {
     /**
      *  Applies a font with a predefined style to the receiver. The font scales according to an internally associated
      *  matching text style and the current accessibility settings.
@@ -137,5 +116,27 @@ public extension Text {
         return SizeCategoryTracker {
             font(SRGFont.font(family: family, weight: weight, fixedSize: fixedSize))
         }
+    }
+}
+
+/**
+ *  Wrapper class to observe content size category changes. Fonts created with `Font.custom(...)` initializers
+ *  namely automatically reload `Text` displaying them, while this is not the case for fonts created with
+ *  `Font.init()`.
+ */
+// TODO: If content size changes are automatically tracked for texts using custom fonts in future SwiftUI versions,
+//       remove this wrapper and return `Text` instead of `some View` from modifiers.
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
+private struct SizeCategoryTracker<Content: View>: View {
+    private let content: () -> Content
+    
+    @Environment(\.sizeCategory) private var sizeCategory
+    
+    init(content: @escaping () -> Content) {
+        self.content = content
+    }
+    
+    var body: some View {
+        content()
     }
 }
