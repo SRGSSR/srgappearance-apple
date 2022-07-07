@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSNumber *identifier;
 
 /**
- *  Name of the axis.
+ *  Name of the axis (localized in the current language).
  */
 @property (nonatomic, readonly, copy) NSString *name;
 

@@ -19,6 +19,9 @@ const UIFontWeight SRGFontWeightMedium = -1.f / 3.f;        // 500 = 300 + (900 
 const UIFontWeight SRGFontWeightBold = 1.f / 3.f;           // 700 = 300 + (900 - 300) * (1/3 + 1) / 2
 const UIFontWeight SRGFontWeightHeavy = 1.f;                // 900 = 300 + (900 - 300) * (1 + 1) / 2
 
+// Identifier of the weight axis
+static const NSInteger SRGFontWeightAxisIdentifier = 2003265652;
+
 NSComparisonResult SRGAppearanceCompareContentSizeCategories(UIContentSizeCategory contentSizeCategory1, UIContentSizeCategory contentSizeCategory2)
 {
     if ([contentSizeCategory1 isEqualToString:contentSizeCategory2]) {
@@ -70,10 +73,10 @@ static NSString *SRGFontNameForFamily(SRGFontFamily family)
     return fontName;
 }
 
-static SRGVariationAxis *SRGVariationAxisWithName(SRGFontFamily family, NSString *axisName)
+static SRGVariationAxis *SRGVariationAxisWithIdentifier(SRGFontFamily family, NSNumber *identifier)
 {
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(SRGVariationAxis * _Nullable variationAxis, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [variationAxis.name isEqualToString:axisName];
+        return [variationAxis.identifier isEqualToNumber:identifier];
     }];
     return [[SRGVariationAxis variationAxesForFontWithName:SRGFontNameForFamily(family)] filteredArrayUsingPredicate:predicate].firstObject;
 }
@@ -300,15 +303,17 @@ __attribute__((constructor)) static void SRGAppearanceRegisterFonts(void)
     if (! fontDescriptor) {
         NSMutableDictionary<UIFontDescriptorAttributeName, id> *variationAttributes = [NSMutableDictionary dictionary];
         
-        SRGVariationAxis *variationAxis = SRGVariationAxisWithName(family, @"Weight");
+        SRGVariationAxis *variationAxis = SRGVariationAxisWithIdentifier(family, @(SRGFontWeightAxisIdentifier));
         if (variationAxis) {
             // UIFont weight is a value between -1 and 1, which must be translated to the axis supported range
             CGFloat absoluteWeight = variationAxis.minimumValue + (variationAxis.maximumValue - variationAxis.minimumValue) * (weight + 1.f) / 2.f;
             variationAttributes[variationAxis.identifier] = @(absoluteWeight);
         }
         
-        fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{ UIFontDescriptorNameAttribute : SRGFontNameForFamily(family),
-                                                                               (UIFontDescriptorAttributeName)kCTFontVariationAttribute : variationAttributes.copy }];
+        fontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:@{
+            UIFontDescriptorNameAttribute : SRGFontNameForFamily(family),
+            (UIFontDescriptorAttributeName)kCTFontVariationAttribute : variationAttributes.copy
+        }];
         fontDescriptorsForFamilyMap[@(weight)] = fontDescriptor;
     }
     
