@@ -21,11 +21,18 @@ lint:
 	@swiftlint --fix && swiftlint
 	@echo "... done.\n"
 
+.PHONY: rbenv
+rbenv:
+	@echo "Installing needed ruby version if missing..."
+	@Scripts/rbenv-install.sh "./"
+	@echo "... done.\n"
+
 .PHONY: help
 help:
 	@echo "The following targets are available:"
 	@echo "   all                 Build and run unit tests for all platforms"
-	@echo "   lint      Lint project and fix issues"
 	@echo "   test-ios            Build and run unit tests for iOS"
 	@echo "   test-tvos           Build and run unit tests for tvOS"
+	@echo "   lint                Lint project and fix issues"
+	@echo "   rbenv               Install needed ruby version if missing"
 	@echo "   help                Display this help message"
