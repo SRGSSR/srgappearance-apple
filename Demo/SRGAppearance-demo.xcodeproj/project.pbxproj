@@ -175,7 +175,6 @@
 				TargetAttributes = {
 					6FE08C5E1E8A865800EC4716 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = VMGRRW6SG7;
 						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
@@ -356,7 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SRGAppearance-demo.entitlements";
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
+				DEVELOPMENT_TEAM = ABW92QGFZ7;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -377,7 +376,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SRGAppearance-demo.entitlements";
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
+				DEVELOPMENT_TEAM = ABW92QGFZ7;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
