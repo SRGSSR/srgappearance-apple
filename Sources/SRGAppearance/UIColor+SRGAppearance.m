@@ -61,7 +61,7 @@
 
 + (UIColor *)srg_grayC7Color
 {
-    return [UIColor srg_colorFromHexadecimalString:@"#c7c7c7"];
+    return [UIColor srg_colorFromHexadecimalString:@"#d2d2d2"];
 }
 
 + (UIColor *)srg_colorFromHexadecimalString:(NSString *)hexadecimalString
