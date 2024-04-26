@@ -172,7 +172,7 @@ static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
                        @(SRGFontStyleH2) : @(SRGFontWeightMedium),
                        @(SRGFontStyleH3) : @(SRGFontWeightMedium),
                        @(SRGFontStyleH4) : @(SRGFontWeightMedium),
-                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightLight),
+                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightRegular),
                        @(SRGFontStyleSubtitle2) : @(SRGFontWeightRegular),
                        @(SRGFontStyleBody) : @(SRGFontWeightRegular),
                        @(SRGFontStyleButton) : @(SRGFontWeightMedium),
