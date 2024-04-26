@@ -23,8 +23,11 @@ public extension UIColor {
     static let srgGray23 = __srg_gray23
     static let srgGray33 = __srg_gray33
     static let srgGray4A = __srg_gray4A
+    static let srgGray71 = __srg_gray71
     static let srgGray96 = __srg_gray96
+    @available(*, deprecated, message: "Use srgGrayD2 instead")
     static let srgGrayC7 = __srg_grayC7
+    static let srgGrayD2 = __srg_grayD2
     
     /**
      *  Returns the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
@@ -56,8 +59,11 @@ public extension Color {
     static let srgGray23 = Color(UIColor.srgGray23)
     static let srgGray33 = Color(UIColor.srgGray33)
     static let srgGray4A = Color(UIColor.srgGray4A)
+    static let srgGray71 = Color(UIColor.srgGray71)
     static let srgGray96 = Color(UIColor.srgGray96)
+    @available(*, deprecated, message: "Use srgGrayD2 instead")
     static let srgGrayC7 = Color(UIColor.srgGrayC7)
+    static let srgGrayD2 = Color(UIColor.srgGrayD2)
     
     /**
      *  Returns the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
