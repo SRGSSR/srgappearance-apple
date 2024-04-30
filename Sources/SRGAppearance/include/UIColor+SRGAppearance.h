@@ -31,8 +31,10 @@ OBJC_EXPORT NSValueTransformer *SRGHexadecimalColorTransformer(void);
 @property (class, nonatomic, readonly) UIColor *srg_gray23Color NS_REFINED_FOR_SWIFT;
 @property (class, nonatomic, readonly) UIColor *srg_gray33Color NS_REFINED_FOR_SWIFT;
 @property (class, nonatomic, readonly) UIColor *srg_gray4AColor NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_gray71Color NS_REFINED_FOR_SWIFT;
 @property (class, nonatomic, readonly) UIColor *srg_gray96Color NS_REFINED_FOR_SWIFT;
-@property (class, nonatomic, readonly) UIColor *srg_grayC7Color NS_REFINED_FOR_SWIFT;
+@property (class, nonatomic, readonly) UIColor *srg_grayC7Color NS_REFINED_FOR_SWIFT __attribute__((deprecated("Use srg_grayD2Color instead")));
+@property (class, nonatomic, readonly) UIColor *srg_grayD2Color NS_REFINED_FOR_SWIFT;
 
 /**
  *  Returns the color matching a hexadecimal #rrggbbaa or #rrggbb string representation (the leading wildcard is optional),
