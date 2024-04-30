@@ -172,7 +172,7 @@ static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
                        @(SRGFontStyleH2) : @(SRGFontWeightMedium),
                        @(SRGFontStyleH3) : @(SRGFontWeightMedium),
                        @(SRGFontStyleH4) : @(SRGFontWeightMedium),
-                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightLight),
+                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightRegular),
                        @(SRGFontStyleSubtitle2) : @(SRGFontWeightRegular),
                        @(SRGFontStyleBody) : @(SRGFontWeightRegular),
                        @(SRGFontStyleButton) : @(SRGFontWeightMedium),
@@ -180,10 +180,10 @@ static UIFontWeight SRGWeightForStyle(SRGFontStyle style)
                        @(SRGFontStyleLabel) : @(SRGFontWeightBold) };
 #else
         s_weights = @{ @(SRGFontStyleH1) : @(SRGFontWeightBold),
-                       @(SRGFontStyleH2) : @(SRGFontWeightMedium),
+                       @(SRGFontStyleH2) : @(SRGFontWeightBold),
                        @(SRGFontStyleH3) : @(SRGFontWeightMedium),
                        @(SRGFontStyleH4) : @(SRGFontWeightMedium),
-                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightLight),
+                       @(SRGFontStyleSubtitle1) : @(SRGFontWeightRegular),
                        @(SRGFontStyleSubtitle2) : @(SRGFontWeightMedium),
                        @(SRGFontStyleBody) : @(SRGFontWeightRegular),
                        @(SRGFontStyleButton) : @(SRGFontWeightRegular),
