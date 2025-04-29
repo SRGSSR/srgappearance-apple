@@ -66,7 +66,7 @@ static NSString *SRGFontNameForFamily(SRGFontFamily family)
     dispatch_once(&s_onceToken, ^{
         // Postscript names
         s_names = @{ @(SRGFontFamilyText) : @"SRGSSRTypeTextVFApp-Medium",
-                     @(SRGFontFamilyDisplay) : @"SRGSSRTypeDisplayVFApp-Medium" };
+                     @(SRGFontFamilyDisplay) : @"SRGSSRTypeVFApp-Medium" };
     });
     NSString *fontName = s_names[@(family)];
     NSCAssert(fontName != nil, @"Font name is missing for some name");
